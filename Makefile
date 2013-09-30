@@ -29,9 +29,10 @@ all:
 clean:
 	rm -rf ~/.cache
 	rm -rf ~/.history
+	rm -rf ~/.lesshst
 	rm -rf ~/.mysql_history
+	rm -rf ~/.subversion
 	rm -rf ~/.viminfo
 	rm -rf ~/.zcompdump*
-	rm -rf ~/.subversion
 	@$(foreach file, $(CANDIDATES), $(REMOVE_SYMLINK))
 	@echo "Done"
