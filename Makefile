@@ -1,26 +1,27 @@
-SHELL   = /bin/sh
 
-SYMLINK =                                           		\
-    if test -e ~/$(file); then                               	\
-        echo "Warning: $(file) already exists";           	\
-    else                                            		\
-        ln -s -r $(file) ~;                                	\
-		echo "Install ~/$(file)";			\
+SHELL = /bin/sh
+
+SYMLINK =												\
+    if test -e ~/$(file); then							\
+        echo "Warning: $(file) already exists";			\
+    else												\
+        ln -s -r $(file) ~;								\
+        echo "Install ~/$(file)";						\
     fi;
 
-REMOVE_SYMLINK =                                            	\
-    if test -e ~/$(file); then                                	\
-        if test -h ~/$(file); then                            	\
-            rm ~/$(file);                                    	\
-			echo "Remove ~/$(file)";		\
-        else                                                	\
-            echo "Warning: $(file) is not a symlink";     	\
-        fi;                                                    	\
+REMOVE_SYMLINK =										\
+    if test -e ~/$(file); then							\
+        if test -h ~/$(file); then						\
+            rm ~/$(file);								\
+            echo "Remove ~/$(file)";					\
+        else											\
+            echo "Warning: $(file) is not a symlink";	\
+        fi;												\
     fi;
 
-CANDIDATES = .bin .gitconfig .hgrc .tmux.conf 			\
-			 .vim .vimrc .vimrc.local 		\
-			 .zsh .zshenv .zshrc			\
+CANDIDATES = .bin .gitconfig .hgrc .tmux.conf			\
+             .vim .vimrc .vimrc.local					\
+             .zsh .zshenv .zshrc						\
 
 all:
 	@$(foreach file, $(CANDIDATES), $(SYMLINK))
