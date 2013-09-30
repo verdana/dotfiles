@@ -1,0 +1,54 @@
+
+set pastetoggle=<F3>
+
+if ! has("gui_running")
+    " 让终端机继承 Vim 的标题
+    set title
+
+    " 设定终端编码
+    " 如果是中文Win32 CMD，则是GBK
+    if has('win32')
+        set termencoding=gbk
+    else
+        set termencoding=utf-8
+    endif
+
+    " 终端颜色数
+    if has("mac")
+        " Snow Leopard 的默認終端不支持256色
+        " set t_Co=16
+    endif
+    set t_Co=256
+
+    " 终端默认主题
+    colorscheme desert
+
+    " 刪除光標所在行的白色線條
+    " hi CursorLine cterm=none ctermbg=8
+endif
+
+if has('cmdline_info')
+    set ruler                                           " 显示光标位置
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)  " a ruler on steroids
+    set showcmd                                         " 右下角显示命令
+endif
+
+if has('statusline')
+    set laststatus=2
+endif
+
+
+autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
+autocmd BufWritePre * :%s/\s\+$//e
+
+
+nmap <SPACE> :exec "normal j"<CR>
+nmap    <Leader>f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+noremap <Leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
+
+
+iab xdatetime   <C-R>=strftime("%A %b %d, %Y %H:%M")<CR>
+iab xdate       <C-R>=strftime("%A %b %d, %Y")<CR>
+iab xname       Verdana Mu<CR>
+iab xvim        /*- vim: set ff=unix shiftwidth=4 tabstop=4 expandtab: -*/ <CR>
+

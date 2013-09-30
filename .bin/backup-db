@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# 备份目录
+backup_path="/mnt/skydrive/MySQL"
+timedir="$(date +%F.%H)"
+
+# 链接帐号
+mysql_user="root"
+mysql_pass="mysql"
+
+# 如果没有设定密码，则提示用户输入
+if [ -z "${mysql_pass}" ]; then
+    echo -n "Enter MySQL ${mysql_user} password: "
+    read -s mysql_pass
+    echo
+fi
+
+# 检查账户是否正确
+echo exit | mysql --user=${mysql_user} --password=${mysql_pass} -B 2>/dev/null
+if [ "$?" -gt 0 ]; then
+    echo "MySQL ${mysql_user} password incorrect"
+    exit 1
+fi
+
+# 检查目录是否存在
+if [ ! -d "$backup_path/$timedir" ]; then
+    mkdir -p "$backup_path/$timedir"
+fi
+echo "Backup path: ${backup_path}/$timedir"
+
+# 读取 MySQL 数据库
+databases=`echo 'show databases' | mysql --user=${mysql_user} --password=${mysql_pass} -B | sed /^Database$/d`
+
+# 备份并压缩每个数据库
+for DB in $databases
+do
+    if [ "${DB}" == "information_schema" ] || [ "${DB}" == "performance_schema" ] || [ "${DB}" == "mysql" ]; then
+        continue
+    fi
+
+    file="${backup_path}/$timedir/${DB}.gz"
+    echo -n "Creating backup of \"${DB}\" database..."
+    mysqldump --user=${mysql_user} --password=${mysql_pass} --routines ${DB} | gzip -9 > "$file"
+    echo "done"
+done
+
+# 遍历备份目录，清理过期的文件
+find $backup_path -type d -ctime +7 -exec rm -rf {} \;
+
+# vim: set ff=unix shiftwidth=4 tabstop=4 expandtab: -
+

@@ -1,0 +1,33 @@
+
+[user]
+    name  = Verdana Mu
+    email = verdana.cn@gmail.com
+[core]
+    #autocrlf = true
+    editor = vim
+[alias]
+    br   = branch
+    ci   = commit
+    cii  = commit --interactive
+    cia  = commit --amend
+    co   = checkout
+    desc = describe --always --contains --all
+    me   = merge
+    one  = log --oneline --graph --decorate
+    rs   = remote show
+    rso  = remote show origin
+    st   = status
+    ss   = stash save
+    sp   = stash pop
+    sd   = stash drop
+    sc   = stash clear
+[color]
+    ui = true
+[man]
+    viewer = eman
+[diff]
+    submodule = log
+    tool      = vimdiff
+[url "git@github.com:verdana/"]
+    insteadof = verdana@gh/
+

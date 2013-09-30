@@ -1,0 +1,67 @@
+#!/bin/sh
+ 
+# cygwin-mirrors.sh
+# 该脚本用于查找 Cygwin 的最快镜像
+ 
+timeout=5           # 超时时间
+mirrors_count=5     # 显示最快的几个镜像
+PROG=`basename $0`  # 程序名称
+ 
+## 显示 usage
+_usage() {
+    echo "Usage: ${PROG} [-t <timeout>] [-p <mirrors_count>] [-h]"
+    exit
+}
+ 
+## 检查参数并赋值
+_assign() {
+    if [ "$1" == "timeout" -o "$1" == "mirrors_count" ]; then
+        if [[ "$2" =~ ^[[:digit:]]+$ ]]; then
+            let $1=$2
+        else
+            echo "$1 should be a number"
+            exit 1
+        fi
+    fi
+}
+ 
+## 处理参数
+while getopts ":t:p:h-:" optval
+do
+    case "$optval" in
+        t)   _assign timeout ${OPTARG} ;;
+        p)   _assign mirrors_count ${OPTARG} ;;
+        h)   _usage ;;
+        "-") echo "Unknown option: '--${OPTARG}'" >&2;            _usage ;;
+        ":") echo "Option '-${OPTARG}' requires an argument" >&2; _usage ;;
+        "?") echo "Unknown option: '-${OPTARG}'" >&2;             _usage ;;
+        ## Should not occur
+        *)   echo "Unknown error while processing options" >&2;   _usage ;;
+    esac
+done
+shift $(expr ${OPTIND} - 1)
+ 
+## 检查用户是否安装了 curl
+CURL=`which curl 2> /dev/null`
+[ -z "$CURL" ] && (echo "Need to install the curl package."; exit 1)
+ 
+## 读取镜像站点
+mirrors=`curl --silent http://cygwin.com/mirrors.lst | cut -d';' -f1`
+ 
+## 使用 CURL 依次检测时间
+results=''
+for mirror in $mirrors; do
+    echo -n "Checking ${mirror} ... "
+    time=`curl -m $timeout -s -o /dev/null -w %{time_total} $mirror`
+    if [ "$time" = "0.000" ]; then
+        echo -e "\e[31mfail\e[0m"
+    else
+        echo -e "\e[32m$time\e[0m"
+        results="${results}\e[32m${time}\e[0m - ${mirror}\n"
+    fi
+done
+ 
+echo -e "\n检测结果:"
+echo -e $results | sort -n | sed '1d' | head -$mirrors_count
+ 
+# vim: set expandtab tabstop=4 shiftwidth=4:

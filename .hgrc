@@ -1,0 +1,3 @@
+[web]
+cacerts = ~/.zsh/cacert.pem
+
