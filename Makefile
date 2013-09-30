@@ -1,4 +1,3 @@
-
 SHELL = /bin/sh
 
 SYMLINK =												\
@@ -36,5 +35,3 @@ clean:
 	rm -rf ~/.subversion
 	@$(foreach file, $(CANDIDATES), $(REMOVE_SYMLINK))
 	@echo "Done"
-
-
