@@ -82,6 +82,28 @@ PROMPT+='in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%} '
 PROMPT+='$(git_prompt)'
 
 #------------------------------
+# Dirstack
+#------------------------------
+DIRSTACKFILE="$HOME/.cache/zsh/dirs"
+if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
+  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+  [[ -d $dirstack[1] ]] && cd $dirstack[1]
+fi
+chpwd() {
+  print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
+}
+
+DIRSTACKSIZE=20
+
+setopt autopushd pushdsilent pushdtohome
+
+## Remove duplicate entries
+setopt pushdignoredups
+
+## This reverts the +/- operators.
+setopt pushdminus
+
+#------------------------------
 # Window title
 #------------------------------
 case $TERM in
