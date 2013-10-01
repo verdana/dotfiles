@@ -1,7 +1,7 @@
 ## Dotfiles
 
 我的 Arch Linux 配置文件。
-大部分时候，这些配置文件也适用于其它的 Linux / Mac / Cygwin 环境中。
+大部分时候，这些配置文件也适用于其它如 Linux / Mac / Cygwin 等环境。
 
 ## 安装
 
@@ -11,10 +11,9 @@ cd $HOME/.dotfiles
 make
 ```
 
-make 将会自动创建符号链接到 HOME 目录，如果对应的文件已经存在，会自动
-忽略，并给出警告信息，方便手动处理。
+make 将会自动创建符号链接到 HOME 目录，如果对应的文件已经存在，会自动忽略，并给出警告信息，方便手动处理。
 
-make clean 会删除所有创建的符号链接（包括您自己的文件）。
+make clean 会删除对应文件的符号链接。
 
 详细的过程请查看 Makefile
 
