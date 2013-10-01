@@ -84,6 +84,7 @@ PROMPT+='$(git_prompt)'
 #------------------------------
 # Dirstack
 #------------------------------
+DIRSTACKSIZE=20
 DIRSTACKFILE="$HOME/.cache/zsh/dirs"
 if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
   dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
@@ -92,8 +93,6 @@ fi
 chpwd() {
   print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
 }
-
-DIRSTACKSIZE=20
 
 setopt autopushd pushdsilent pushdtohome
 
