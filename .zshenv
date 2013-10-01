@@ -7,14 +7,25 @@ export HISTFILE="$HOME/.history"
 export HISTSIZE=50
 export SAVEHIST=$HISTSIZE
 
-
 # PHP / PHING
 export PHING_HOME=/opt/phing
-export PATH=${PATH}:${PHING_HOME}/bin:${HOME}/.gem/ruby/2.0.0/bin
 export PHP_CLASSPATH=${PHING_HOME}/classes
 export PHP_COMMAND=/usr/local/bin/php
 export ZF2_PATH=${HOME}/public/zf2/library
 
+# Path for zsh
+path=(
+  "$HOME/.bin"
+  /usr/local/bin
+  /usr/local/sbin
+  /bin
+  /sbin
+  /usr/bin
+  /usr/sbin
+)
+export PATH
+typeset -U path
+echo $PATH
 
 # Key bindings
 typeset -A key
