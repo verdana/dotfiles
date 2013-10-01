@@ -3,7 +3,7 @@
 我的 Arch Linux 配置文件。
 大部分时候，这些配置文件也适用于其它 Linux 系统以及 BSD/Mac/Cygwin 等环境。
 
-## 安装
+## Install
 
 ```sh
 git clone https://github.com/verdana/dotfiles.git $HOME/.dotfiles
@@ -27,4 +27,6 @@ make clean 会删除对应文件的符号链接。
 ```sh
 git clone --recursive https://github.com/verdana/dotfiles.git $HOME/.dotfiles
 ```
+
+如果忘记下载，也可以通过 .bin/git-submodule 脚本重新注册这些 submodule。
 
