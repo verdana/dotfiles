@@ -25,7 +25,6 @@ path=(
 )
 export PATH
 typeset -U path
-echo $PATH
 
 # Key bindings
 typeset -A key
