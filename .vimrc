@@ -123,14 +123,18 @@ Bundle 'gmarik/vundle'
 
 " My Bundles
 Bundle 'benmills/vimux'
-Bundle 'bufexplorer.zip'
 Bundle 'evidens/vim-twig'
 Bundle 'godlygeek/tabular'
+Bundle 'groenewege/vim-less'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdtree'
 Bundle 'vim-scripts/LycosaExplorer'
+
+Bundle 'bufexplorer.zip'
+Bundle 'c.vim'
+Bundle 'nginx.vim'
 
 syntax on
 filetype plugin indent on
@@ -163,7 +167,7 @@ let NERDTreeQuitOnOpen          = 1
 let NERDTreeShowBookmarks       = 1
 let NERDTreeShowHidden          = 0
 let NERDTreeIgnore              = ['favicon.ico', 'images']
-nmap <special> <leader>v :NERDTreeToggle /srv/nginx/www/e.tk8.tw<CR>
+nmap <special> <leader>v :NERDTreeToggle<CR>
 " }}}
 
 " Load vimrc.local
