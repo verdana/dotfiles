@@ -2,8 +2,8 @@
 # Maintainer: Verdana Mu <verdana.cn@gmail.com>
 
 pkgname=php-snapshot
-pkgver=20131001
-pkgrel=8
+pkgver=20131003
+pkgrel=2
 pkgdesc='PHP5.5 Snapshot'
 arch=('i686' 'x86_64')
 url='http://snaps.php.net'
@@ -89,6 +89,9 @@ build() {
         --with-xsl \
         --with-zlib
         "
+    # specify the extension dir
+    EXTENSION_DIR=/usr/local/lib/php/modules
+    export EXTENSION_DIR
 
     # php core
     [ ! -d ${srcdir}/build ] && mkdir ${srcdir}/build
