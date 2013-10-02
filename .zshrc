@@ -85,7 +85,7 @@ PROMPT+='$(git_prompt)'
 # Dirstack
 #------------------------------
 DIRSTACKSIZE=20
-DIRSTACKFILE="$HOME/.cache/zsh/dirs"
+DIRSTACKFILE="$HOME/.cache/dirs"
 if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
   dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
   [[ -d $dirstack[1] ]] && cd $dirstack[1]
