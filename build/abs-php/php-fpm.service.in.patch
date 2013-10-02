@@ -1,0 +1,19 @@
+--- sapi/fpm/php-fpm.service.in.old	2013-10-01 23:32:34.498752128 +0800
++++ sapi/fpm/php-fpm.service.in	2013-10-01 23:34:16.053644618 +0800
+@@ -1,12 +1,12 @@
+ [Unit]
+ Description=The PHP FastCGI Process Manager
+-After=syslog.target network.target
+
+ [Service]
+-Type=@php_fpm_systemd@
+-PIDFile=@localstatedir@/run/php-fpm.pid
+-ExecStart=@sbindir@/php-fpm --nodaemonize --fpm-config @sysconfdir@/php-fpm.conf
++Type=forking
++PIDFile=/run/php-fpm.pid
++ExecStart=@sbindir@/php-fpm --pid /run/php-fpm.pid --fpm-config @sysconfdir@/php-fpm.conf --daemonize
+ ExecReload=/bin/kill -USR2 $MAINPID
++ExecStop=/bin/kill $MAINPID
+
+ [Install]
+ WantedBy=multi-user.target

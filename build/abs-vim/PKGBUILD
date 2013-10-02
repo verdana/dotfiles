@@ -1,0 +1,56 @@
+# $Id: PKGBUILD 55567 2011-09-14 10:23:32Z andrea $
+# Maintainer: Verdana Mu <verdana.cn@gmail.com>
+
+pkgname=vim-console
+pkgver=20131002
+pkgrel=2
+pkgdesc="Vim Console Version"
+arch=('i686' 'x86_64')
+url="https://code.google.com/p/vim"
+license=('GPL')
+depends=('mercurial')
+_repo="vim7"
+
+build() {
+    cd $srcdir
+
+    if [ -d $_repo ]; then
+        cd $_repo
+        hg pull
+        hg update -C
+    else
+        hg clone $url $_repo || return 1
+    fi
+
+    cd $srcdir/$_repo
+    msg "Compiling and building vim."
+    export CFLAGS="-g -O2 -fno-strength-reduce -Wall -Wshadow -Wmissing-prototypes"
+    ./configure \
+        --srcdir=${srcdir}/$_repo \
+        --prefix=/usr/local \
+        --localstatedir=/var/lib/vim \
+        --with-features=huge \
+        --with-compiledby='verdana.cn@gmail.com' \
+        --with-x \
+        --disable-gpm \
+        --disable-gui \
+        --disable-luainterp \
+        --disable-netbeans \
+        --disable-python3interp \
+        --disable-rubyinterp \
+        --enable-acl \
+        --enable-cscope \
+        --enable-multibyte \
+        --enable-perlinterp \
+        --enable-pythoninterp
+
+    make -j2
+}
+
+package() {
+    pkgdesc='Vi Improved, a highly configurable, improved version of the vi text editor'
+    msg "Packaging vim"
+
+    cd "${srcdir}/vim7"
+    make -j2 DESTDIR="$pkgdir" install
+}

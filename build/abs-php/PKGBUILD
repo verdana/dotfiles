@@ -1,0 +1,125 @@
+# $Id: $
+# Maintainer: Verdana Mu <verdana.cn@gmail.com>
+
+pkgname=php-snapshot
+pkgver=20131001
+pkgrel=8
+pkgdesc='PHP5.5 Snapshot'
+arch=('i686' 'x86_64')
+url='http://snaps.php.net'
+license=('PHP')
+
+makedepends=()
+source=('http://snaps.php.net/php5.5-latest.tar.bz2'
+        'php.ini-development.patch'
+        'php-fpm.service.in.patch')
+md5sums=('SKIP'
+         '5e5460cb0563173a37311e7ed9ce6145'
+         '7a498b3bfd449010e1b6b0bad9144349')
+_phpsrc=''
+
+prepare() {
+    # parse source directory name
+    cd ${srcdir}
+    _phpsrc=`ls | grep ^php5.5-\[0-9\]\*$`
+    msg2 "PHP Source directory : ${_phpsrc}"
+
+    # patch the service file
+    cd ${_phpsrc}
+    patch -p0 -i ${srcdir}/php.ini-development.patch
+    patch -p0 -i ${srcdir}/php-fpm.service.in.patch
+}
+
+build() {
+    local _core="
+        --srcdir=../${_phpsrc} \
+        --config-cache \
+        --prefix=/usr/local \
+        --bindir=/usr/local/bin \
+        --sbindir=/usr/local/bin \
+        --sysconfdir=/etc/php \
+        --localstatedir=/var \
+        --with-config-file-path=/etc/php \
+        --with-config-file-scan-dir=/etc/php/conf.d \
+        --disable-rpath \
+        --mandir=/usr/local/share/man \
+        --without-pear \
+        "
+
+    local _extensions="
+        --enable-exif \
+        --enable-fpm \
+        --enable-gd-jis-conv \
+        --enable-gd-native-ttf \
+        --enable-mbstring \
+        --enable-mysqlnd \
+        --enable-opcache \
+        --enable-pcntl \
+        --enable-phar \
+        --enable-sockets \
+        --enable-sysvmsg \
+        --enable-sysvsem \
+        --enable-sysvshm \
+        --enable-zip \
+        --with-bz2 \
+        --with-curl \
+        --with-fpm-systemd \
+        --with-freetype-dir=/usr \
+        --with-gd \
+        --with-gettext \
+        --with-iconv-dir=/usr \
+        --with-icu-dir=/usr \
+        --with-jpeg-dir=/usr \
+        --with-vpx-dir=/usr \
+        --with-mcrypt \
+        --with-mhash \
+        --with-mysql=mysqlnd \
+        --with-mysql-sock=/run/mysqld/mysqld.sock \
+        --with-mysqli=mysqlnd \
+        --with-openssl \
+        --with-pcre-regex=/usr \
+        --with-pdo-mysql \
+        --with-pdo-sqlite=/usr \
+        --with-png-dir=/usr \
+        --with-readline \
+        --with-snmp \
+        --with-sqlite3=/usr \
+        --with-tidy \
+        --with-xmlrpc \
+        --with-xsl \
+        --with-zlib
+        "
+
+    # php core
+    [ ! -d ${srcdir}/build ] && mkdir ${srcdir}/build
+    cd ${srcdir}/build
+
+    [ ! -h configure ] && ln -s ../${_phpsrc}/configure
+    ./configure ${_core} ${_extensions}
+
+    # copy php.ini to build dir
+    cp ${srcdir}/${_phpsrc}/php.ini-development ${srcdir}/build
+}
+
+package() {
+    pkgdesc='The latest development for PHP5.5'
+    backup=(
+        'etc/php/php-fpm.conf'
+        'etc/php/php.ini'
+    )
+
+    cd ${srcdir}/build
+    make -j2 INSTALL_ROOT=${pkgdir} install
+
+    # Install php.ini
+    install -D -m644 php.ini-development                           ${pkgdir}/etc/php/php.ini
+    install -d -m755 ${pkgdir}/etc/php/conf.d/
+
+    # Install php-fpm
+    install -d -m755 ${pkgdir}/etc/php/fpm.d/
+    install -D -m644 ${srcdir}/build/sapi/fpm/php-fpm.conf     ${pkgdir}/etc/php/php-fpm.conf
+    install -D -m644 ${srcdir}/build/sapi/fpm/php-fpm.service  ${pkgdir}/usr/lib/systemd/system/php-fpm.service
+}
+
+#- vim: set ff=unix shiftwidth=4 tabstop=4 expandtab: -
+
