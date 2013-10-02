@@ -1,5 +1,4 @@
 
-set pastetoggle=<F3>
 
 if ! has("gui_running")
     " 让终端机继承 Vim 的标题
@@ -37,18 +36,19 @@ if has('statusline')
     set laststatus=2
 endif
 
-
 autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
 autocmd BufWritePre * :%s/\s\+$//e
-
 
 nmap <SPACE> :exec "normal j"<CR>
 nmap    <Leader>f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 noremap <Leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 
-
 iab xdatetime   <C-R>=strftime("%A %b %d, %Y %H:%M")<CR>
 iab xdate       <C-R>=strftime("%A %b %d, %Y")<CR>
 iab xname       Verdana Mu<CR>
 iab xvim        /*- vim: set ff=unix shiftwidth=4 tabstop=4 expandtab: -*/ <CR>
+
+" Copy and paste
+set pastetoggle=<F2>
+nmap <S-P> "*p
 
