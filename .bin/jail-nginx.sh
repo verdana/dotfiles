@@ -43,8 +43,8 @@ copy_files() {
     #cp -r /etc/nginx/*       $JAIL/etc/nginx
     #cp /usr/bin/nginx        $JAIL/bin
 
-    cp /lib/ld-linux-x86-64.so.2 $JAIL/lib
-    cp $(ldd /usr/bin/nginx | grep /usr/lib | sed -sre 's/(.+)(\/usr\/lib\/\S+).+/\2/g') $JAIL/lib
+    #cp /lib/ld-linux-x86-64.so.2 $JAIL/lib
+    #cp $(ldd /usr/bin/nginx | grep /usr/lib | sed -sre 's/(.+)(\/usr\/lib\/\S+).+/\2/g') $JAIL/lib
 
     cp /lib/libnss_* $JAIL/lib
     cp -rfL /etc/{services,localtime,nsswitch.conf,nscd.conf,protocols,hosts,ld.so.cache,ld.so.conf,resolv.conf,host.conf} $JAIL/etc
