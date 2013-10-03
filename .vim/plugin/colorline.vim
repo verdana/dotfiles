@@ -1,7 +1,7 @@
 
 if !has('python') && !has('python3')
-	echoerr 'Error: required vim compiled with +python or +python3'
-	finish
+    echoerr 'Error: required vim compiled with +python or +python3'
+    finish
 endif
 
 " Load plugin only once
@@ -27,8 +27,8 @@ autocmd ColorScheme * hi User5 ctermbg=darkmagenta  ctermfg=white  guibg=darkmag
 
 func! GetMode()
     let m = mode()
-    if m == "n" 
-        return "NORMAL" 
+    if m == "n"
+        return "NORMAL"
     elseif m == "i"
         return "INSERT"
     elseif m ==# "v"
@@ -75,4 +75,6 @@ set statusline+=%=\ %-12.(%l,%c%V%)
 
 " 重设 colorscheme 使颜色生效
 exec 'colorscheme ' . g:colors_name
+
+" vim: set ff=unix shiftwidth=4 tabstop=4 expandtab:
 
