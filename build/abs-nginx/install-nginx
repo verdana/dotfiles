@@ -21,7 +21,7 @@ chown -Rf http:http      etc/nginx
 chown -Rf http:http      var/log/nginx
 
 chmod -Rf 755 usr/lib
-find www -type d -exec chmod 710 {} \;
+find www -type d -exec chmod 755 {} \;
 find www -type f -exec chmod 644 {} \;
 
 # vim: set ff=unix shiftwidth=4 tabstop=4 expandtab:
