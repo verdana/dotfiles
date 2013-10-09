@@ -52,3 +52,10 @@ iab xvim        /*- vim: set ff=unix shiftwidth=4 tabstop=4 expandtab: -*/ <CR>
 set pastetoggle=<F2>
 nmap <S-P> "*p
 
+" Fixed some files type
+autocmd BufRead php.ini       set ft=dosini
+autocmd BufRead php-fpm.conf  set ft=dosini
+
+autocmd BufRead nginx.conf      set ft=nginx
+autocmd BufRead */conf.d/*.conf set ft=nginx
+
