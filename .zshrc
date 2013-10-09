@@ -13,6 +13,8 @@ alias mnt='sudo mount | column -t'
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 alias sys='sudo systemctl'
+alias vims='sudo vim'
+alias so='source'
 
 # Pacman
 alias pacupg='sudo pacman -Syu'             # Synchronize with repositories before upgrading packages that are out of date on the local system.
