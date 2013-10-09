@@ -4,28 +4,39 @@
 #------------------------------
 # Alias
 #------------------------------
-alias ls='ls --color=auto'
+if [[ "`uname`" == 'FreeBSD' ]]; then
+    alias ls='ls -G'
+fi
+if [[ "`uname`" == 'Linux' ]]; then
+    alias ls='ls --color=auto'
+fi
+
 alias ll='ls -lhA'
-alias dir='ls -lhA'
-alias jc='sudo journalctl'
-alias jcb='sudo journalctl -b'
-alias mnt='sudo mount | column -t'
-alias poweroff='sudo poweroff'
-alias reboot='sudo reboot'
-alias sys='sudo systemctl'
-alias vims='sudo vim'
 alias so='source'
 
-# Pacman
-alias pacupg='sudo pacman -Syu'             # Synchronize with repositories before upgrading packages that are out of date on the local system.
-alias pacin='sudo pacman -S'                # Install specific package(s) from the repositories
-alias pacins='sudo pacman -U'               # Install specific package not from the repositories but from a file
-alias pacre='sudo pacman -R'                # Remove the specified package(s), retaining its configuration(s) and required dependencies
-alias pacrem='sudo pacman -Rns'             # Remove the specified package(s), its configuration(s) and unneeded dependencies
-alias pacss='pacman -Ss'                    # Search for package(s) in the repositories
-alias pacupd='sudo pacman -Sy && sudo abs'  # Update and refresh the local package and ABS databases against repositories
-alias pacinsd='sudo pacman -S --asdeps'     # Install given package(s) as dependencies of another package
-alias pacmir='sudo pacman -Syy'             # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
+# Arch Linux
+grep "Arch" /etc/issue -i -q > /dev/null 2>&1
+if [ $? = "0" ]; then
+    alias mnt='sudo mount | column -t'
+    alias poweroff='sudo poweroff'
+    alias reboot='sudo reboot'
+    alias sys='sudo systemctl'
+    alias vims='sudo vim'
+
+    alias jc='sudo journalctl'
+    alias jcb='sudo journalctl -b'
+
+    # Pacman
+    alias pacupg='sudo pacman -Syu'             # Synchronize with repositories before upgrading packages that are out of date on the local system.
+    alias pacin='sudo pacman -S'                # Install specific package(s) from the repositories
+    alias pacins='sudo pacman -U'               # Install specific package not from the repositories but from a file
+    alias pacre='sudo pacman -R'                # Remove the specified package(s), retaining its configuration(s) and required dependencies
+    alias pacrem='sudo pacman -Rns'             # Remove the specified package(s), its configuration(s) and unneeded dependencies
+    alias pacss='pacman -Ss'                    # Search for package(s) in the repositories
+    alias pacupd='sudo pacman -Sy && sudo abs'  # Update and refresh the local package and ABS databases against repositories
+    alias pacinsd='sudo pacman -S --asdeps'     # Install given package(s) as dependencies of another package
+    alias pacmir='sudo pacman -Syy'             # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
+fi
 
 #------------------------------
 # Comp
