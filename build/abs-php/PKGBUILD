@@ -14,7 +14,7 @@ source=('php-5.5.4.tar.bz2'
         'php.ini-development.patch'
         'php-fpm.service.in.patch')
 md5sums=('SKIP'
-         '5e5460cb0563173a37311e7ed9ce6145'
+         '3e32b6722983389635aaead20a088833'
          '7a498b3bfd449010e1b6b0bad9144349')
 _phpsrc=''
 
@@ -53,6 +53,7 @@ build() {
         --enable-gd-native-ttf \
         --enable-mbstring \
         --enable-mysqlnd \
+        --enable-opcache \
         --enable-pcntl \
         --enable-phar \
         --enable-sockets \

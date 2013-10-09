@@ -1,6 +1,6 @@
---- php.ini-development.old	2013-10-02 00:15:14.881669250 +0800
-+++ php.ini-development	2013-10-02 00:19:01.685178328 +0800
-@@ -373,7 +373,7 @@
+--- php.ini-development.old	2013-10-09 14:40:02.945415928 +0800
++++ php.ini-development	2013-10-09 14:42:46.931285198 +0800
+@@ -371,7 +371,7 @@
  ; threat in any way, but it makes it possible to determine whether you use PHP
  ; on your server or not.
  ; http://php.net/expose-php
@@ -9,7 +9,7 @@
  
  ;;;;;;;;;;;;;;;;;;;
  ; Resource Limits ;
-@@ -703,7 +703,7 @@
+@@ -701,7 +701,7 @@
  ;;;;;;;;;;;;;;;;;;;;;;;;;
  
  ; UNIX: "/path1:/path2"
@@ -18,7 +18,7 @@
  ;
  ; Windows: "\path1;\path2"
  ;include_path = ".;c:\php\includes"
-@@ -726,7 +726,7 @@
+@@ -724,7 +724,7 @@
  
  ; Directory in which the loadable extensions (modules) reside.
  ; http://php.net/extension-dir
@@ -27,34 +27,16 @@
  ; On windows:
  ; extension_dir = "ext"
  
-@@ -745,7 +745,7 @@
- ; turn it off here AT YOUR OWN RISK
- ; **You CAN safely turn this off for IIS, in fact, you MUST.**
- ; http://php.net/cgi.force-redirect
--;cgi.force_redirect = 1
-+cgi.force_redirect = 1
- 
- ; if cgi.nph is enabled it will force cgi to always sent Status: 200 with
- ; every request. PHP's default behavior is to disable this feature.
-@@ -756,7 +756,7 @@
- ; will look for to know it is OK to continue execution.  Setting this variable MAY
- ; cause security issues, KNOW WHAT YOU ARE DOING FIRST.
- ; http://php.net/cgi.redirect-status-env
--;cgi.redirect_status_env = 
-+;cgi.redirect_status_env =
- 
- ; cgi.fix_pathinfo provides *real* PATH_INFO/PATH_TRANSLATED support for CGI.  PHP's
- ; previous behaviour was to set PATH_TRANSLATED to SCRIPT_FILENAME, and to not grok
-@@ -765,7 +765,7 @@
+@@ -763,7 +763,7 @@
  ; of zero causes PHP to behave as before.  Default is 1.  You should fix your scripts
  ; to use SCRIPT_FILENAME rather than PATH_TRANSLATED.
  ; http://php.net/cgi.fix-pathinfo
 -;cgi.fix_pathinfo=1
-+cgi.fix_pathinfo=1
++cgi.fix_pathinfo=0
  
  ; FastCGI under IIS (on WINNT based OS) supports the ability to impersonate
  ; security tokens of the calling client.  This allows IIS to define the
-@@ -798,7 +798,7 @@
+@@ -796,7 +796,7 @@
  ; Temporary directory for HTTP uploaded files (will use system default if not
  ; specified).
  ; http://php.net/upload-tmp-dir
@@ -63,7 +45,7 @@
  
  ; Maximum allowed size for uploaded files.
  ; http://php.net/upload-max-filesize
-@@ -813,7 +813,7 @@
+@@ -811,7 +811,7 @@
  
  ; Whether to allow the treatment of URLs (like http:// or ftp://) as files.
  ; http://php.net/allow-url-fopen
@@ -72,18 +54,7 @@
  
  ; Whether to allow include/require to open URLs (like http:// or ftp://) as files.
  ; http://php.net/allow-url-include
-@@ -897,8 +897,8 @@
- ;extension=php_pspell.dll
- ;extension=php_shmop.dll
- 
--; The MIBS data available in the PHP distribution must be installed. 
--; See http://www.php.net/manual/en/snmp.installation.php 
-+; The MIBS data available in the PHP distribution must be installed.
-+; See http://www.php.net/manual/en/snmp.installation.php
- ;extension=php_snmp.dll
- 
- ;extension=php_soap.dll
-@@ -920,7 +920,7 @@
+@@ -918,7 +918,7 @@
  [Date]
  ; Defines the default timezone used by the date functions
  ; http://php.net/date.timezone
@@ -92,7 +63,7 @@
  
  ; http://php.net/date.default-latitude
  ;date.default_latitude = 31.7667
-@@ -1397,7 +1397,7 @@
+@@ -1395,7 +1395,7 @@
  ; where MODE is the octal representation of the mode. Note that this
  ; does not overwrite the process's umask.
  ; http://php.net/session.save-path
@@ -101,7 +72,7 @@
  
  ; Whether to use strict session mode.
  ; Strict session mode does not accept uninitialized session ID and regenerate
-@@ -1907,7 +1907,7 @@
+@@ -1905,7 +1905,7 @@
  ;opcache.revalidate_path=0
  
  ; If disabled, all PHPDoc comments are dropped from the code to reduce the
