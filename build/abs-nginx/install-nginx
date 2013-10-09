@@ -6,12 +6,19 @@ ROOT="`pwd`/pkg/nginx-chroot"
 # 关闭 nginx
 pkill nginx
 
+# 备份主配置文件
+cp $JAIL/etc/nginx/nginx.conf $JAIL/etc/nginx/nginx.conf.bak
+
 # 复制 nginx 的文件
 rm -rf $ROOT/var/run
 cp -arfL $ROOT/* $JAIL
 cp /lib/ld-linux-x86-64.so.2 $JAIL/lib
 cp /lib/libnss_*             $JAIL/lib
 cp $(ldd $ROOT/usr/bin/nginx | grep /usr/lib | sed -sre 's/(.+)(\/usr\/lib\/\S+).+/\2/g') $JAIL/lib
+
+# 恢复主配置文件
+rm $JAIL/etc/nginx/nginx.conf
+mv $JAIL/etc/nginx/nginx.conf.bak $JAIL/etc/nginx/nginx.conf
 
 # 权限
 cd $JAIL
