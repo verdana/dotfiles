@@ -26,7 +26,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set langmenu=none
 lang C
-lang mes en_US.utf-8
+lang mes en_US.UTF-8
 
 filetype off
 
