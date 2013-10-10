@@ -18,13 +18,13 @@ REMOVE_SYMLINK =                                       \
         fi;                                            \
     fi;
 
-CANDIDATES = .bin .gitconfig .hgrc .tmux.conf          \
-             .vim .vimrc .vimrc.local                  \
-             .zsh .zshenv .zshrc                       \
-             build
+CANDIDATES = .bin .config .gitconfig .hgrc             \
+             .tmux.conf .vim .vimrc .vimrc.local       \
+             .zsh .zshenv .zshrc build
 
 all:
 	@$(foreach file, $(CANDIDATES), $(SYMLINK))
+	mkdir ~/.cache
 	@echo "Done"
 
 clean:
