@@ -4,7 +4,8 @@
 *.gz
 *.bz2
 
-.ssh/
+.ssh
+.vim/bundle
 
 build/**/pkg
 build/**/src
