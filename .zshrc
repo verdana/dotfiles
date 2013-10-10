@@ -26,6 +26,9 @@ if [ $? = "0" ]; then
     alias jc='sudo journalctl'
     alias jcb='sudo journalctl -b'
 
+    alias php='php -d allow_url_fopen=1'
+    alias comp='php composer.phar'
+
     # Pacman
     alias pacupg='sudo pacman -Syu'             # Synchronize with repositories before upgrading packages that are out of date on the local system.
     alias pacin='sudo pacman -S'                # Install specific package(s) from the repositories
