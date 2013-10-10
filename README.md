@@ -17,16 +17,3 @@ make clean 会删除对应文件的符号链接。
 
 详细的过程请查看 Makefile。
 
-
-## Vim Bundles
-
-.vim/bundle/ 目录下是 VBundle 管理的 Vim 插件，这些插件也同时注册为 git submodule。
-
-第一次克隆仓库时，可以加上 --recursive 参数同时下载这些模块。
-
-```sh
-git clone --recursive https://github.com/verdana/dotfiles.git $HOME/.dotfiles
-```
-
-如果忘记下载，也可以通过 .bin/git-submodule 脚本重新注册这些 submodule。
-
