@@ -27,7 +27,6 @@ endif
 set langmenu=none
 lang C
 lang mes en_US.UTF-8
-
 filetype off
 
 set nocompatible
@@ -118,20 +117,22 @@ noremap <Leader>cd    :cd %:p:h<CR>:pwd<CR>
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
-" Let Vundle manage Vundle, it required!
+" Let Vundle manage Vundle, required!
 Bundle 'gmarik/vundle'
 
-" My Bundles
+" Bundles
 Bundle 'benmills/vimux'
 Bundle 'evidens/vim-twig'
 Bundle 'godlygeek/tabular'
 Bundle 'groenewege/vim-less'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
+Bundle 'msanders/snipmate.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdtree'
-Bundle 'vim-scripts/LycosaExplorer'
+"Bundle 'vim-scripts/LycosaExplorer'
 
+" vim-scripts repos
 Bundle 'bufexplorer.zip'
 Bundle 'c.vim'
 Bundle 'nginx.vim'
@@ -144,9 +145,9 @@ filetype plugin indent on
 "au BufWritePost *.coffee silent make!
 nmap <silent> <F5> :silent make<CR>
 
-" LustyExplorer
+" BufExplorer
 " ----------------------------
-nmap <silent> <special> <Leader>z :LycosaBufferExplorer<CR>
+nmap <silent> <special> <Leader>z ,bs<CR>
 
 " Tabular
 " ----------------------------
