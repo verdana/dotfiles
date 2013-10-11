@@ -26,7 +26,8 @@ if [ $? = "0" ]; then
     alias jc='sudo journalctl'
     alias jcb='sudo journalctl -b'
 
-    alias php='php -d allow_url_fopen=1'
+    alias php='php -n'
+    alias phpc='sapi/cli/php -n'
     alias comp='php composer.phar'
 
     # Pacman
