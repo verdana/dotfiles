@@ -1,9 +1,4 @@
 
-if !has('python') && !has('python3')
-    echoerr 'Error: required vim compiled with +python or +python3'
-    finish
-endif
-
 " Load plugin only once
 if exists('g:colorline_loaded')
     finish
