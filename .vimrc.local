@@ -38,14 +38,13 @@ endif
 autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
 autocmd BufWritePre * :%s/\s\+$//e
 
-nmap <SPACE> :exec "normal j"<CR>
-nmap    <Leader>f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
-noremap <Leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
+nmap    <SPACE>     :exec "normal j"<CR>
+nmap    <Leader>f   [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+noremap <Leader>m   mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 
 iab xdatetime   <C-R>=strftime("%A %b %d, %Y %H:%M")<CR>
 iab xdate       <C-R>=strftime("%A %b %d, %Y")<CR>
-iab xname       Verdana Mu<CR>
-iab xvim        /*- vim: set ff=unix shiftwidth=4 tabstop=4 expandtab: -*/ <CR>
+iab xvim        /*- vim: set fdm=marker ff=unix sw=4 ts=4 et: -*/<CR>
 
 " Copy and paste
 set pastetoggle=<F2>
@@ -53,11 +52,13 @@ nmap <Leader>, "+p
 nmap <Leader>o "*p
 
 " Fixed some files type
-autocmd BufRead php.ini         set ft=dosini
-autocmd BufRead php-fpm.conf    set ft=dosini
+autocmd BufRead php.ini             set ft=dosini
+autocmd BufRead php-fpm.conf        set ft=dosini
+autocmd BufRead php/conf.d/*.conf   set ft=dosini
+autocmd BufRead */view/*.html       set ft=php
 
-autocmd BufRead nginx.conf      set ft=nginx
-autocmd BufRead */conf.d/*.conf set ft=nginx
+autocmd BufRead nginx.conf          set ft=nginx
+autocmd BufRead nginx/conf.d/*.conf set ft=nginx
 
-autocmd BufRead */view/*.html   set ft=php
+" vim: set fdm=marker ff=unix shiftwidth=4 tabstop=4 expandtab:
 
