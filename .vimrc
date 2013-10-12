@@ -10,11 +10,10 @@
 " http://phpvim.net
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-"    Version: 0.4.0
-" LastChange: Sunday Aug 04, 2013
+"    Version: 0.4.2
+" LastChange: Sunday Oct 13, 2013 03:16
 "
-" vim:shiftwidth=4:tabstop=4:expandtab
-"
+" vim: set fdm=marker ff=unix sw=4 ts=4 et:
 "
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version < 700
@@ -147,7 +146,7 @@ nmap <silent> <F5> :silent make<CR>
 
 " BufExplorer
 " ----------------------------
-nmap <silent> <special> <Leader>z ,bs<CR>
+nmap <Leader>z ,bs<CR>
 
 " Tabular
 " ----------------------------
@@ -174,6 +173,42 @@ let NERDTreeShowHidden          = 0
 let NERDTreeIgnore              = ['favicon.ico', 'images']
 nmap <special> <leader>v :NERDTreeToggle<CR>
 " }}}
+
+" TERM
+if ! has("gui_running")
+    " 让终端机继承 Vim 的标题
+    set title
+
+    " 设定终端编码
+    " 如果是中文Win32 CMD，则是GBK
+    if has('win32')
+        set termencoding=gbk
+    else
+        set termencoding=utf-8
+    endif
+
+    " 终端颜色数
+    set t_Co=256
+    if has("mac")
+        " Snow Leopard 的默認終端不支持256色
+        set t_Co=16
+    endif
+
+    " 终端默认主题
+    colorscheme desert
+endif
+
+" CommandLine
+if has('cmdline_info')
+    set ruler                                           " 显示光标位置
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)  " a ruler on steroids
+    set showcmd                                         " 右下角显示命令
+endif
+
+" StatusLine
+if has('statusline')
+    set laststatus=2
+endif
 
 " Load vimrc.local
 if filereadable(expand("~/.vimrc.local"))
