@@ -157,6 +157,10 @@ vmap <Leader>a> :Tabularize /=><CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 
+" Php-doc
+" ----------------------------
+nnoremap <Leader>c :call PhpDocSingle()<CR>
+
 " NERD tree
 " ----------------------------
 let NERDTreeSplitVertical       = 1
