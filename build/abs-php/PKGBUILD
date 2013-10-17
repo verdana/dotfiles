@@ -2,20 +2,23 @@
 # Maintainer: Verdana Mu <verdana.cn@gmail.com>
 
 pkgname=php-snapshot
-pkgver=20131003
-pkgrel=3
+pkgver=20131017
+pkgrel=1
 pkgdesc='PHP5.5 Snapshot'
 arch=('i686' 'x86_64')
 url='http://snaps.php.net'
 license=('PHP')
 
-makedepends=()
+makedepends=('freetype2' 'libjpeg' 'libmcrypt' 'libpng' 'libvpx' 'libxml2' 'libxpm' 'libxslt' 'net-snmp' 're2c' 'sqlite3' 'tidyhtml')
+
 source=('php-5.5.4.tar.bz2'
         'php.ini-development.patch'
         'php-fpm.service.in.patch')
+
 md5sums=('SKIP'
          '3e32b6722983389635aaead20a088833'
          '7a498b3bfd449010e1b6b0bad9144349')
+
 _phpsrc=''
 
 prepare() {

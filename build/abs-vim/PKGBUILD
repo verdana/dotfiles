@@ -3,12 +3,12 @@
 
 pkgname=vim-console
 pkgver=20131002
-pkgrel=3
+pkgrel=4
 pkgdesc="Vim Console Version"
 arch=('i686' 'x86_64')
 url="https://code.google.com/p/vim"
 license=('GPL')
-depends=('mercurial')
+depends=('mercurial' 'libsm' 'libx11' 'libxt')
 _repo="vim7"
 
 build() {
