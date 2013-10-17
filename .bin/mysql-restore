@@ -1,0 +1,67 @@
+#!/bin/sh
+
+# 备份目录
+backdir='/mnt/usb/mysql/2013-10-17.09'
+
+# 链接帐号
+mysql_user="root"
+mysql_pass="mysql"
+
+# 如果没有设定密码，则提示用户输入
+if [ -z "${mysql_pass}" ]; then
+    echo -n "Enter MySQL ${mysql_user} password: "
+    read -s mysql_pass
+    echo
+fi
+
+# 检查账户是否正确
+echo exit | mysql --user=${mysql_user} --password=${mysql_pass} -B 2>/dev/null
+if [ "$?" -gt 0 ]; then
+    echo "MySQL ${mysql_user} password incorrect"
+    exit 1
+fi
+
+# 查询备份目录
+count=0
+for pkg in `/bin/ls $backdir`; do
+    echo `basename $pkg .gz`
+    ((count++))
+done
+
+if [ $count -le 0 ]; then
+    echo 'No backup package found.'
+    exit 1;
+fi
+
+# 导入数据库
+import () {
+    for pkg in `/bin/ls $backdir`; do
+        db=`basename $pkg .gz`
+        mysql -e "SHOW DATABASES LIKE '$db'" -u$mysql_user -p$mysql_pass | grep -o "Database ($db)"
+        if [ "$?" == 1 ];  then
+            mysql -u$mysql_user -p$mysql_pass -Bse "CREATE DATABASE $db;"
+            echo -n "Import $db..."
+            zcat "$backdir/$pkg" | mysql -u$mysql_user -p$mysql_pass $db
+            echo "OK"
+        fi
+    done
+}
+
+# 退出脚本
+quit () {
+    echo "Exit..."
+    exit 1;
+}
+
+# 导入数据库
+while true; do
+    echo ""
+    read -p "Do you wish to import these databases to mysql? [y/n] "  q
+    case $q in
+    [Yy]* ) import; break;;
+    [Nn]* ) quit;   break;;
+    esac
+done
+
+# vim: set fdm=marker ff=unix sw=4 ts=4 et:
+
