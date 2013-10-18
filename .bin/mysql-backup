@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # 备份目录
-backup_path="/mnt/skydrive/MySQL"
+backup_path="$HOME/Dropbox/mysql"
 timedir="$(date +%F.%H)"
 
 # 链接帐号
