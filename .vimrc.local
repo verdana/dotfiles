@@ -27,8 +27,8 @@ autocmd BufRead php-fpm.conf        set ft=dosini
 autocmd BufRead php/conf.d/*.conf   set ft=dosini
 autocmd BufRead */view/*.html       set ft=php
 
-autocmd BufRead nginx.conf          set ft=nginx
-autocmd BufRead nginx/conf.d/*.conf set ft=nginx
+autocmd BufRead nginx.conf              set ft=nginx
+autocmd BufRead */nginx/conf.d/*.conf   set ft=nginx
 
 " Abbreviations
 iab xdatetime   <C-R>=strftime("%A %b %d, %Y %H:%M")<CR>
