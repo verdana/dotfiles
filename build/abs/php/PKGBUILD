@@ -9,7 +9,9 @@ arch=('i686' 'x86_64')
 url='http://snaps.php.net'
 license=('PHP')
 
-makedepends=('freetype2' 'libjpeg' 'libmcrypt' 'libpng' 'libvpx' 'libxml2' 'libxpm' 'libxslt' 'net-snmp' 're2c' 'sqlite3' 'tidyhtml')
+makedepends=('freetype2' 'libjpeg' 'libmcrypt' 'libpng'
+             'libvpx' 'libxml2' 'libxpm' 'libxslt'
+             'net-snmp' 're2c' 'sqlite3' 'tidyhtml')
 
 source=('php-5.5.5.tar.bz2::http://cn2.php.net/get/php-5.5.5.tar.bz2/from/this/mirror'
         'php.ini-development.patch'
