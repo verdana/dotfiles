@@ -1,0 +1,32 @@
+# $Id: $
+# Maintainer: Verdana Mu <verdana.cn@gmail.com>
+
+pkgname=bison27
+pkgver=2.7
+pkgrel=1
+pkgdesc='Bison 2.7'
+arch=('i686' 'x86_64')
+url='http://www.gnu.org/software/bison'
+license=('GPL')
+
+depends=()
+makedepends=()
+
+source=('http://ftp.gnu.org/gnu/bison/bison-2.7.tar.gz')
+md5sums=('ded660799e76fb1667d594de1f7a0da9')
+
+build()
+{
+    cd $srcdir/bison-$pkgver
+    ./configure
+}
+
+package()
+{
+    msg "package bison-2.7"
+    cd $srcdir/bison-$pkgver
+    make -j4 DESTDIR="$pkgdir" install
+}
+
+# vim: set fdm=marker ff=unix sw=4 ts=4 et:
+

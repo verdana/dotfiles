@@ -1,7 +1,7 @@
 # $Id: $
 # Maintainer: Verdana Mu <verdana.cn@gmail.com>
 
-pkgname=nginx-chroot
+pkgname=nginx
 pkgver=1.5.6
 pkgrel=1
 pkgdesc='Nginx Web Server'
@@ -66,3 +66,6 @@ package()
     cd $srcdir/nginx-$pkgver
     make -j2 DESTDIR="$pkgdir" install
 }
+
+# vim: set fdm=marker ff=unix sw=4 ts=4 et:
+

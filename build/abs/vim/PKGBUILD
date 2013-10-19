@@ -1,10 +1,10 @@
 # $Id: PKGBUILD 55567 2011-09-14 10:23:32Z andrea $
 # Maintainer: Verdana Mu <verdana.cn@gmail.com>
 
-pkgname=vim-console
-pkgver=20131002
-pkgrel=4
-pkgdesc="Vim Console Version"
+pkgname=vim-lite
+pkgver=20131019
+pkgrel=1
+pkgdesc="Vim Lite Version"
 arch=('i686' 'x86_64')
 url="https://code.google.com/p/vim"
 license=('GPL')
@@ -54,3 +54,6 @@ package() {
     cd "${srcdir}/vim7"
     make -j2 DESTDIR="$pkgdir" install
 }
+
+# vim: set fdm=marker ff=unix sw=4 ts=4 et:
+

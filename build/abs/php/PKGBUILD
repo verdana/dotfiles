@@ -1,8 +1,8 @@
 # $Id: $
 # Maintainer: Verdana Mu <verdana.cn@gmail.com>
 
-pkgname=php-snapshot
-pkgver=20131017
+pkgname=php
+pkgver=20131019
 pkgrel=1
 pkgdesc='PHP5.5 Snapshot'
 arch=('i686' 'x86_64')
@@ -11,13 +11,15 @@ license=('PHP')
 
 makedepends=('freetype2' 'libjpeg' 'libmcrypt' 'libpng' 'libvpx' 'libxml2' 'libxpm' 'libxslt' 'net-snmp' 're2c' 'sqlite3' 'tidyhtml')
 
-source=('php-5.5.4.tar.bz2'
+source=('php-5.5.5.tar.bz2::http://cn2.php.net/get/php-5.5.5.tar.bz2/from/this/mirror'
         'php.ini-development.patch'
-        'php-fpm.service.in.patch')
+        'php-fpm.service.in.patch'
+        'php-fpm.socket')
 
-md5sums=('SKIP'
-         '3e32b6722983389635aaead20a088833'
-         '7a498b3bfd449010e1b6b0bad9144349')
+md5sums=('186c330c272d6322d254db9b2d18482a'
+         '540289f7965b6b9bb35d45795dced0e2'
+         '7a498b3bfd449010e1b6b0bad9144349'
+         'cebca26f604ca239cf8ef705323acab6')
 
 _phpsrc=''
 
@@ -115,17 +117,20 @@ package() {
     )
 
     cd ${srcdir}/build
-    make -j2 INSTALL_ROOT=${pkgdir} install
+    make -j4 INSTALL_ROOT=${pkgdir} install
 
     # Install php.ini
-    install -D -m644 php.ini-development                           ${pkgdir}/etc/php/php.ini
+    install -D -m644 php.ini-development                       ${pkgdir}/etc/php/php.ini
     install -d -m755 ${pkgdir}/etc/php/conf.d/
 
     # Install php-fpm
     install -d -m755 ${pkgdir}/etc/php/fpm.d/
     install -D -m644 ${srcdir}/build/sapi/fpm/php-fpm.conf     ${pkgdir}/etc/php/php-fpm.conf
+
+    # Systemd service
     install -D -m644 ${srcdir}/build/sapi/fpm/php-fpm.service  ${pkgdir}/usr/lib/systemd/system/php-fpm.service
+    install -D -m644 ${srcdir}/php-fpm.socket                  ${pkgdir}/usr/lib/systemd/system/php-fpm.socket
 }
 
-#- vim: set ff=unix shiftwidth=4 tabstop=4 expandtab: -
+# vim: set fdm=marker ff=unix sw=4 ts=4 et:
 
