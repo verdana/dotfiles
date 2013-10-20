@@ -15,11 +15,13 @@ makedepends=('freetype2' 'libjpeg' 'libmcrypt' 'libpng'
 
 source=('php-5.5.5.tar.bz2::http://cn2.php.net/get/php-5.5.5.tar.bz2/from/this/mirror'
         'php.ini-development.patch'
+        'php-fpm.conf.in.patch'
         'php-fpm.service.in.patch'
         'php-fpm.socket')
 
 md5sums=('186c330c272d6322d254db9b2d18482a'
          '540289f7965b6b9bb35d45795dced0e2'
+         '4315790efde1f03647d122ad1b89e3a3'
          '7a498b3bfd449010e1b6b0bad9144349'
          'cebca26f604ca239cf8ef705323acab6')
 
@@ -34,6 +36,7 @@ prepare() {
     # patch the service file
     cd ${_phpsrc}
     patch -p0 -i ${srcdir}/php.ini-development.patch
+    patch -p0 -i ${srcdir}/php-fpm.conf.in.patch
     patch -p0 -i ${srcdir}/php-fpm.service.in.patch
 }
 
