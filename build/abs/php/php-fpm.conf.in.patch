@@ -1,5 +1,22 @@
---- sapi/fpm/php-fpm.conf.in.old	2013-10-15 21:49:47.000000000 +0800
-+++ sapi/fpm/php-fpm.conf.in	2013-10-20 07:42:02.509386728 +0800
+--- sapi/fpm/php-fpm.conf.in.old	2013-10-21 01:50:27.853693615 +0800
++++ sapi/fpm/php-fpm.conf.in	2013-10-21 01:54:26.043684241 +0800
+@@ -22,14 +22,14 @@
+ ; Pid file
+ ; Note: the default prefix is @EXPANDED_LOCALSTATEDIR@
+ ; Default Value: none
+-;pid = run/php-fpm.pid
++pid = /run/php-fpm.pid
+ 
+ ; Error log file
+ ; If it's set to "syslog", log is sent to syslogd instead of being written
+ ; in a local file.
+ ; Note: the default prefix is @EXPANDED_LOCALSTATEDIR@
+ ; Default Value: log/php-fpm.log
+-;error_log = log/php-fpm.log
++error_log = /var/log/php/php-fpm.log
+ 
+ ; syslog_facility is used to specify what type of program is logging the
+ ; message. This lets syslogd specify that messages from different facilities
 @@ -55,7 +55,7 @@
  ; Default Value: 0
  ;emergency_restart_threshold = 0
@@ -9,11 +26,13 @@
  ; a graceful restart will be initiated.  This can be useful to work around
  ; accidental corruptions in an accelerator's shared memory.
  ; Available Units: s(econds), m(inutes), h(ours), or d(ays)
-@@ -87,11 +87,11 @@
+@@ -86,12 +86,12 @@
+ 
  ; Send FPM to background. Set to 'no' to keep FPM in foreground for debugging.
  ; Default Value: yes
- ;daemonize = yes
+-;daemonize = yes
 - 
++daemonize = yes
 +
  ; Set open file descriptor rlimit for the master process.
  ; Default Value: system defined value
@@ -23,8 +42,12 @@
  ; Set max core size rlimit for the master process.
  ; Possible Values: 'unlimited' or an integer greater or equal to 0
  ; Default Value: system defined value
-@@ -116,7 +116,7 @@
- ;systemd_interval = 10
+@@ -113,10 +113,10 @@
+ ; Available Units: s(econds), m(inutes), h(ours)
+ ; Default Unit: seconds
+ ; Default value: 10
+-;systemd_interval = 10
++systemd_interval = 10
  
  ;;;;;;;;;;;;;;;;;;;;
 -; Pool Definitions ; 
@@ -41,16 +64,17 @@
  
  ; Per pool prefix
  ; It only applies on the following directives:
-@@ -156,7 +156,7 @@
+@@ -156,7 +156,8 @@
  ;                            specific port;
  ;   '/path/to/unix/socket' - to listen on a unix socket.
  ; Note: This value is mandatory.
 -listen = 127.0.0.1:9000
++;listen = 127.0.0.1:9000
 +listen = /srv/http/run/php-fpm.sock
  
  ; Set listen(2) backlog.
  ; Default Value: 128 (-1 on FreeBSD and OpenBSD)
-@@ -164,13 +164,13 @@
+@@ -164,13 +165,13 @@
  
  ; Set permissions for unix socket, if one is used. In Linux, read/write
  ; permissions must be set in order to allow connections from a web server. Many
@@ -69,7 +93,7 @@
  ; List of ipv4 addresses of FastCGI clients which are allowed to connect.
  ; Equivalent to the FCGI_WEB_SERVER_ADDRS environment variable in the original
  ; PHP FCGI (5.2.2+). Makes sense only with a tcp listening socket. Each address
-@@ -243,7 +243,7 @@
+@@ -243,7 +244,7 @@
  ; Note: Used only when pm is set to 'ondemand'
  ; Default Value: 10s
  ;pm.process_idle_timeout = 10s;
@@ -78,7 +102,7 @@
  ; The number of requests each child process should execute before respawning.
  ; This can be useful to work around memory leaks in 3rd party libraries. For
  ; endless request processing specify '0'. Equivalent to PHP_FCGI_MAX_REQUESTS.
-@@ -296,7 +296,7 @@
+@@ -296,7 +297,7 @@
  ;
  ; By default the status page only outputs short status. Passing 'full' in the
  ; query string will also return status for each pool process.
@@ -87,19 +111,40 @@
  ;   http://www.foo.bar/status?full
  ;   http://www.foo.bar/status?json&full
  ;   http://www.foo.bar/status?html&full
-@@ -346,9 +346,9 @@
+@@ -346,9 +347,9 @@
  ; Note: The value must start with a leading slash (/). The value can be
  ;       anything, but it may not be a good idea to use the .php extension or it
  ;       may conflict with a real PHP file.
 -; Default Value: not set 
-+; Default Value: not set
- ;pm.status_path = /status
+-;pm.status_path = /status
 - 
++; Default Value: not set
++pm.status_path = /status
 +
  ; The ping URI to call the monitoring page of FPM. If this value is not set, no
  ; URI will be recognized as a ping page. This could be used to test from outside
  ; that FPM is alive and responding, or to
-@@ -409,7 +409,7 @@
+@@ -359,16 +360,16 @@
+ ;       anything, but it may not be a good idea to use the .php extension or it
+ ;       may conflict with a real PHP file.
+ ; Default Value: not set
+-;ping.path = /ping
++ping.path = /ping
+ 
+ ; This directive may be used to customize the response of a ping request. The
+ ; response is formatted as text/plain with a 200 response code.
+ ; Default Value: pong
+-;ping.response = pong
++ping.response = pong
+ 
+ ; The access log file
+ ; Default: not set
+-;access.log = log/$pool.access.log
++access.log = /var/log/php/$pool.access.log
+ 
+ ; The access log format.
+ ; The following syntax is allowed
+@@ -409,7 +410,7 @@
  ;      - ....
  ;  %p: PID of the child that serviced the request
  ;  %P: PID of the parent of the child that serviced the request
@@ -108,7 +153,7 @@
  ;  %Q: the '?' character if query string exists
  ;  %r: the request URI (without the query string, see %q and %Q)
  ;  %R: remote IP address
-@@ -424,50 +424,50 @@
+@@ -424,50 +425,50 @@
  ;
  ; Default: "%R - %u %t \"%m %r\" %s"
  ;access.format = "%R - %u %t \"%m %r%Q%q\" %s %f %{mili}d %{kilo}M %C%%"
@@ -169,7 +214,7 @@
  ; Redirect worker stdout and stderr into main error log. If not set, stdout and
  ; stderr will be redirected to /dev/null according to FastCGI specs.
  ; Note: on highloaded environement, this can cause some delay in the page
-@@ -482,7 +482,7 @@
+@@ -482,7 +483,7 @@
  ; Note: set an empty value to allow all extensions.
  ; Default Value: .php
  ;security.limit_extensions = .php .php3 .php4 .php5
@@ -178,7 +223,7 @@
  ; Pass environment variables like LD_LIBRARY_PATH. All $VARIABLEs are taken from
  ; the current environment.
  ; Default Value: clean env
-@@ -496,7 +496,7 @@
+@@ -496,7 +497,7 @@
  ; overwrite the values previously defined in the php.ini. The directives are the
  ; same as the PHP SAPI:
  ;   php_value/php_flag             - you can set classic ini defines which can

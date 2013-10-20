@@ -1,5 +1,5 @@
---- php.ini-development.old	2013-10-20 06:06:41.732982530 +0800
-+++ php.ini-development	2013-10-20 06:09:21.482975495 +0800
+--- php.ini-development.old	2013-10-21 09:28:50.358253282 +0800
++++ php.ini-development	2013-10-21 09:35:05.001569978 +0800
 @@ -373,7 +373,7 @@
  ; threat in any way, but it makes it possible to determine whether you use PHP
  ; on your server or not.
@@ -9,6 +9,15 @@
  
  ;;;;;;;;;;;;;;;;;;;
  ; Resource Limits ;
+@@ -582,7 +582,7 @@
+ ; empty.
+ ; http://php.net/error-log
+ ; Example:
+-;error_log = php_errors.log
++error_log = /var/log/php/php-errors.log
+ ; Log errors to syslog (Event Log on NT, not valid in Windows 95).
+ ;error_log = syslog
+ 
 @@ -703,7 +703,7 @@
  ;;;;;;;;;;;;;;;;;;;;;;;;;
  
@@ -88,6 +97,34 @@
  
  ; http://php.net/date.default-latitude
  ;date.default_latitude = 31.7667
+@@ -1007,23 +1007,23 @@
+ 
+ ; For Win32 only.
+ ; http://php.net/sendmail-from
+-;sendmail_from = me@example.com
++sendmail_from = noreply@phpvim.me
+ 
+ ; For Unix only.  You may supply arguments as well (default: "sendmail -t -i").
+ ; http://php.net/sendmail-path
+-;sendmail_path =
++sendmail_path = /usr/bin/sendmail -t -i
+ 
+ ; Force the addition of the specified parameters to be passed as extra parameters
+ ; to the sendmail binary. These parameters will always replace the value of
+ ; the 5th parameter to mail(), even in safe mode.
+-;mail.force_extra_parameters =
++mail.force_extra_parameters =
+ 
+ ; Add X-PHP-Originating-Script: that will include uid of the script followed by the filename
+ mail.add_x_header = On
+ 
+ ; The path to a log file that will log all mail() calls. Log entries include
+ ; the full path of the script, line number, To address and headers.
+-;mail.log =
++mail.log = /var/log/php/php-mail.log
+ ; Log mail to syslog (Event Log on NT, not valid in Windows 95).
+ ;mail.log = syslog
+ 
 @@ -1397,7 +1397,7 @@
  ; where MODE is the octal representation of the mode. Note that this
  ; does not overwrite the process's umask.
@@ -97,6 +134,58 @@
  
  ; Whether to use strict session mode.
  ; Strict session mode does not accept uninitialized session ID and regenerate
+@@ -1591,7 +1591,7 @@
+ ; Development Value: On
+ ; Production Value: On
+ ; http://php.net/session.upload-progress.enabled
+-;session.upload_progress.enabled = On
++session.upload_progress.enabled = On
+ 
+ ; Cleanup the progress information as soon as all POST data has been read
+ ; (i.e. upload completed).
+@@ -1599,14 +1599,14 @@
+ ; Development Value: On
+ ; Production Value: On
+ ; http://php.net/session.upload-progress.cleanup
+-;session.upload_progress.cleanup = On
++session.upload_progress.cleanup = On
+ 
+ ; A prefix used for the upload progress key in $_SESSION
+ ; Default Value: "upload_progress_"
+ ; Development Value: "upload_progress_"
+ ; Production Value: "upload_progress_"
+ ; http://php.net/session.upload-progress.prefix
+-;session.upload_progress.prefix = "upload_progress_"
++session.upload_progress.prefix = "upload_progress_"
+ 
+ ; The index name (concatenated with the prefix) in $_SESSION
+ ; containing the upload progress information
+@@ -1614,7 +1614,7 @@
+ ; Development Value: "PHP_SESSION_UPLOAD_PROGRESS"
+ ; Production Value: "PHP_SESSION_UPLOAD_PROGRESS"
+ ; http://php.net/session.upload-progress.name
+-;session.upload_progress.name = "PHP_SESSION_UPLOAD_PROGRESS"
++session.upload_progress.name = "PHP_SESSION_UPLOAD_PROGRESS"
+ 
+ ; How frequently the upload progress should be updated.
+ ; Given either in percentages (per-file), or in bytes
+@@ -1622,14 +1622,14 @@
+ ; Development Value: "1%"
+ ; Production Value: "1%"
+ ; http://php.net/session.upload-progress.freq
+-;session.upload_progress.freq =  "1%"
++session.upload_progress.freq =  "1%"
+ 
+ ; The minimum delay between updates, in seconds
+ ; Default Value: 1
+ ; Development Value: 1
+ ; Production Value: 1
+ ; http://php.net/session.upload-progress.min-freq
+-;session.upload_progress.min_freq = "1"
++session.upload_progress.min_freq = "1"
+ 
+ [MSSQL]
+ ; Allow or prevent persistent links.
 @@ -1907,7 +1907,7 @@
  ;opcache.revalidate_path=0
  

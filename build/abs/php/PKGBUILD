@@ -1,10 +1,10 @@
 # $Id: $
 # Maintainer: Verdana Mu <verdana.cn@gmail.com>
 
-pkgname=php
+pkgname=php5
 pkgver=20131019
-pkgrel=1
-pkgdesc='PHP5.5 Snapshot'
+pkgrel=2
+pkgdesc='PHP 5.5'
 arch=('i686' 'x86_64')
 url='http://snaps.php.net'
 license=('PHP')
@@ -20,8 +20,8 @@ source=('php-5.5.5.tar.bz2::http://cn2.php.net/get/php-5.5.5.tar.bz2/from/this/m
         'php-fpm.socket')
 
 md5sums=('186c330c272d6322d254db9b2d18482a'
-         '540289f7965b6b9bb35d45795dced0e2'
-         '4315790efde1f03647d122ad1b89e3a3'
+         '4c0d74df54ed706b427b9626f753d6d9'
+         'e6cb58da785ec43b283b2839efe09ecd'
          '7a498b3bfd449010e1b6b0bad9144349'
          'cebca26f604ca239cf8ef705323acab6')
 
