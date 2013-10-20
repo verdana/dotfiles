@@ -13,8 +13,6 @@
 "    Version: 0.4.2
 " LastChange: Sunday Oct 13, 2013 03:16
 "
-" vim: set fdm=marker ff=unix sw=4 ts=4 et:
-"
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version < 700
     echoerr '该配置 ' . $MYVIMRC . ' 仅适用于 Vim7 或者更新的版本.'
@@ -47,10 +45,10 @@ set fileencoding=utf-8
 set encoding=utf-8
 set fencs=ucs-bom,utf-8,default,chinese,big5,latin1
 
-set expandtab
 set shiftwidth=4
 set tabstop=4
 set smarttab
+set expandtab
 
 set nowrap
 set linebreak
@@ -65,9 +63,12 @@ set smartindent
 
 set autochdir
 
+set clipboard+=unnamed
 set nobackup
 set nowritebackup
 set noswapfile
+
+set completeopt=menuone
 " }}}
 
 " {{{ => Vim UI
@@ -129,7 +130,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdtree'
-"Bundle 'vim-scripts/LycosaExplorer'
 
 " vim-scripts repos
 Bundle 'bufexplorer.zip'
@@ -195,7 +195,8 @@ if ! has("gui_running")
     endif
 
     " 终端默认主题
-    colorscheme desert
+    colorscheme lucius
+    LuciusDarkLowContrast
 endif
 
 " CommandLine
@@ -214,4 +215,6 @@ endif
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
+
+" vim: set fdm=marker ff=unix sw=4 ts=4 et:
 
