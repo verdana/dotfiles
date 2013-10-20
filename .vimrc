@@ -10,8 +10,8 @@
 " http://phpvim.net
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-"    Version: 0.4.2
-" LastChange: Sunday Oct 13, 2013 03:16
+"    Version: 0.5.0
+" LastChange: Monday Oct 21, 2013 06:05
 "
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version < 700
@@ -34,7 +34,7 @@ let mapleader=","
 let g:mapleader=","
 " }}}
 
-" {{{ => Configuration
+" {{{ => 編輯設定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set fileformat=unix
@@ -71,7 +71,7 @@ set noswapfile
 set completeopt=menuone
 " }}}
 
-" {{{ => Vim UI
+" {{{ => UI 設定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " 设定东西方共用符号的长度，如省略号，破折号等...
@@ -98,6 +98,9 @@ set magic                               " 自动转义搜索正则表达式中�
 set matchtime=5                         " 光标跳过去后，每秒闪烁的次数
 " }}}
 
+" {{{ => 快捷鍵
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 nmap <Leader>bd  :bd<CR>
 nmap <Leader>e   :e! $MYVIMRC<CR>
 nmap <Leader>q   :q!<CR>
@@ -108,11 +111,53 @@ nmap <RIGHT>          :bnext<CR>
 nmap <LEFT>           :bprevious<CR>
 nmap <Leader><Leader> :bnext<CR>
 noremap <Leader>cd    :cd %:p:h<CR>:pwd<CR>
+" }}}
 
-" {{{ => Plugins
+" {{{ => Term/CmdLine/Status 設定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Vunble
+" TERM
+if ! has("gui_running")
+    " 让终端机继承 Vim 的标题
+    set title
+
+    " 设定终端编码
+    " 如果是中文Win32 CMD，则是GBK
+    if has('win32')
+        set termencoding=gbk
+    else
+        set termencoding=utf-8
+    endif
+
+    " 终端颜色数
+    set t_Co=256
+    if has("mac")
+        " Snow Leopard 的默認終端不支持256色
+        set t_Co=16
+    endif
+
+    " 终端默认主题
+    colorscheme lucius
+    LuciusDarkLowContrast
+endif
+
+" CommandLine
+if has('cmdline_info')
+    set ruler                                           " 显示光标位置
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)  " a ruler on steroids
+    set showcmd                                         " 右下角显示命令
+endif
+
+" StatusLine
+if has('statusline')
+    set laststatus=2
+endif
+" }}}
+
+" {{{ => 插件
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Vundle
 " ----------------------------
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
@@ -173,43 +218,6 @@ let NERDTreeShowHidden          = 0
 let NERDTreeIgnore              = ['favicon.ico', 'images']
 nmap <special> <leader>v :NERDTreeToggle<CR>
 " }}}
-
-" TERM
-if ! has("gui_running")
-    " 让终端机继承 Vim 的标题
-    set title
-
-    " 设定终端编码
-    " 如果是中文Win32 CMD，则是GBK
-    if has('win32')
-        set termencoding=gbk
-    else
-        set termencoding=utf-8
-    endif
-
-    " 终端颜色数
-    set t_Co=256
-    if has("mac")
-        " Snow Leopard 的默認終端不支持256色
-        set t_Co=16
-    endif
-
-    " 终端默认主题
-    colorscheme lucius
-    LuciusDarkLowContrast
-endif
-
-" CommandLine
-if has('cmdline_info')
-    set ruler                                           " 显示光标位置
-    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)  " a ruler on steroids
-    set showcmd                                         " 右下角显示命令
-endif
-
-" StatusLine
-if has('statusline')
-    set laststatus=2
-endif
 
 " Load vimrc.local
 if filereadable(expand("~/.vimrc.local"))
