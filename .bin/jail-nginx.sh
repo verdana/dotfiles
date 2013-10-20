@@ -96,5 +96,5 @@ chmod 750 $JAIL/www
 chmod 777 $JAIL/tmp
 chmod 755 $JAIL/run
 
-# vim: set ff=unix shiftwidth=4 tabstop=4 expandtab:
+# vim: set fdm=marker ff=unix sw=4 ts=4 et:
 
