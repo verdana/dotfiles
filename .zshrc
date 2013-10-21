@@ -9,6 +9,7 @@ if [[ "`uname`" == 'FreeBSD' ]]; then
 fi
 if [[ "`uname`" == 'Linux' ]]; then
     alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
 fi
 
 alias ll='ls -lhA'
