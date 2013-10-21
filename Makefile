@@ -18,7 +18,7 @@ REMOVE_SYMLINK =                                       \
         fi;                                            \
     fi;
 
-CANDIDATES = .bin .config .gitconfig .hgrc             \
+CANDIDATES = .bin .config .gitconfig .hgrc .mostrc     \
              .tmux.conf .vim .vimrc .vimrc.local       \
              .zsh .zshenv .zshrc build
 
