@@ -3,7 +3,7 @@
 
 pkgname=vim-lite
 pkgver=20131019
-pkgrel=1
+pkgrel=2
 pkgdesc="Vim Lite Version"
 arch=('i686' 'x86_64')
 url="https://code.google.com/p/vim"
@@ -44,7 +44,7 @@ build() {
         --enable-perlinterp \
         --enable-pythoninterp
 
-    make -j2
+    make -j`nproc`
 }
 
 package() {
@@ -52,7 +52,7 @@ package() {
     msg "Packaging vim"
 
     cd "${srcdir}/vim7"
-    make -j2 DESTDIR="$pkgdir" install
+    make -j`nproc` DESTDIR="$pkgdir" install
 }
 
 # vim: set fdm=marker ff=unix sw=4 ts=4 et:
