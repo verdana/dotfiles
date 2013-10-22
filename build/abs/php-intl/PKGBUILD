@@ -1,0 +1,36 @@
+# $Id: $
+# Maintainer: Verdana Mu <verdana.cn@gmail.com>
+
+pkgname=php-intl
+pkgver=3.0.0
+pkgrel=1
+pkgdesc='PHP bindings for the libssh2 library'
+arch=('i686' 'x86_64')
+url='http://pecl.php.net/package/ssh2'
+license=('PHP')
+
+depends=('icu')
+makedepends=()
+
+source=("intl-$pkgver.tgz::http://pecl.php.net/get/intl" "intl.ini")
+md5sums=('a6029b9e7b1d0fcdb6e8bfad49e59ae9' '57f3b08f1b7b840a845930c4142aefda')
+
+build()
+{
+    cd $srcdir/intl-$pkgver
+    phpize
+    ./configure --enable-intl
+    make -j`nproc`
+}
+
+package()
+{
+    cd $srcdir/intl-$pkgver
+    make INSTALL_ROOT=${pkgdir} install
+
+    # Install intl.ini
+    install -D -o root -g root -m644 ${srcdir}/intl.ini ${pkgdir}/etc/php/conf.d/intl.ini
+}
+
+# vim: set fdm=marker ff=unix sw=4 ts=4 et:
+
