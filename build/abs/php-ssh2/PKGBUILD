@@ -1,0 +1,38 @@
+# $Id: $
+# Maintainer: Verdana Mu <verdana.cn@gmail.com>
+
+pkgname=php-ssh2
+pkgver=0.12
+pkgrel=1
+pkgdesc='PHP bindings for the libssh2 library'
+arch=('i686', 'x86_64')
+url='http://pecl.php.net/package/ssh2'
+license=('PHP')
+
+depends=()
+makedepends=('libssh2')
+
+source=("ssh2-$pkgver.tgz::http://pecl.php.net/get/ssh2" "ssh2.ini")
+md5sums=('409b91678a842bb0ff56f2cf018b9160' '9c9c194959ed07dfdd5520e91df9df74')
+
+build()
+{
+    cd $srcdir/ssh2-$pkgver
+    phpize
+    ./configure --with-ssh2
+    make -j`nproc`
+}
+
+package()
+{
+    backup=('etc/php/conf.d/ssh2.ini')
+
+    cd $srcdir/ssh2-$pkgver
+    make INSTALL_ROOT=${pkgdir} install
+
+    # Install ssh2.ini
+    install -D -o root -g root -m644 ${srcdir}/ssh2.ini ${pkgdir}/etc/php/conf.d/ssh2.ini
+}
+
+# vim: set fdm=marker ff=unix sw=4 ts=4 et:
+
