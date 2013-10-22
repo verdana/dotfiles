@@ -37,8 +37,6 @@ build()
 
 package()
 {
-    backup=('etc/php/conf.d/redis.ini')
-
     cd $srcdir/$_repo
     make INSTALL_ROOT=${pkgdir} install
 
