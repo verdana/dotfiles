@@ -1,7 +1,7 @@
 #!/bin/sh
 
 JAIL=/srv/http
-ROOT="`pwd`/pkg/nginx-chroot"
+ROOT="`pwd`/pkg/nginx"
 
 # 关闭 nginx
 pkill nginx
