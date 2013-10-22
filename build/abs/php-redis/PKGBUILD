@@ -1,0 +1,50 @@
+# $Id: $
+# Maintainer: Verdana Mu <verdana.cn@gmail.com>
+
+pkgname=php-redis
+pkgver=2.2.4
+pkgrel=1
+pkgdesc='The phpredis extension provides an API for communicating with the Redis'
+arch=('i686' 'x86_64')
+url='https://github.com/nicolasff/phpredis'
+license=('PHP')
+
+depends=('git')
+makedepends=()
+
+source=('redis.ini')
+md5sums=('d44f61621d070bf03c926af8545c3c5c')
+
+_repo='phpredis'
+
+build()
+{
+    cd $srcdir
+    if [ -d $_repo ]; then
+        cd $_repo
+        msg2 "Updating the source tree..."
+        git pull > /dev/null 2>&1
+    else
+        git clone https://github.com/nicolasff/phpredis.git
+    fi
+
+    cd $srcdir/$_repo
+    msg2 "Building now..."
+    phpize
+    ./configure --enable-redis
+    make -j`nproc`
+}
+
+package()
+{
+    backup=('etc/php/conf.d/redis.ini')
+
+    cd $srcdir/$_repo
+    make INSTALL_ROOT=${pkgdir} install
+
+    # Install redis.ini
+    install -D -o root -g root -m644 ${srcdir}/redis.ini ${pkgdir}/etc/php/conf.d/redis.ini
+}
+
+# vim: set fdm=marker ff=unix sw=4 ts=4 et:
+
