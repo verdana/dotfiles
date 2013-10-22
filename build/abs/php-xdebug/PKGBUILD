@@ -13,7 +13,7 @@ depends=('git')
 makedepends=()
 
 source=('xdebug.ini')
-md5sums=('e441d0bbfed028eab246083d9ea5da57')
+md5sums=('e0d34d4bdff1291556af1f85b42a8f55')
 
 _repo="xdebug"
 
