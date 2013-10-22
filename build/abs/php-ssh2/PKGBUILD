@@ -13,7 +13,7 @@ depends=()
 makedepends=('libssh2')
 
 source=("ssh2-$pkgver.tgz::http://pecl.php.net/get/ssh2" "ssh2.ini")
-md5sums=('409b91678a842bb0ff56f2cf018b9160' '9c9c194959ed07dfdd5520e91df9df74')
+md5sums=('409b91678a842bb0ff56f2cf018b9160' 'ce3accad4cc25047371383369c49d168')
 
 build()
 {
