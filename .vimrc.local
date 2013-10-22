@@ -22,6 +22,8 @@ nmap <Leader>, "+p
 nmap <Leader>o "*p
 
 " 修正文件類型
+autocmd BufRead PKGBUILD            set ft=PKGBUILD
+
 autocmd BufRead php.ini             set ft=dosini
 autocmd BufRead php-fpm.conf        set ft=dosini
 autocmd BufRead php/conf.d/*.conf   set ft=dosini
