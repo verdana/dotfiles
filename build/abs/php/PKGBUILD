@@ -2,8 +2,8 @@
 # Maintainer: Verdana Mu <verdana.cn@gmail.com>
 
 pkgname=php5
-pkgver=20131019
-pkgrel=2
+pkgver=5.5.5
+pkgrel=1
 pkgdesc='PHP 5.5'
 arch=('i686' 'x86_64')
 url='http://snaps.php.net'

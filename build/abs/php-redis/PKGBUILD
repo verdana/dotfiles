@@ -1,7 +1,7 @@
 # $Id: $
 # Maintainer: Verdana Mu <verdana.cn@gmail.com>
 
-pkgname=php-redis
+pkgname=php5-redis
 pkgver=2.2.4
 pkgrel=1
 pkgdesc='The phpredis extension provides an API for communicating with the Redis'

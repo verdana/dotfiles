@@ -1,7 +1,7 @@
 # $Id: $
 # Maintainer: Verdana Mu <verdana.cn@gmail.com>
 
-pkgname=php-xdebug
+pkgname=php5-xdebug
 pkgver=2.2.2
 pkgrel=1
 pkgdesc='PHP bindings for the libssh2 library'
