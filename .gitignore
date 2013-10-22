@@ -1,8 +1,9 @@
 # Ignore these files or folders
 
-*.xz
-*.gz
 *.bz2
+*.gz
+*.tgz
+*.xz
 
 .config/htop
 .ssh
@@ -10,6 +11,4 @@
 
 build/**/pkg
 build/**/src
-build/xdebug
-build/phpredis
 
