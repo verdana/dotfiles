@@ -12,7 +12,9 @@ if [[ "`uname`" == 'Linux' ]]; then
     alias grep='grep --color=auto'
 fi
 
+alias box='$HOME/.bin/dropbox'
 alias ll='ls -lhA'
+alias mkdir='mkdir -pv'
 alias so='source'
 
 # Arch Linux
