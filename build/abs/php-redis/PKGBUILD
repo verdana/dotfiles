@@ -13,7 +13,7 @@ depends=('git')
 makedepends=()
 
 source=('redis.ini')
-md5sums=('d44f61621d070bf03c926af8545c3c5c')
+md5sums=('b558272662054725b5400f80cb596045')
 
 _repo='phpredis'
 
