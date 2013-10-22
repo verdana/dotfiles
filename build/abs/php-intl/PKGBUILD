@@ -13,7 +13,7 @@ depends=('icu')
 makedepends=()
 
 source=("intl-$pkgver.tgz::http://pecl.php.net/get/intl" "intl.ini")
-md5sums=('a6029b9e7b1d0fcdb6e8bfad49e59ae9' '57f3b08f1b7b840a845930c4142aefda')
+md5sums=('a6029b9e7b1d0fcdb6e8bfad49e59ae9' '47f8201d7446d8c5727d01f62735278a')
 
 build()
 {
