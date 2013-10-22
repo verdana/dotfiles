@@ -1,0 +1,51 @@
+# $Id: $
+# Maintainer: Verdana Mu <verdana.cn@gmail.com>
+
+pkgname=php-xdebug
+pkgver=2.2.2
+pkgrel=1
+pkgdesc='PHP bindings for the libssh2 library'
+arch=('i686' 'x86_64')
+url='http://xdebug.org'
+license=('PHP')
+
+depends=('git')
+makedepends=()
+
+source=('xdebug.ini')
+md5sums=('e441d0bbfed028eab246083d9ea5da57')
+
+_repo="xdebug"
+
+build()
+{
+    cd $srcdir
+    if [ -d $_repo ]; then
+        cd $_repo
+        msg2 "Updating the source tree..."
+        git pull > /dev/null 2>&1
+    else
+        # Clone and switch to php5.5 compat branch
+        git clone -b PHP-5.5alpha5-compat git://github.com/derickr/xdebug.git
+    fi
+
+    cd $srcdir/$_repo
+    msg2 "Building now..."
+    phpize
+    ./configure --enable-xdebug
+    make -j`nproc`
+}
+
+package()
+{
+    backup=('etc/php/conf.d/xdebug.ini')
+
+    cd $srcdir/$_repo
+    make INSTALL_ROOT=${pkgdir} install
+
+    # Install xdebug.ini
+    install -D -o root -g root -m644 ${srcdir}/xdebug.ini ${pkgdir}/etc/php/conf.d/xdebug.ini
+}
+
+# vim: set fdm=marker ff=unix sw=4 ts=4 et:
+
