@@ -16,6 +16,7 @@ alias box='$HOME/.bin/dropbox'
 alias ll='ls -lhA'
 alias mkdir='mkdir -pv'
 alias so='source'
+alias wget='wget --content-disposition'
 
 # Arch Linux
 grep "Arch" /etc/issue -i -q > /dev/null 2>&1
