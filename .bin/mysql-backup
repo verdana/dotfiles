@@ -47,5 +47,5 @@ done
 # 遍历备份目录，清理过期的文件
 find $backup_path -maxdepth 1 -type d -ctime +7 -exec rm -rf {} \;
 
-# vim: set ff=unix shiftwidth=4 tabstop=4 expandtab: -
+# vim: set fdm=marker ff=unix sw=4 ts=4 et:
 
