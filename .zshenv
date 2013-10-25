@@ -1,6 +1,13 @@
-# vim: set ff=unix shiftwidth=4 tabstop=4 expandtab:
 
 export EDITOR=vim
+
+# default TERM
+export TERM="xterm-256color"
+
+# Export to screen-256color if tmux is running
+if [[ -n $TMUX ]]; then
+    export TERM="screen-256color"
+fi
 
 # History
 export HISTFILE="$HOME/.history"
@@ -39,7 +46,7 @@ key[Right]=${terminfo[kcuf1]}
 key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
 
-# setup key accordingly
+# Setup key accordingly
 [[ -n "${key[Home]}"     ]]  && bindkey  "${key[Home]}"     beginning-of-line
 [[ -n "${key[End]}"      ]]  && bindkey  "${key[End]}"      end-of-line
 [[ -n "${key[Insert]}"   ]]  && bindkey  "${key[Insert]}"   overwrite-mode
@@ -63,3 +70,6 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-init
     zle -N zle-line-finish
 fi
+
+# vim: set fdm=marker ff=unix sw=4 ts=4 et:
+
