@@ -6,12 +6,11 @@
 #------------------------------
 if [[ "`uname`" == 'FreeBSD' ]]; then
     alias ls='ls -G'
-fi
-if [[ "`uname`" == 'Linux' ]]; then
+else
     alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
 fi
 
+alias grep='grep --color=auto'
 alias box='$HOME/.bin/dropbox'
 alias ll='ls -lhA'
 alias mkdir='mkdir -pv'
