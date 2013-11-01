@@ -30,8 +30,13 @@ path=(
   /usr/bin
   /usr/sbin
 )
+fpath=(
+    "$HOME/.zsh"
+    $fpath
+)
 export PATH
 typeset -U path
+
 
 # Key bindings
 typeset -A key

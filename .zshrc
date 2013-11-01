@@ -1,5 +1,8 @@
 # Created by newuser for 5.0
-# vim: set ff=unix shiftwidth=4 tabstop=4 expandtab:
+#
+# verdana.cn@gmail.com
+# https://github.com/verdana/dotfiles
+#
 
 #------------------------------
 # Alias
@@ -48,11 +51,8 @@ fi
 #------------------------------
 # Comp
 #------------------------------
-autoload -U compinit
-compinit -i
-
-autoload -U colors
-colors
+autoload -U compinit && compinit -i
+autoload -U colors   && colors
 
 # 改进补全风格
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
@@ -81,25 +81,28 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 #------------------------------
 # ZSH Prompt
 #------------------------------
-setopt PROMPT_SUBST     # 允许命令提示符中使用函数
+autoload -U promptinit && promptinit
+
+#setopt PROMPT_SUBST     # 允许命令提示符中使用函数
 
 # 当前工作目录
-function collapse_pwd {
-    echo $(pwd | sed -e "s,^$HOME,~,")
-}
+#function collapse_pwd {
+#    echo $(pwd | sed -e "s,^$HOME,~,")
+#}
 
 # 当前 GIT 仓库分支
-function git_prompt {
-    ref=$(git symbolic-ref HEAD | cut -d'/' -f3) 2>/dev/null
-    if [[ -n "$ref" ]]; then
-        echo "on %{$fg[cyan]%}$ref%{$reset_color%} "
-    fi
-}
+#function git_prompt {
+#    ref=$(git symbolic-ref HEAD | cut -d'/' -f3) 2>/dev/null
+#    if [[ -n "$ref" ]]; then
+#        echo "on %{$fg[cyan]%}$ref%{$reset_color%} "
+#    fi
+#}
 
-PROMPT='%{$fg[magenta]%}%n%{$reset_color%} '
-PROMPT+='at %{$fg[yellow]%}%m%{$reset_color%} '
-PROMPT+='in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%} '
-PROMPT+='$(git_prompt)'
+#PROMPT='%{$fg[magenta]%}%n%{$reset_color%} '
+#PROMPT+='at %{$fg[yellow]%}%m%{$reset_color%} '
+#PROMPT+='in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%} '
+#PROMPT+='$(git_prompt)'
+prompt pure
 
 #------------------------------
 # Dirstack
@@ -136,4 +139,6 @@ esac
 # Disable CTRL+S from sending XOFF
 stty ixany
 stty ixoff -ixon
+
+# vim: set fdm=marker ff=unix sw=4 ts=4 et:
 
