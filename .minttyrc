@@ -1,0 +1,30 @@
+BoldAsFont=no
+Charset=UTF-8
+CursorType=underscore
+Font=Envy Code R
+FontHeight=9
+FontSmoothing=full
+Locale=C
+Term=xterm-256color
+Transparency=off
+
+ForegroundColour    =    192, 192, 192
+BackgroundColour    =     45,  45,  45
+CursorColour        =    255, 128,  64
+
+Black               =     38,  39,  41
+BoldBlack           =     38,  39,  41
+Red                 =    248,  38, 112
+BoldRed             =    248,  38, 112
+Green               =    165, 226,  45
+BoldGreen           =    165, 226,  45
+Yellow              =    253, 150,  30
+BoldYellow          =    253, 150,  30
+Blue                =    102, 217, 239
+BoldBlue            =    102, 217, 239
+Magenta             =    157, 110, 254
+BoldMagenta         =    157, 110, 254
+Cyan                =     94, 113, 117
+BoldCyan            =     94, 113, 117
+White               =    248, 248, 242
+BoldWhite           =    248, 248, 242
