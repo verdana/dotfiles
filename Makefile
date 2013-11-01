@@ -4,19 +4,17 @@ SYMLINK =                                              \
     if test -e ~/$(file); then                         \
         echo "Warning: $(file) already exists";        \
     else                                               \
-        ln -s -r $(file) ~;                            \
+        ln -s `pwd`/$(file) ~;                         \
         echo "Install ~/$(file)";                      \
     fi;
 
 REMOVE_SYMLINK =                                       \
-    if test -e ~/$(file); then                         \
-        if test -h ~/$(file); then                     \
-            rm ~/$(file);                              \
-            echo "Remove ~/$(file)";                   \
-        else                                           \
-            echo "Warning: $(file) is not a symlink";  \
-        fi;                                            \
-    fi;
+    if test -h ~/$(file); then                         \
+        rm ~/$(file);                                  \
+        echo "Remove ~/$(file)";                       \
+    else                                               \
+        echo "Warning: $(file) is not a symlink";      \
+    fi;                                                \
 
 CANDIDATES = .bin .config .gitconfig .hgrc .mostrc     \
              .tmux.conf .vim .vimrc .vimrc.local       \
@@ -37,3 +35,4 @@ clean:
 	rm -rf ~/.zcompdump*
 	@$(foreach file, $(CANDIDATES), $(REMOVE_SYMLINK))
 	@echo "Done"
+
