@@ -1,8 +1,8 @@
 BoldAsFont=no
 Charset=UTF-8
 CursorType=underscore
-Font=Envy Code R
-FontHeight=9
+Font=ProFontWindows
+FontHeight=12
 FontSmoothing=full
 Locale=C
 Term=xterm-256color
