@@ -2,13 +2,14 @@
 # Maintainer: Verdana Mu <verdana.cn@gmail.com>
 
 pkgname=vim-lite
-pkgver=20131019
-pkgrel=2
+pkgver=20131111
+pkgrel=1
 pkgdesc="Vim Lite Version"
 arch=('i686' 'x86_64')
 url="https://code.google.com/p/vim"
 license=('GPL')
-depends=('mercurial' 'libsm' 'libx11' 'libxt')
+depends=('mercurial')
+makedepends=('libsm' 'libx11' 'libxt')
 _repo="vim7"
 
 build() {
