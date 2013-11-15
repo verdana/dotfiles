@@ -4,9 +4,9 @@
 pkgname=php5-intl
 pkgver=3.0.0
 pkgrel=1
-pkgdesc='PHP bindings for the libssh2 library'
+pkgdesc='The Internationalization extension exposes functionality of the ICU library to PHP.'
 arch=('i686' 'x86_64')
-url='http://pecl.php.net/package/ssh2'
+url='http://pecl.php.net/package/intl'
 license=('PHP')
 
 depends=('icu')
