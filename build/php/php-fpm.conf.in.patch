@@ -1,5 +1,5 @@
---- sapi/fpm/php-fpm.conf.in.old	2013-10-21 01:50:27.853693615 +0800
-+++ sapi/fpm/php-fpm.conf.in	2013-10-21 01:54:26.043684241 +0800
+--- sapi/fpm/php-fpm.conf.in.old	2013-11-15 13:58:33.580055233 +0800
++++ sapi/fpm/php-fpm.conf.in	2013-11-15 14:02:00.670058442 +0800
 @@ -22,14 +22,14 @@
  ; Pid file
  ; Note: the default prefix is @EXPANDED_LOCALSTATEDIR@
@@ -73,7 +73,7 @@
 +listen = /srv/http/run/php-fpm.sock
  
  ; Set listen(2) backlog.
- ; Default Value: 128 (-1 on FreeBSD and OpenBSD)
+ ; Default Value: 65535 (-1 on FreeBSD and OpenBSD)
 @@ -164,13 +165,13 @@
  
  ; Set permissions for unix socket, if one is used. In Linux, read/write

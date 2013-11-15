@@ -2,7 +2,7 @@
 # Maintainer: Verdana Mu <verdana.cn@gmail.com>
 
 pkgname=php5
-pkgver=5.5.5
+pkgver=5.5.6
 pkgrel=1
 pkgdesc='PHP 5.5'
 arch=('i686' 'x86_64')
@@ -13,16 +13,16 @@ makedepends=('freetype2' 'libjpeg' 'libmcrypt' 'libpng'
              'libvpx' 'libxml2' 'libxpm' 'libxslt'
              'net-snmp' 're2c' 'sqlite3' 'tidyhtml')
 
-source=('php-5.5.5.tar.bz2::http://cn2.php.net/get/php-5.5.5.tar.bz2/from/this/mirror'
+source=('php-5.5.6.tar.bz2::http://us2.php.net/get/php-5.5.6.tar.bz2/from/jp1.php.net/mirror'
         'php.ini-development.patch'
         'php-fpm.conf.in.patch'
         'php-fpm.service.in.patch'
         'php-fpm.socket')
 
-md5sums=('186c330c272d6322d254db9b2d18482a'
-         '4c0d74df54ed706b427b9626f753d6d9'
-         'e6cb58da785ec43b283b2839efe09ecd'
-         '7a498b3bfd449010e1b6b0bad9144349'
+md5sums=('1472b1f968a2a4ae8b26f3134a116011'
+         'eea8a9a8c10067de292b75f9cd5538b6'
+         '52a2ac00203c3597a5bd0640d3902222'
+         '60fbba3f654c19f02edb19891d01796c'
          'cebca26f604ca239cf8ef705323acab6')
 
 _phpsrc=''

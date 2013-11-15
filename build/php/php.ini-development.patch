@@ -1,5 +1,5 @@
---- php.ini-development.old	2013-10-21 09:28:50.358253282 +0800
-+++ php.ini-development	2013-10-21 09:35:05.001569978 +0800
+--- php.ini-development.old	2013-11-15 13:11:11.330011186 +0800
++++ php.ini-development	2013-11-15 13:50:09.140047415 +0800
 @@ -373,7 +373,7 @@
  ; threat in any way, but it makes it possible to determine whether you use PHP
  ; on your server or not.
@@ -32,7 +32,7 @@
  ; Directory in which the loadable extensions (modules) reside.
  ; http://php.net/extension-dir
 -; extension_dir = "./"
-+extension_dir = /usr/local/lib/php/modules
++extension_dir = "/usr/local/lib/php/modules"
  ; On windows:
  ; extension_dir = "ext"
  
@@ -50,7 +50,7 @@
  ; to use SCRIPT_FILENAME rather than PATH_TRANSLATED.
  ; http://php.net/cgi.fix-pathinfo
 -;cgi.fix_pathinfo=1
-+cgi.fix_pathinfo=0
++cgi.fix_pathinfo = 0
  
  ; FastCGI under IIS (on WINNT based OS) supports the ability to impersonate
  ; security tokens of the calling client.  This allows IIS to define the
@@ -97,7 +97,7 @@
  
  ; http://php.net/date.default-latitude
  ;date.default_latitude = 31.7667
-@@ -1007,23 +1007,23 @@
+@@ -1007,11 +1007,11 @@
  
  ; For Win32 only.
  ; http://php.net/sendmail-from
@@ -111,12 +111,7 @@
  
  ; Force the addition of the specified parameters to be passed as extra parameters
  ; to the sendmail binary. These parameters will always replace the value of
- ; the 5th parameter to mail(), even in safe mode.
--;mail.force_extra_parameters =
-+mail.force_extra_parameters =
- 
- ; Add X-PHP-Originating-Script: that will include uid of the script followed by the filename
- mail.add_x_header = On
+@@ -1023,7 +1023,7 @@
  
  ; The path to a log file that will log all mail() calls. Log entries include
  ; the full path of the script, line number, To address and headers.
@@ -186,12 +181,3 @@
  
  [MSSQL]
  ; Allow or prevent persistent links.
-@@ -1907,7 +1907,7 @@
- ;opcache.revalidate_path=0
- 
- ; If disabled, all PHPDoc comments are dropped from the code to reduce the
-- ;size of the optimized code.
-+; size of the optimized code.
- ;opcache.save_comments=1
- 
- ; If disabled, PHPDoc comments are not loaded from SHM, so "Doc Comments"
