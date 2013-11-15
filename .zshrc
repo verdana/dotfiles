@@ -23,9 +23,10 @@ alias wget='wget --content-disposition'
 # Arch Linux
 grep "Arch" /etc/issue -i -q > /dev/null 2>&1
 if [ $? = "0" ]; then
+    alias makepkg='makepkg -c'
     alias mnt='sudo mount | column -t'
-    alias poweroff='sudo poweroff'
-    alias reboot='sudo reboot'
+    alias poweroff='sudo poweroffi -f'
+    alias reboot='sudo reboot -f'
     alias sys='sudo systemctl'
     alias vims='sudo vim'
 
@@ -33,7 +34,6 @@ if [ $? = "0" ]; then
     alias jcb='sudo journalctl -b'
 
     alias php='php -n'
-    alias phpc='sapi/cli/php -n'
     alias comp='php composer.phar'
 
     # Pacman
