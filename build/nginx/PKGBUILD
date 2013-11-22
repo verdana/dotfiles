@@ -2,7 +2,7 @@
 # Maintainer: Verdana Mu <verdana.cn@gmail.com>
 
 pkgname=nginx
-pkgver=1.5.6
+pkgver=1.5.7
 pkgrel=1
 pkgdesc='Nginx Web Server'
 arch=('i686' 'x86_64')
