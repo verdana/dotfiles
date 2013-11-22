@@ -23,6 +23,7 @@ alias wget='wget --content-disposition'
 # Arch Linux
 grep "Arch" /etc/issue -i -q > /dev/null 2>&1
 if [ $? = "0" ]; then
+    alias iptables='sudo iptables'
     alias makepkg='makepkg -c'
     alias mnt='sudo mount | column -t'
     alias poweroff='sudo poweroff -f'
