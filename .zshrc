@@ -25,7 +25,7 @@ grep "Arch" /etc/issue -i -q > /dev/null 2>&1
 if [ $? = "0" ]; then
     alias makepkg='makepkg -c'
     alias mnt='sudo mount | column -t'
-    alias poweroff='sudo poweroffi -f'
+    alias poweroff='sudo poweroff -f'
     alias reboot='sudo reboot -f'
     alias sys='sudo systemctl'
     alias vims='sudo vim'
