@@ -20,6 +20,13 @@ alias mkdir='mkdir -pv'
 alias so='source'
 alias wget='wget --content-disposition'
 
+# Gentoo
+uname -r | grep "gentoo" > /dev/null
+if [ $? = "0" ]; then
+    # emerge
+    alias em="sudo emerge"
+fi
+
 # Arch Linux
 grep "Arch" /etc/issue -i -q > /dev/null 2>&1
 if [ $? = "0" ]; then
