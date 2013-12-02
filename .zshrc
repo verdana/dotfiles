@@ -13,11 +13,19 @@ else
     alias ls='ls --color=auto'
 fi
 
-alias grep='grep --color=auto'
 alias box='$HOME/.bin/dropbox'
+alias grep='grep --color=auto'
+alias iptables='sudo iptables'
 alias ll='ls -lhA'
+alias makepkg='makepkg -c'
 alias mkdir='mkdir -pv'
+alias mnt='sudo mount | column -t'
+alias php='php -n'
+alias poweroff='sudo poweroff -f'
+alias reboot='sudo reboot -f'
 alias so='source'
+alias sys='sudo systemctl'
+alias vims='sudo vim'
 alias wget='wget --content-disposition'
 
 # Gentoo
@@ -30,19 +38,8 @@ fi
 # Arch Linux
 grep "Arch" /etc/issue -i -q > /dev/null 2>&1
 if [ $? = "0" ]; then
-    alias iptables='sudo iptables'
-    alias makepkg='makepkg -c'
-    alias mnt='sudo mount | column -t'
-    alias poweroff='sudo poweroff -f'
-    alias reboot='sudo reboot -f'
-    alias sys='sudo systemctl'
-    alias vims='sudo vim'
-
     alias jc='sudo journalctl'
     alias jcb='sudo journalctl -b'
-
-    alias php='php -n'
-    alias comp='php composer.phar'
 
     # Pacman
     alias pacupg='sudo pacman -Syu'             # Synchronize with repositories before upgrading packages that are out of date on the local system.
