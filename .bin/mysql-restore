@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # 备份目录
-backdir='/mnt/usb/mysql/2013-10-17.09'
+backdir='/home/verdana/mysql/2013-12-05.16'
 
 # 链接帐号
 mysql_user="root"

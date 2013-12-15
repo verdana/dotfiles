@@ -32,9 +32,11 @@ alias wget='wget --content-disposition'
 uname -r | grep "gentoo" > /dev/null
 if [ $? = "0" ]; then
     # Poatage
-    alias em="sudo emerge"
-    alias eu="sudo etc-update"
     alias dc="sudo dispatch-conf"
+    alias em="sudo emerge"
+    alias es="sudo eix-sync"
+    alias eu="sudo etc-update"
+    alias rr="sudo revdep-rebuild"
 fi
 
 # Arch Linux
