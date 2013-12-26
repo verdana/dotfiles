@@ -2,7 +2,7 @@
 
 NOW="$(date +%Y%m%d)"
 TAR=`which tar`
-DIRS="/srv/http/etc/nginx /srv/http/www"
+DIRS="$HOME/public"
 DEST="$HOME/Dropbox/web"
 
 [ ! -d $DEST/$NOW ] && mkdir -p $DEST/$NOW

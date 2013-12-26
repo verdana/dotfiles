@@ -21,10 +21,9 @@ alias makepkg='makepkg -c'
 alias mkdir='mkdir -pv'
 alias mnt='sudo mount | column -t'
 alias php='php -n'
-alias poweroff='sudo poweroff -f'
-alias reboot='sudo reboot -f'
+#alias poweroff='sudo poweroff -f'
+#alias reboot='sudo reboot -f'
 alias so='source'
-alias sys='sudo systemctl'
 alias vims='sudo vim'
 alias wget='wget --content-disposition'
 
@@ -44,6 +43,7 @@ grep "Arch" /etc/issue -i -q > /dev/null 2>&1
 if [ $? = "0" ]; then
     alias jc='sudo journalctl'
     alias jcb='sudo journalctl -b'
+    alias sys='sudo systemctl'
 
     # Pacman
     alias pacupg='sudo pacman -Syu'             # Synchronize with repositories before upgrading packages that are out of date on the local system.
