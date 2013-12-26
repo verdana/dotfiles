@@ -30,3 +30,5 @@
     tool      = vimdiff
 [url "git@github.com:verdana/"]
     insteadof = verdana@gh/
+[push]
+	default = simple
