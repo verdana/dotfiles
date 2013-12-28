@@ -103,9 +103,7 @@ set matchtime=5                         " 光标跳过去后，每秒闪烁的�
 
 nmap <Leader>bd  :bd<CR>
 nmap <Leader>e   :e! $MYVIMRC<CR>
-nmap <Leader>q   :q!<CR>
 nmap <Leader>w   :w!<CR>
-nmap <Leader>x   :qa!<CR>
 
 nmap <RIGHT>          :bnext<CR>
 nmap <LEFT>           :bprevious<CR>
