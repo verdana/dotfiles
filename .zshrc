@@ -34,8 +34,8 @@ if [ $? = "0" ]; then
     alias dc="sudo dispatch-conf"
     alias em="sudo emerge"
     alias es="sudo eix-sync"
-    alias eu="sudo etc-update"
     alias rr="sudo revdep-rebuild"
+    alias se="sudo eselect"
 fi
 
 # Arch Linux
