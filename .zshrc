@@ -17,15 +17,15 @@ alias box='$HOME/.bin/dropbox'
 alias grep='grep --color=auto'
 alias iptables='sudo iptables'
 alias ll='ls -lhA'
-alias makepkg='makepkg -c'
 alias mkdir='mkdir -pv'
 alias mnt='sudo mount | column -t'
 alias php='php -n'
-#alias poweroff='sudo poweroff -f'
-#alias reboot='sudo reboot -f'
+alias poweroff='sudo poweroff -f'
+alias reboot='sudo reboot -f'
 alias so='source'
 alias vims='sudo vim'
 alias wget='wget --content-disposition'
+alias wow='git status'
 
 # Gentoo
 uname -r | grep "gentoo" > /dev/null
