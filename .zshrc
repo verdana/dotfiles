@@ -11,6 +11,7 @@ if [[ "`uname`" == 'FreeBSD' ]]; then
     alias ls='ls -G'
 else
     alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
 fi
 
 alias box='$HOME/.bin/dropbox'

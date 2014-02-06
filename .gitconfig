@@ -8,19 +8,21 @@
 [alias]
     br   = branch
     ci   = commit
-    cii  = commit --interactive
     cia  = commit --amend
+    cii  = commit --interactive
     co   = checkout
     desc = describe --always --contains --all
+    last = log -l HEAD
     me   = merge
     one  = log --oneline --graph --decorate
     rs   = remote show
     rso  = remote show origin
-    st   = status
-    ss   = stash save
-    sp   = stash pop
-    sd   = stash drop
     sc   = stash clear
+    sd   = stash drop
+    sp   = stash pop
+    ss   = stash save
+    st   = status
+    un   = reset HEAD --
 [color]
     ui = true
 [man]

@@ -164,6 +164,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Bundles
+Bundle 'Emmet.vim'
 Bundle 'benmills/vimux'
 Bundle 'evidens/vim-twig'
 Bundle 'godlygeek/tabular'

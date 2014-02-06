@@ -3,7 +3,7 @@
 NOW="$(date +%Y%m%d)"
 TAR=`which tar`
 DIRS="$HOME/public"
-DEST="$HOME/Dropbox/web"
+DEST="/mnt/google/Web"
 
 [ ! -d $DEST/$NOW ] && mkdir -p $DEST/$NOW
 
