@@ -37,6 +37,7 @@ if [ $? = "0" ]; then
     alias es="sudo eix-sync"
     alias rr="sudo revdep-rebuild"
     alias se="sudo eselect"
+    alias update-portage="sudo emerge --oneshot portage"
 fi
 
 # Arch Linux
