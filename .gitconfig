@@ -34,3 +34,6 @@
     insteadof = verdana@gh/
 [push]
 	default = simple
+[filter "dater"]
+	smudge = git-expand-date
+	clean = perl -pe \"s/\\\\\\$Date[^\\\\\\$]*\\\\\\$/\\\\\\$Date\\\\\\$/\"
