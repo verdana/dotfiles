@@ -29,11 +29,4 @@
     viewer = eman
 [diff]
     submodule = log
-    tool      = vimdiff
-[url "git@github.com:verdana/"]
-    insteadof = verdana@gh/
-[push]
-	default = simple
-[filter "dater"]
-	smudge = ~/.bin/git-expand-date
-	clean = perl -pe \"s/\\\\\\$Date[^\\\\\\$]*\\\\\\$/\\\\\\$Date\\\\\\$/\"
+    tool = vimdiff
