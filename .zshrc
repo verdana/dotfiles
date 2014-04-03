@@ -93,6 +93,9 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 # ZSH Prompt
 #------------------------------
 autoload -U promptinit && promptinit
+prompt pure
+
+PURE_GIT_PULL=0 # 禁止检查 git 仓库目录是否有更新
 
 #setopt PROMPT_SUBST     # 允许命令提示符中使用函数
 
@@ -113,7 +116,6 @@ autoload -U promptinit && promptinit
 #PROMPT+='at %{$fg[yellow]%}%m%{$reset_color%} '
 #PROMPT+='in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%} '
 #PROMPT+='$(git_prompt)'
-prompt pure
 
 #------------------------------
 # Dirstack
