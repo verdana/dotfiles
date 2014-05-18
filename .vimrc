@@ -165,6 +165,7 @@ Bundle 'gmarik/vundle'
 
 " Bundles
 Bundle 'Emmet.vim'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'benmills/vimux'
 Bundle 'evidens/vim-twig'
 Bundle 'godlygeek/tabular'
