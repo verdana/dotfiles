@@ -20,7 +20,7 @@ autocmd ColorScheme * hi User3 ctermbg=black        ctermfg=white  guibg=black  
 autocmd ColorScheme * hi User4 ctermbg=darkcyan     ctermfg=white  guibg=darkcyan     guifg=white
 autocmd ColorScheme * hi User5 ctermbg=darkmagenta  ctermfg=white  guibg=darkmagenta  guifg=white
 
-func! GetMode()
+function! GetMode()
     let m = mode()
     if m == "n"
         return "NORMAL"
@@ -39,37 +39,42 @@ func! GetMode()
     endif
 endfunc
 
-" 获取模式名称
-set statusline=%1*
-set statusline+=\ %{GetMode()}
+function! s:UpdateStatusline()
+    " 获取模式名称
+    set statusline=%1*
+    set statusline+=\ %{GetMode()}
 
-" 文件状态（只读，修改.. 等等）
-set statusline+=\ %2*
-set statusline+=\ %w%h%m%r
+    " 文件状态（只读，修改.. 等等）
+    set statusline+=\ %2*
+    set statusline+=\ %w%h%m%r
 
-" 文件路径
-set statusline+=\ %<%F
+    " 文件路径
+    set statusline+=\ %<%F
 
-" 文件格式和类型
-set statusline+=\ %3*
-set statusline+=%=\ [%{&ff}%{(&ft=='')?'':'-'.&ft}]
+    " 文件格式和类型
+    set statusline+=\ %3*
+    set statusline+=%=\ [%{&ff}%{(&ft=='')?'':'-'.&ft}]
 
-" 文件编码
-set statusline+=%=\ [%{(&fenc=='')?&enc:&fenc}%{(&bomb?'\ \ BOM':'')}]
+    " 文件编码
+    set statusline+=%=\ [%{(&fenc=='')?&enc:&fenc}%{(&bomb?'\ \ BOM':'')}]
 
-" Right aligned ASCII / Hexadecimal value of char
-set statusline+=%=\ [A=\%03.3b\ H=\%02.2B]
+    " Right aligned ASCII / Hexadecimal value of char
+    set statusline+=%=\ [A=\%03.3b\ H=\%02.2B]
 
-" Percentage through file in lines
-set statusline+=\ %4*
-set statusline+=%=\ %p%%
+    " Percentage through file in lines
+    set statusline+=\ %4*
+    set statusline+=%=\ %p%%
 
-" 光标位置
-set statusline+=\ %5*
-set statusline+=%=\ %-12.(%l,%c%V%)
+    " 光标位置
+    set statusline+=\ %5*
+    set statusline+=%=\ %-12.(%l,%c%V%)
+endfunc
+
+call <SID>UpdateStatusline()
 
 " 重设 colorscheme 使颜色生效
-exec 'colorscheme ' . g:colors_name
+set background=dark
+exec 'colorscheme solarized'
 
 " vim: set ff=unix shiftwidth=4 tabstop=4 expandtab:
 

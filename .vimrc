@@ -111,51 +111,10 @@ nmap <Leader><Leader> :bnext<CR>
 noremap <Leader>cd    :cd %:p:h<CR>:pwd<CR>
 " }}}
 
-" {{{ => Term/CmdLine/Status 設定
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" TERM
-if ! has("gui_running")
-    " 让终端机继承 Vim 的标题
-    set title
-
-    " 设定终端编码
-    " 如果是中文Win32 CMD，则是GBK
-    if has('win32')
-        set termencoding=gbk
-    else
-        set termencoding=utf-8
-    endif
-
-    " 终端颜色数
-    set t_Co=256
-    if has("mac")
-        " Snow Leopard 的默認終端不支持256色
-        set t_Co=16
-    endif
-
-    " 终端默认主题
-    colorscheme lucius
-    LuciusDarkLowContrast
-endif
-
-" CommandLine
-if has('cmdline_info')
-    set ruler                                           " 显示光标位置
-    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)  " a ruler on steroids
-    set showcmd                                         " 右下角显示命令
-endif
-
-" StatusLine
-if has('statusline')
-    set laststatus=2
-endif
-" }}}
-
-" {{{ => 插件
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Vundle
+" {{{ => Vundle
+" vundle 应当尽可能早的载入
+" 否则某些插件的设定可能失效
+" 比如 solarized scheme
 " ----------------------------
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
@@ -180,9 +139,57 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'bufexplorer.zip'
 Bundle 'c.vim'
 Bundle 'nginx.vim'
+" }}}
+
+" {{{ => Term/CmdLine/Status 設定
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax on
 filetype plugin indent on
+
+" 终端
+if ! has("gui_running")
+    " 让终端机继承 Vim 的标题
+    set title
+
+    " 设定终端编码
+    " 如果是中文Win32 CMD，则是GBK
+    if has('win32')
+        set termencoding=gbk
+    else
+        set termencoding=utf-8
+    endif
+
+    " 终端颜色数
+    set t_Co=256
+    if has("mac")
+        " Snow Leopard 的默認終端不支持256色
+        set t_Co=16
+    endif
+
+endif
+
+" 设定颜色主题
+let g:solarized_termtrans=0
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
+
+" 命令行
+if has('cmdline_info')
+    set ruler                                           " 显示光标位置
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)  " a ruler on steroids
+    set showcmd                                         " 右下角显示命令
+endif
+
+" 状态栏
+if has('statusline')
+    set laststatus=2
+endif
+" }}}
+
+" {{{ => 插件
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " CoffeeScript
 " ----------------------------
