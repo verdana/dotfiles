@@ -1,0 +1,63 @@
+#!/usr/bin/php
+<?php
+// 本地版本
+$localVersion = '';
+
+// 设定 phpMyAdmin 的安装目录
+$pmaInstallDir = '/home/verdana/public/pma.phpvim.me';
+
+// 检测本地已安装的 phpMyAdmin 版本
+$file = $pmaInstallDir . '/libraries/Config.class.php';
+if (file_exists($file)) {
+    $content      = file_get_contents($file);
+
+    preg_match("/\(\'PMA_VERSION\', *\'([^)]*)\'\)/", $content, $matches);
+    if (isset($matches[1]) and strlen($matches[1])) {
+        $localVersion = trim($matches[1]);
+    }
+}
+
+// 檢查最新版本的 phpMyAdmin
+$file     = 'http://www.phpmyadmin.net/home_page/version.json';
+$context  = [ 'http' => [ 'request_fulluri' => true, 'timeout' => 30 ] ];
+$response = file_get_contents($file, false, stream_context_create($context));
+$data     = json_decode($response);
+
+// 如果返回的 Json 數據有效
+if (is_object($data) and strlen($data->version) and strlen($data->date)) {
+    if (version_compare($localVersion, $data->version) != 0) {
+        echo 'New version is: ' . $data->version . "\n";
+
+        // 下載新版本
+        $url = "http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/%s/phpMyAdmin-%s-all-languages.zip/download";
+        $url = sprintf($url, $data->version, $data->version);
+
+        // 使用 CURL 下載
+        echo "Begin to download...";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        $zipfile = $data->version . ".zip";
+        file_put_contents($zipfile, $response);
+        echo "done.\n";
+
+        // 開始解壓縮
+        $zip = new ZipArchive;
+        if ($handler = $zip->open($zipfile)) {
+            $zip->extractTo('.');
+            $zip->close();
+            echo "Extract complete.";
+        }
+
+        // 開始安裝
+        $dir = "phpMyAdmin-{$data->version}-all-languages";
+    }
+}
+
+/*- vim: set fdm=marker ff=unix sw=4 ts=4 et: -*/
+
