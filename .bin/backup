@@ -2,7 +2,7 @@
 
 NOW="$(date +%Y%m%d)"
 TAR=`which tar`
-DIRS="$HOME/public"
+DIRS="$HOME/public $HOME/html"
 DEST="/mnt/google/Web"
 
 [ ! -d $DEST/$NOW ] && mkdir -p $DEST/$NOW
