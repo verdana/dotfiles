@@ -54,6 +54,7 @@ if [ $? = "0" ]; then
     alias es="sudo eix-sync"
     alias rr="sudo revdep-rebuild"
     alias se="sudo eselect"
+    alias upgrub="sudo grub2-mkconfig -o /boot/grub/grub.cfg"
 fi
 
 #------------------------------
