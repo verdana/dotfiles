@@ -3,6 +3,7 @@
 # 备份目录
 backup_path="/mnt/google/MySQL"
 timedir="$(date +%F.%H)"
+excludes="information_schema performance_schema mysql phpmyadmin"
 
 # 链接帐号
 mysql_user="root"
@@ -32,15 +33,21 @@ echo "Backup path: ${backup_path}/$timedir"
 databases=`echo 'show databases' | mysql --user=${mysql_user} --password=${mysql_pass} -B | sed /^Database$/d`
 
 # 备份并压缩每个数据库
-for DB in $databases
+for dbname in $databases
 do
-    if [ "${DB}" == "information_schema" ] || [ "${DB}" == "performance_schema" ] || [ "${DB}" == "mysql" ]; then
-        continue
-    fi
+    # if [ "${dbname}" == "information_schema" ] || [ "${dbname}" == "performance_schema" ] || [ "${dbname}" == "mysql" ]; then
+    #    continue
+    #fi
+    for ex in $excludes
+    do
+        if [ "${dbname}" == "${ex}" ]; then
+            continue 2
+        fi
+    done
 
-    file="${backup_path}/$timedir/${DB}.gz"
-    echo -n "Creating backup of \"${DB}\" database..."
-    mysqldump --user=${mysql_user} --password=${mysql_pass} --routines ${DB} | gzip -9 > "$file"
+    file="${backup_path}/$timedir/${dbname}.gz"
+    echo -n "Creating backup of \"${dbname}\" database..."
+    mysqldump --user=${mysql_user} --password=${mysql_pass} --routines ${dbname} | gzip -9 > "$file"
     echo "done"
 done
 

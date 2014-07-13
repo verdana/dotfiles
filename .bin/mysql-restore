@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # 备份目录
-backdir='/home/verdana/mysql/2013-12-05.16'
+backdir='/mnt/google/MySQL/2014-07-12.11'
 
 # 链接帐号
 mysql_user="root"
