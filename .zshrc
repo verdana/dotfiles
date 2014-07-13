@@ -21,24 +21,10 @@ alias ll='ls -lhA'
 alias mkdir='mkdir -pv'
 alias mnt='sudo mount | column -t'
 alias php='php -n'
-#alias poweroff='sudo poweroff -f'
-#alias reboot='sudo reboot -f'
 alias so='source'
 alias vims='sudo vim'
 alias wget='wget --content-disposition'
 alias wow='git status'
-
-# Gentoo
-uname -r | grep "gentoo" > /dev/null
-if [ $? = "0" ]; then
-    # Poatage
-    alias dc="sudo dispatch-conf"
-    alias em="sudo emerge"
-    alias es="sudo eix-sync"
-    alias rr="sudo revdep-rebuild"
-    alias se="sudo eselect"
-    alias update-portage="sudo emerge --oneshot portage"
-fi
 
 # Arch Linux
 grep "Arch" /etc/issue -i -q > /dev/null 2>&1
@@ -57,6 +43,17 @@ if [ $? = "0" ]; then
     alias pacupd='sudo pacman -Sy && sudo abs'  # Update and refresh the local package and ABS databases against repositories
     alias pacinsd='sudo pacman -S --asdeps'     # Install given package(s) as dependencies of another package
     alias pacmir='sudo pacman -Syy'             # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
+fi
+
+# Gentoo
+uname -r | grep "gentoo" > /dev/null
+if [ $? = "0" ]; then
+    # Poatage
+    alias dc="sudo dispatch-conf"
+    alias em="sudo emerge --ask"
+    alias es="sudo eix-sync"
+    alias rr="sudo revdep-rebuild"
+    alias se="sudo eselect"
 fi
 
 #------------------------------
