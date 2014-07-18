@@ -10,11 +10,13 @@
     ci   = commit
     cia  = commit --amend
     cii  = commit --interactive
+    cim  = commit -a -m
     co   = checkout
     desc = describe --always --contains --all
     last = log -l HEAD
     me   = merge
     one  = log --oneline --graph --decorate
+    pa   = push --all
     rs   = remote show
     rso  = remote show origin
     sc   = stash clear
@@ -29,4 +31,4 @@
     viewer = eman
 [diff]
     submodule = log
-    tool = vimdiff
+    tool      = vimdiff
