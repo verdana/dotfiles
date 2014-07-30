@@ -1,8 +1,8 @@
 BoldAsFont=no
 Charset=UTF-8
 CursorType=underscore
-Font=ProFontWindows
-FontHeight=12
+Font=Source Code Pro
+FontHeight=10
 FontSmoothing=full
 Locale=C
 Term=xterm-256color
