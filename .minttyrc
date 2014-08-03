@@ -1,8 +1,8 @@
 BoldAsFont=no
 Charset=UTF-8
 CursorType=underscore
-Font=Source Code Pro
-FontHeight=10
+Font=Droid Sans Mono
+FontHeight=8
 FontSmoothing=full
 Locale=C
 Term=xterm-256color
