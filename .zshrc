@@ -47,7 +47,7 @@ fi
 uname -r | grep "gentoo" > /dev/null
 if [ $? = "0" ]; then
     # Poatage
-    alias dc="sudo dispatch-conf"
+    alias eu="sudo etc-update"
     alias em="sudo emerge --ask"
     alias es="sudo eix-sync"
     alias rr="sudo revdep-rebuild"
