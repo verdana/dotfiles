@@ -14,7 +14,6 @@ if (file_exists($file)) {
     preg_match("/\(\'PMA_VERSION\', *\'([^)]*)\'\)/", $content, $matches);
     if (isset($matches[1]) and strlen($matches[1])) {
         $localVersion = trim($matches[1]);
-        echo "Installed version is: $localVersion\n";
     }
 }
 
@@ -73,28 +72,55 @@ if (is_object($data) and strlen($data->version) and strlen($data->date)) {
         curl_exec($ch);
         curl_close($ch);
 
-        // 下载完成
-        echo "\n    Download complete.\n";
-
         //$zipfile = $data->version . ".zip";
         //file_put_contents($zipfile, $response);
         //echo "done.\n";
 
         // 開始解壓縮
+        $dir = "";
+        echo "\n    Extracting " . cli_color($filename, 'brown') . '...';
         $zip = new ZipArchive;
         if (true === $zip->open($filename)) {
+            $dir = dirname($zip->getNameIndex(1));
             $zip->extractTo('.');
             $zip->close();
-            echo "    Extract complete.\n";
+            echo "done.\n";
+        } else {
+            exit("failed.\n");
         }
 
-        // 開始安裝
-        $dir = "phpMyAdmin-{$data->version}-all-languages";
-
-        // 备份原目录的配置文件
-        foreach (glob("*.*") as $filename) {
-            print($filename) . PHP_EOL;
+        // 解压成功后，当前目录应该存在目录
+        if (empty($dir) or !is_dir($dir)) {
+            exit("Can not find the phpMyAdmin directory extracting from package.\n");
         }
+
+        // 安装新的文件
+        $iter = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
+        $iter->rewind();
+        while ($iter->valid()) {
+            if (!$iter->isDot()) {
+                // 检查目标目录是否存在，否则创建
+                $filepath = $pmaInstallDir . '/' . $iter->getSubPath();
+                if (!is_dir($filepath)) {
+                    @mkdir($filepath, 0755, true);
+                }
+
+                // 移动文件过去
+                $oldfile = $dir . "/" . $iter->getSubPathName();
+                $newfile = $pmaInstallDir . '/' . $iter->getSubPathName();
+                @rename($oldfile, $newfile);
+            }
+            $iter->next();
+        }
+
+        // 清理删除
+        // @rmdir($dir);
+        `rm -rf $dir`;
+        @unlink($filename);
+        print "    Install complete.\n";
+    }
+    else {
+        print cli_color(sprintf('You have the latest version (%s).', $data->version), 'green');
     }
 }
 
