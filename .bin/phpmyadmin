@@ -14,50 +14,134 @@ if (file_exists($file)) {
     preg_match("/\(\'PMA_VERSION\', *\'([^)]*)\'\)/", $content, $matches);
     if (isset($matches[1]) and strlen($matches[1])) {
         $localVersion = trim($matches[1]);
+        echo "Installed version is: $localVersion\n";
     }
 }
 
 // 檢查最新版本的 phpMyAdmin
 $file     = 'http://www.phpmyadmin.net/home_page/version.json';
 $context  = [ 'http' => [ 'request_fulluri' => true, 'timeout' => 30 ] ];
-$response = file_get_contents($file, false, stream_context_create($context));
+$response = @file_get_contents($file, false, stream_context_create($context));
+if (false === $response) {
+    exit('Connection lost, please retry...');
+}
 $data     = json_decode($response);
 
 // 如果返回的 Json 數據有效
 if (is_object($data) and strlen($data->version) and strlen($data->date)) {
     if (version_compare($localVersion, $data->version) != 0) {
-        echo 'New version is: ' . $data->version . "\n";
+        echo "Update to version: " . cli_color($data->version, 'green') . "\n";
 
         // 下載新版本
-        $url = "http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/%s/phpMyAdmin-%s-all-languages.zip/download";
+        //$url = "http://mirrors.aliyun.com/gentoo/distfiles/nginx-syntax-0.3.2.tar.bz2";
+        $url = "http://downloads.sourceforge.net/project/phpmyadmin/phpMyAdmin/%s/phpMyAdmin-%s-all-languages.zip";
         $url = sprintf($url, $data->version, $data->version);
+        $filename = basename($url);
 
         // 使用 CURL 下載
-        echo "Begin to download...";
+        echo '    Downloading: '. cli_color('connecting...', 'brown');
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        $response = curl_exec($ch);
+        curl_setopt($ch, CURLOPT_FILE, fopen($filename, 'w'));
+
+        // 下载进度
+        curl_setopt($ch, CURLOPT_NOPROGRESS, false);
+        curl_setopt($ch, CURLOPT_PROGRESSFUNCTION, function($res, $total, $download) {
+            if ($download <= 0) return;
+
+            // 删除状态文字 "connecting..."
+            static $removeConnection = 0;
+            if (!$removeConnection) {
+                backspace(13);
+                $removeConnection = 1;
+            }
+
+            // 显示进度百分比
+            static $len = 0;
+            backspace($len);
+
+            $percent = sprintf("%s/%s - %s%%", $download, $total, round($download * 100 / $total));
+            $len = strlen($percent);
+            print cli_color($percent, 'brown');
+
+            // sleep
+            usleep(400000);
+        });
+
+        curl_exec($ch);
         curl_close($ch);
 
-        $zipfile = $data->version . ".zip";
-        file_put_contents($zipfile, $response);
-        echo "done.\n";
+        // 下载完成
+        echo "\n    Download complete.\n";
+
+        //$zipfile = $data->version . ".zip";
+        //file_put_contents($zipfile, $response);
+        //echo "done.\n";
 
         // 開始解壓縮
         $zip = new ZipArchive;
-        if ($handler = $zip->open($zipfile)) {
+        if (true === $zip->open($filename)) {
             $zip->extractTo('.');
             $zip->close();
-            echo "Extract complete.";
+            echo "    Extract complete.\n";
         }
 
         // 開始安裝
         $dir = "phpMyAdmin-{$data->version}-all-languages";
+
+        // 备份原目录的配置文件
+        foreach (glob("*.*") as $filename) {
+            print($filename) . PHP_EOL;
+        }
     }
 }
+
+// public backspace($multiplier) {{{
+/**
+ * 按下回退键删除字符
+ *
+ * @param mixed $multiplier
+ * @access public
+ * @return void
+ */
+function backspace($multiplier)
+{
+    if ($multiplier <= 0) return;
+    print str_repeat("\x08", $multiplier);
+}
+// }}}
+
+// public cli_color(msg,color) {{{
+/**
+ * 为文本着色
+ *
+ * @param mixed $msg
+ * @param mixed $color
+ * @access public
+ * @return void
+ */
+function cli_color($msg, $color)
+{
+    $colors = [
+        'black'        => '0;30', 'dark_gray'    => '1;30',
+        'blue'         => '0;34', 'light_blue'   => '1;34',
+        'green'        => '0;32', 'light_green'  => '1;32',
+        'cyan'         => '0;36', 'light_cyan'   => '1;36',
+        'red'          => '0;31', 'light_red'    => '1;31',
+        'purple'       => '0;35', 'light_purple' => '1;35',
+        'brown'        => '0;33', 'yellow'       => '1;33',
+        'light_gray'   => '0;37', 'white'        => '1;37',
+    ];
+
+    $color = strtolower($color);
+    if (isset($colors[$color])) {
+        $msg = "\033[" . $colors[$color] . "m" . $msg . "\033[0m";
+    }
+    return $msg;
+}
+// }}}
 
 /*- vim: set fdm=marker ff=unix sw=4 ts=4 et: -*/
 
