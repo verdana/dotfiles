@@ -20,7 +20,7 @@ alias ll='ls -lhA'
 alias mkdir='mkdir -pv'
 alias mnt='sudo mount | column -t'
 alias php='php -n'
-alias vis='sudo vim'
+alias vi='sudo vim'
 alias wget='wget --content-disposition'
 alias wow='git status'
 
@@ -48,11 +48,20 @@ uname -r | grep "gentoo" > /dev/null
 if [ $? = "0" ]; then
     # Poatage
     alias eu="sudo etc-update"
-    alias em="sudo emerge --ask"
     alias es="sudo eix-sync"
+    alias em="sudo emerge --ask"
+
+    # Rebuilding your entire system
+    alias em-update="sudo emerge -uDNav @world"
+
+    # Remove package
+    alias em-remove="sudo emerge --unmerge"
+
+    # Removing obsoleted packages
+    alias em-clean="sudo emerge --depclean"
+
+    # Running revdep-rebuild
     alias rr="sudo revdep-rebuild"
-    alias se="sudo eselect"
-    alias upgrub="sudo grub2-mkconfig -o /boot/grub/grub.cfg"
 fi
 
 #------------------------------
