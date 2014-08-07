@@ -100,7 +100,7 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 autoload -U promptinit && promptinit
 prompt pure
 
-PURE_GIT_PULL=0 # 禁止检查 git 仓库目录是否有更新
+#PURE_GIT_PULL=0 # 禁止检查 git 仓库目录是否有更新
 
 #setopt PROMPT_SUBST     # 允许命令提示符中使用函数
 
