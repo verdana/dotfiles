@@ -1,4 +1,3 @@
-
 [user]
     name  = Verdana Mu
     email = verdana.cn@gmail.com
@@ -12,6 +11,7 @@
     cii  = commit --interactive
     cim  = commit -a -m
     co   = checkout
+    cob  = checkout -b
     desc = describe --always --contains --all
     last = log -l HEAD
     me   = merge
