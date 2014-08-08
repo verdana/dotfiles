@@ -1,3 +1,4 @@
+
 [user]
     name  = Verdana Mu
     email = verdana.cn@gmail.com
@@ -32,3 +33,4 @@
 [diff]
     submodule = log
     tool      = vimdiff
+
