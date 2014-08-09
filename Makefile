@@ -22,7 +22,6 @@ CANDIDATES = .bin .config .gitconfig .hgrc .mostrc     \
 
 all:
 	@$(foreach file, $(CANDIDATES), $(SYMLINK))
-	mkdir ~/.cache
 	@echo "Done"
 
 clean:
