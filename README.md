@@ -1,6 +1,6 @@
 ## Dotfiles
 
-我的 Arch Linux 配置文件。
+我的 Gentoo Linux 配置文件。
 大部分时候，这些配置文件也适用于其它 Linux 系统以及 BSD/Mac/Cygwin 等环境。
 
 ## Install
