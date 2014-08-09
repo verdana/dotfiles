@@ -1,7 +1,4 @@
 
-" 添加分號在行尾
-autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
-
 " 行尾空格
 function! <SID>StripTrailingWhitespaces()
     let line = line(".")
@@ -21,19 +18,11 @@ set pastetoggle=<F2>
 nmap <Leader>, "+p
 nmap <Leader>o "*p
 
+" 添加分號在行尾
+autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
+
 " 刷新语法高亮
 autocmd BufEnter * :syntax sync fromstart
-
-" 修正文件類型
-autocmd BufRead PKGBUILD            set ft=PKGBUILD
-
-autocmd BufRead php.ini             set ft=dosini
-autocmd BufRead php-fpm.conf        set ft=dosini
-autocmd BufRead php/conf.d/*.conf   set ft=dosini
-autocmd BufRead */view/*.html       set ft=php
-
-autocmd BufRead nginx.conf              set ft=nginx
-autocmd BufRead */nginx/conf.d/*.conf   set ft=nginx
 
 " Abbreviations
 iab xdatetime   <C-R>=strftime("%A %b %d, %Y %H:%M")<CR>
