@@ -3,7 +3,6 @@
     name  = Verdana Mu
     email = verdana.cn@gmail.com
 [core]
-    #autocrlf = true
     editor = vim
 [alias]
     br   = branch
