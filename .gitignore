@@ -1,14 +1,15 @@
-# Ignore these files or folders
 
+# 忽略以下的文件或者目录
 *.bz2
 *.gz
 *.tgz
 *.xz
 
-.config/htop
-.ssh
-.vim/bundle
+.config/htop/
+.ssh/
+.vim/bundle/
+.zsh/data/
 
-build/**/pkg
-build/**/src
+build/**/pkg/
+build/**/src/
 

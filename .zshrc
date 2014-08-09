@@ -19,6 +19,7 @@ dotfiles=(
     "exports"
     "completion"
     "aliases"
+    "bindkeys"
     "platform"
     "history"
     "prompt"

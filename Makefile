@@ -18,7 +18,7 @@ REMOVE_SYMLINK =                                       \
 
 CANDIDATES = .bin .config .gitconfig .hgrc .mostrc     \
              .tmux.conf .vim .vimrc .vimrc.local       \
-             .zsh .zshenv .zshrc build
+             .zsh .zshrc build
 
 all:
 	@$(foreach file, $(CANDIDATES), $(SYMLINK))
