@@ -1,14 +1,20 @@
 
+# 设定 zsh 选项
 for option (
-              autocd
+    autocd
+    autopushd
     extended_history
-      append_history #
-       share_history # 在 SHELL 间共享历史记录
-    hist_ignore_dups # 防止历史记录出现连续重复的条目
-             correct # 拼写检查建议
+    append_history      #
+    share_history       # 在 SHELL 间共享历史记录
+    hist_ignore_dups    # 防止历史记录出现连续重复的条目
+    correct             # 拼写检查建议
+    pushdsilent
+    pushdtohome
+    pushdignoredups
+    pushdminus
 ) setopt $option
 
-
+# 设定标题
 case $TERM in
 xterm*|rxvt*)
      precmd() { print -Pn "\e]0; [%n@%M] %~\a" }
