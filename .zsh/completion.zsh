@@ -1,7 +1,7 @@
 
 # 初始化高级自动补全
 autoload -Uz compinit
-compinit
+compinit -u
 
 # 启用自动完成菜单
 zstyle ':completion:*'  menu yes select
