@@ -12,7 +12,16 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 
 # 启用缓存
 zstyle ':completion::complete:*' use-cache  1
-zstyle ':completion::complete:*' cache-path $zsh/data/completion.cache
+zstyle ':completion::complete:*' cache-path $zsh/data/.completion
+
+# 默认颜色
+zstyle ':completion:*' list-colors ''
+
+# List prompt 更加友好
+zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
+
+# 斩杀菜单添加简单的颜色
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 
 # 分组与信息
 zstyle ':completion:*'  group-name ''
