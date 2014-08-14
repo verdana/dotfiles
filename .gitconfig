@@ -21,6 +21,7 @@
     rso  = remote show origin
     sc   = stash clear
     sd   = stash drop
+    sl   = stash list
     sp   = stash pop
     ss   = stash save
     st   = status
