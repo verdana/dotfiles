@@ -7,7 +7,6 @@
 
 .config/htop/
 .ssh/
-.vim/bundle/
 .zsh/data/
 
 build/**/pkg/
