@@ -12,3 +12,19 @@
 build/**/pkg/
 build/**/src/
 
+.vim/bundle/Emmet.vim/
+.vim/bundle/bufexplorer.zip/
+.vim/bundle/c.vim/
+.vim/bundle/ctrlp.vim/
+.vim/bundle/nerdtree/
+.vim/bundle/nginx.vim/
+.vim/bundle/snipmate.vim/
+.vim/bundle/tabular/
+.vim/bundle/vim-coffee-script/
+.vim/bundle/vim-colors-solarized/
+.vim/bundle/vim-javascript/
+.vim/bundle/vim-less/
+.vim/bundle/vim-twig/
+.vim/bundle/vimux/
+.vim/bundle/vundle/
+
