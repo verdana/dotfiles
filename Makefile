@@ -16,9 +16,8 @@ REMOVE_SYMLINK =                                       \
         echo "Warning: $(file) is not a symlink";      \
     fi;                                                \
 
-CANDIDATES = .bin .eixrc .gitconfig .mostrc            \
-             .tmux.conf .vim .vimrc .vimrc.local       \
-             .zsh .zshrc build
+CANDIDATES = .bin .eixrc .gitconfig .vim .vimrc        \
+             .vimrc.local .zsh .zshrc
 
 all:
 	@$(foreach file, $(CANDIDATES), $(SYMLINK))
@@ -26,10 +25,15 @@ all:
 
 clean:
 	rm -rf ~/.cache
+	rm -rf ~/.composer
+	rm -rf ~/.config
 	rm -rf ~/.history
 	rm -rf ~/.lesshst
+	rm -rf ~/.pip
+	rm -rf ~/.sqlite_history
 	rm -rf ~/.viminfo
-	rm -rf ~/.zcompdump*
+	rm -rf ~/.zcompdump
+
 	@$(foreach file, $(CANDIDATES), $(REMOVE_SYMLINK))
 	@echo "Done"
 
