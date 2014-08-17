@@ -35,19 +35,5 @@ zstyle ':completion:*:warnings' format $'\e[01;31m -- No matches found --\e[0m'
 # 目录堆菜单
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 
-# 快速目录切换
-DIRSTACKSIZE=20
-DIRSTACKFILE=$zsh/data/.dirstack
-
-if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]
-then
-    dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
-    [[ -d $dirstack[1] ]] && cd $dirstack[1]
-fi
-
-chpwd() {
-    print -l $PWD ${(u)dirstack} > $DIRSTACKFILE
-}
-
 # vim: set fdm=marker ff=unix sw=4 ts=4 et:
 
