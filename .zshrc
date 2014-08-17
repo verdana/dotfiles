@@ -3,7 +3,7 @@
 # verdana.cn@gmail.com
 # https://github.com/verdana/dotfiles
 #
-# Update: Friday Aug 08, 2014 23:09
+# Update: Sunday Aug 17, 2014 15:49
 #
 
 # zsh 目录

@@ -1,7 +1,0 @@
-#!/bin/zsh
-
-if [ -n "$__EXECUTED_GIT_COMMAND" ]; then
-    update_current
-    unset __EXECUTED_GIT_COMMAND
-fi
-

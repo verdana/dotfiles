@@ -1,4 +1,5 @@
 
+# 设定 Prompt 样式
 autoload -U promptinit && promptinit
 prompt pure
 
