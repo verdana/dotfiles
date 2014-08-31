@@ -100,10 +100,12 @@ set matchtime=5                         " 光标跳过去后，每秒闪烁的�
 
 " {{{ => 快捷鍵
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 nmap <Leader>bd  :bd<CR>
 nmap <Leader>e   :e! $MYVIMRC<CR>
 nmap <Leader>w   :w!<CR>
+nmap <Leader>r   :e!<CR>
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
 
 nmap <RIGHT>          :bnext<CR>
 nmap <LEFT>           :bprevious<CR>
