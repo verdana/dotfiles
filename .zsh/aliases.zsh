@@ -25,7 +25,7 @@ if [ $? = '0' ]; then
     alias em-clean='sudo emerge --depclean'
 
     # Running revdep-rebuild
-    alias rr='sudo revdep-rebuild'
+    alias rr='sudo revdep-rebuild -p'
 fi
 
 # vim: set fdm=marker ff=unix sw=4 ts=4 et:
