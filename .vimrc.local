@@ -18,6 +18,9 @@ set pastetoggle=<F2>
 nmap <Leader>, "+p
 nmap <Leader>o "*p
 
+" 行号
+nmap <C-N><C-N> :set invnumber<CR>
+
 " 添加分號在行尾
 autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
 
