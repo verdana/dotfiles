@@ -7,6 +7,9 @@ alias tree='tree -Ca -I ".git|*.swp|*.egg-info"'
 alias wget='wget --content-disposition'
 alias wow='git status'
 
+# HHVM
+alias composer="hhvm -v Http.DefaultTimeout=3600 -v ResourceLimit.SocketDefaultTimeout=3600 -v Http.SlowQueryThreshold=600000 -v Eval.Jit=false /usr/local/bin/composer"
+
 # Gentoo
 uname -r | grep 'gentoo' > /dev/null
 if [ $? = '0' ]; then
