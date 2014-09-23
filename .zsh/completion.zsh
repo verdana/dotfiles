@@ -4,8 +4,8 @@ autoload -Uz compinit
 compinit -u
 
 # 启用自动完成菜单
-zstyle ':completion:*'  menu yes select
-zstyle ':completion:*'  force-list always
+zstyle ':completion:*' menu yes   select
+zstyle ':completion:*' force-list always
 
 # 忽略大小写
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
@@ -24,13 +24,13 @@ zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 
 # 分组与信息
-zstyle ':completion:*'  group-name ''
-zstyle ':completion:*:matches' group 'yes'
-zstyle ':completion:*:options' description 'yes'
-zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*'              group-name ''
+zstyle ':completion:*:matches'      group 'yes'
+zstyle ':completion:*:options'      description 'yes'
+zstyle ':completion:*:options'      auto-description '%d'
 zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
-zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
-zstyle ':completion:*:warnings' format $'\e[01;31m -- No matches found --\e[0m'
+zstyle ':completion:*:messages'     format $'\e[01;35m -- %d --\e[0m'
+zstyle ':completion:*:warnings'     format $'\e[01;31m -- No matches found --\e[0m'
 
 # 目录堆菜单
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
