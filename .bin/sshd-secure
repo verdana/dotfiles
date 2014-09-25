@@ -1,8 +1,7 @@
 #!/bin/sh
 
 # 扫描的日志文件
-#secure="/var/log/secure"
-secure="secure"
+secure="/var/log/secure"
 
 # 如果文件不存在则返回
 if [[ ! -f $secure ]]; then
