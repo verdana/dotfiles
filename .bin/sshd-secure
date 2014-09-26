@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# 扫描的日志文件
+secure="/var/log/secure"
+
+# 如果文件不存在则返回
+if [[ ! -f $secure ]]; then
+    return
+fi
+
+# 分析日志文件
+# 得到扫描机器人的 IP 地址以及扫描次数
+SCANNERS=`cat $secure | grep "Failed password" | awk '{ print $(NF-3)}' | sort -n | uniq -c | awk '{ print $2"="$1}'`
+
+for i in $SCANNERS
+do
+     ip=`echo $i|awk -F= '{print $1}'`
+    num=`echo $i|awk -F= '{print $2}'`
+
+    if [ "$num" -gt 5 ]
+    then
+        grep $ip /etc/hosts.deny > /dev/null
+        if [ $? -gt 0 ]
+        then
+            echo "sshd:$ip" >> /etc/hosts.deny
+        fi
+    fi
+done
+
+# vim: set fdm=marker ff=unix sw=4 ts=4 et:
+
