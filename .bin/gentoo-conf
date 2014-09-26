@@ -16,6 +16,7 @@ FILES=(
     '/etc/portage/make.conf'
     '/etc/portage/package*'
     '/etc/samba/smb.conf'
+    "/home/verdana/.ssh/config"
 )
 
 # 回到根目录
@@ -23,6 +24,10 @@ cd /
 
 # 备份档案的文件名
 archive="conf`date +%m%d.tar`"
+
+# 删除已存在的文件
+[ -f "$archive" ] && rm -f $archive
+[ -f "${archive}.bz2" ] && rm -f "${archive}.bz2"
 
 # 遍历所有的文件或目录
 # 写入压缩包
@@ -34,7 +39,7 @@ done
 bzip2 -z9 $archive
 
 if [ -d "$BACKDIR" ]; then
-    mv $archive $BACKDIR
+    mv "${archive}.bz2" $BACKDIR
 fi
 
 # vim: set fdm=marker ff=unix sw=4 ts=4 et:
