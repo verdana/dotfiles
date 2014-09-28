@@ -1,9 +1,27 @@
 
-# 设定 Prompt 样式
+# 设定 Prompt
 autoload -U promptinit && promptinit
-prompt pure
 
-PURE_GIT_PULL=1 # 禁止检查 git 仓库目录是否有更新
+# The max execution time of a process
+# before its run time is shown
+# when it exits.
+# Defaults to 5 seconds.
+PURE_CMD_MAX_EXEC_TIME=10
+
+# Set PURE_GIT_PULL=0 to prevent Pure
+# from checking whether the current
+# Git remote has been updated.
+PURE_GIT_PULL=1
+
+# Set PURE_GIT_UNTRACKED_DIRTY=0 to
+# not include untracked files in
+# dirtiness check.
+# Only really useful on extremely h
+# uge repos like the WebKit repo.
+PURE_GIT_UNTRACKED_DIRTY=1
+
+# Apply it
+prompt pure
 
 # vim: set fdm=marker ff=unix sw=4 ts=4 et:
 
