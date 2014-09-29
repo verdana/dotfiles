@@ -1,4 +1,7 @@
 #!/bin/sh
+# 生成的压缩包有问题，暂时禁用
+echo 'This script does not work correctly'
+exit
 
 BACKDIR="/mnt/dropbox/Linux/Gentoo"
 
