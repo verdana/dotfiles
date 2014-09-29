@@ -23,7 +23,7 @@ FILES=(
 cd /
 
 # 备份档案的文件名
-archive="conf`date +%m%d.tar`"
+archive="`hostname`-`date +%m%d.tar`"
 
 # 删除已存在的文件
 [ -f "$archive" ] && rm -f $archive
@@ -32,7 +32,7 @@ archive="conf`date +%m%d.tar`"
 # 遍历所有的文件或目录
 # 写入压缩包
 for file in "${FILES[@]#?}"; do
-    tar -rvpPf $archive $file
+    tar -rvpPf $archive $file > /dev/null
 done
 
 # 压缩备份档案，复制到备份目录
@@ -40,6 +40,7 @@ bzip2 -z9 $archive
 
 if [ -d "$BACKDIR" ]; then
     mv "${archive}.bz2" $BACKDIR
+    echo "$archive.bz2 write into $BACKDIR succesfully."
 fi
 
 # vim: set fdm=marker ff=unix sw=4 ts=4 et:
