@@ -17,6 +17,8 @@
     me   = merge
     one  = log --oneline --graph --decorate
     pa   = push --all
+    rb   = rebase
+    rbi  = rebase -i
     rs   = remote show
     rso  = remote show origin
     sc   = stash clear
@@ -33,10 +35,10 @@
     local   = green bold
     remote  = cyan bold
 [color "diff"]
-    meta       = yellow bold
     frag       = magenta bold
-    old        = red bold
+    meta       = yellow bold
     new        = green bold
+    old        = red bold
     whitespace = red reverse
 [color "status"]
     added     = green bold
