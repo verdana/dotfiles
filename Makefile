@@ -4,7 +4,7 @@ SYMLINK =                                              \
     if test -e ~/$(file); then                         \
         echo "Warning: $(file) already exists";        \
     else                                               \
-        ln -s `pwd`/$(file) ~;                         \
+        /bin/ln -s `pwd`/$(file) ~;                    \
         echo "Install ~/$(file)";                      \
     fi;
 
