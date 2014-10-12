@@ -2,7 +2,7 @@
 
 # 检查 git 命令是否存在
 command -v git > /dev/null 2>&1 \
-    || { echo "I require foo but it's not installed.  Aborting." >&2; exit 1; }
+    || { echo "Require git but it's not installed. Aborting." >&2; exit 1; }
 
 # 检查 $HOME/.vim 目录是否存在
 [ ! -d "$HOME/.vim" ] \
