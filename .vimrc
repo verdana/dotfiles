@@ -125,7 +125,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Bundles
-Bundle 'Emmet.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'benmills/vimux'
 Bundle 'evidens/vim-twig'
@@ -138,6 +137,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdtree'
 
 " vim-scripts repos
+Bundle 'Emmet.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'c.vim'
 Bundle 'nginx.vim'
@@ -172,10 +172,10 @@ if ! has("gui_running")
 endif
 
 " 设定颜色主题
-let g:solarized_termtrans=0
-let g:solarized_termcolors=256
 set background=dark
 try
+    let g:solarized_termtrans=0
+    let g:solarized_termcolors=256
     colorscheme solarized
 catch
     colorscheme desert
