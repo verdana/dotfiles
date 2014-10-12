@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# 检查 git 命令是否存在
+command -v git > /dev/null 2>&1 \
+    || { echo "I require foo but it's not installed.  Aborting." >&2; exit 1; }
+
+# 检查 $HOME/.vim 目录是否存在
+[ ! -d "$HOME/.vim" ] \
+    && { echo "$HOME/.vim directory not found. Aborting." >&2; exit 1; }
+
+# 首先检查是否安装了 vundle
+if [ ! -f "$HOME/.vim/bundle/vundle/.git/HEAD" ]; then
+    cd $HOME/.vim/bundle
+    git clone https://github.com/gmarik/vundle.git
+
+    # 运行 :BundleInstall 命令
+    vim +BundleInstall +qall
+else
+    cd $HOME/.vim/bundle/vundle
+    git pull
+
+    # 运行 :BundleUpdate 命令
+    vim +BundleUpdate +qall
+fi
+
+# vim: set fdm=marker ff=unix sw=4 ts=4 et:
+
