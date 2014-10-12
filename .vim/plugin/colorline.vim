@@ -74,7 +74,7 @@ call <SID>UpdateStatusline()
 
 " 重设 colorscheme 使颜色生效
 set background=dark
-exec 'colorscheme solarized'
+try | colorscheme solarized | catch | colorscheme desert | endtry
 
 " vim: set ff=unix shiftwidth=4 tabstop=4 expandtab:
 

@@ -175,7 +175,11 @@ endif
 let g:solarized_termtrans=0
 let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
+try
+    colorscheme solarized
+catch
+    colorscheme desert
+endtry
 
 " 命令行
 if has('cmdline_info')
