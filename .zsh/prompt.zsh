@@ -11,7 +11,7 @@ PURE_CMD_MAX_EXEC_TIME=10
 # Set PURE_GIT_PULL=0 to prevent Pure
 # from checking whether the current
 # Git remote has been updated.
-PURE_GIT_PULL=1
+PURE_GIT_PULL=0
 
 # Set PURE_GIT_UNTRACKED_DIRTY=0 to
 # not include untracked files in
