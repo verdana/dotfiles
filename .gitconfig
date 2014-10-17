@@ -19,6 +19,8 @@
     pa   = push --all
     rb   = rebase
     rbi  = rebase -i
+    rb5  = rebase -i HEAD~5
+    rb10 = rebase -i HEAD~10
     rs   = remote show
     rso  = remote show origin
     sc   = stash clear
