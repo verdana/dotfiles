@@ -2,8 +2,10 @@
 [user]
     name  = Verdana Mu
     email = verdana.cn@gmail.com
+
 [core]
     editor = vim
+
 [alias]
     br   = branch
     ci   = commit
@@ -30,23 +32,31 @@
     ss   = stash save
     st   = status
     un   = reset HEAD --
+
 [color]
     ui   = auto
+
 [color "branch"]
     current = yellow bold
     local   = green bold
     remote  = cyan bold
+
 [color "diff"]
     frag       = magenta bold
     meta       = yellow bold
     new        = green bold
     old        = red bold
     whitespace = red reverse
+
 [color "status"]
     added     = green bold
     changed   = yellow bold
     untracked = red bold
+
 [diff]
     submodule = log
     tool      = vimdiff
+
+[push]
+	default = simple
 
