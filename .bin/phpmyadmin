@@ -11,7 +11,7 @@ $pmaInstallDir = '/home/verdana/public/pma.phpvim.me';
 // 检测本地已安装的 phpMyAdmin 版本
 $file = $pmaInstallDir . '/libraries/Config.class.php';
 if (file_exists($file)) {
-    $content      = file_get_contents($file);
+    $content = file_get_contents($file);
 
     preg_match("/\(\'PMA_VERSION\', *\'([^)]*)\'\)/", $content, $matches);
     if (isset($matches[1]) and strlen($matches[1])) {
@@ -26,7 +26,7 @@ $response = @file_get_contents($file, false, stream_context_create($context));
 if (false === $response) {
     exit('Connection lost, please retry...');
 }
-$data     = json_decode($response);
+$data = json_decode($response);
 
 // 如果返回的 Json 數據有效
 if (is_object($data) and strlen($data->version) and strlen($data->date)) {
@@ -34,7 +34,6 @@ if (is_object($data) and strlen($data->version) and strlen($data->date)) {
         echo "Update to version: " . cli_color($data->version, 'green') . "\n";
 
         // 下載新版本
-        //$url = "http://mirrors.aliyun.com/gentoo/distfiles/nginx-syntax-0.3.2.tar.bz2";
         $url = "http://downloads.sourceforge.net/project/phpmyadmin/phpMyAdmin/%s/phpMyAdmin-%s-all-languages.zip";
         $url = sprintf($url, $data->version, $data->version);
         $filename = basename($url);
@@ -68,15 +67,11 @@ if (is_object($data) and strlen($data->version) and strlen($data->date)) {
             print cli_color($percent, 'brown');
 
             // sleep
-            usleep(400000);
+            usleep(500000);
         });
 
         curl_exec($ch);
         curl_close($ch);
-
-        //$zipfile = $data->version . ".zip";
-        //file_put_contents($zipfile, $response);
-        //echo "done.\n";
 
         // 開始解壓縮
         $dir = "";
