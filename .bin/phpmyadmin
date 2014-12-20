@@ -34,7 +34,6 @@ if (is_object($data) and strlen($data->version) and strlen($data->date)) {
         echo "Update to version: " . cli_color($data->version, 'green') . "\n";
 
         // 下載新版本
-        //$url = "http://mirrors.aliyun.com/gentoo/distfiles/nginx-syntax-0.3.2.tar.bz2";
         $url = "http://downloads.sourceforge.net/project/phpmyadmin/phpMyAdmin/%s/phpMyAdmin-%s-all-languages.zip";
         $url = sprintf($url, $data->version, $data->version);
         $filename = basename($url);
