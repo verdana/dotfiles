@@ -93,10 +93,10 @@ let g:pdv_cfg_CommentEnd = "// }" . "}" . "}"
 " Default values
 let g:pdv_cfg_Type = "mixed"
 let g:pdv_cfg_Package = ""
-let g:pdv_cfg_Version = "$id$"
+"let g:pdv_cfg_Version = "$id$"
 let g:pdv_cfg_Author = "Verdana Mu <verdana.cn@gmail.com>"
 let g:pdv_cfg_Copyright = ""
-let g:pdv_cfg_License = "PHP Version 5.5 {@link http://www.php.net/license/}"
+let g:pdv_cfg_License = "PHP Version 5.6 {@link http://www.php.net/license/}"
 
 let g:pdv_cfg_ReturnVal = "void"
 
