@@ -6,12 +6,12 @@ Charset          = UTF-8
 Columns          = 120
 CursorBlinks     = yes
 CursorType       = Underscore
-Font             = Droid Sans Mono for Powerline
+Font             = Fira Mono for Powerline
 FontHeight       = 12
 FontIsBold       = no
 FontSmoothing    = default
 Locale           = en_US
-Rows             = 45
+Rows             = 35
 Term             = xterm-256color
 Transparency     = low
 
