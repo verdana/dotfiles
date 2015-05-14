@@ -18,5 +18,7 @@ export CLASSPATH="${CLASSPATH}:$HOME/.classes"
 fpath=( "$HOME/.zsh" $fpath)
 export FPATH
 
+export LC_COLLATE="C"
+
 # vim: set fdm=marker ff=unix sw=4 ts=4 et:
 
