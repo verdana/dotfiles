@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# 备份现有的 pure.zsh
-[ -f "pure.zsh" ] && ( mv pure.zsh pure.zsh.bak )
+for file in async.zsh pure.zsh
+do
+    [ -f $file ] && ( mv $file ${file}.bak )
 
-# 下载 pure.zsh
-wget -q https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh
+    wget -q https://raw.githubusercontent.com/sindresorhus/pure/master/$file
+done
 
-# 修改 Prompt 中空格的位置
-sed -i "s/❯%f /❯ %f/" pure.zsh
+# vim: set fdm=marker ff=unix sw=4 ts=4 et: #
 
