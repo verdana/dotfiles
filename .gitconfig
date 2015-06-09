@@ -1,6 +1,6 @@
 
 [user]
-    name  = Verdana Mu
+    name  = Verdana
     email = verdana.cn@gmail.com
 
 [core]
@@ -18,7 +18,7 @@
     desc = describe --always --contains --all
     last = log -l HEAD
     me   = merge
-    one  = log --oneline --graph --decorate
+    one  = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     pa   = push --all
     rb   = rebase
     rbi  = rebase -i
