@@ -1,7 +1,4 @@
 
-# Darwin
-#alias ls='ls -G'
-#alias ll='ls -lhA'
 
 # coreutils
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
@@ -21,6 +18,9 @@ alias grep='grep --color=auto'
 
 # PHP7.0
 export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+
+# Github Token for Homebrew
+export HOMEBREW_GITHUB_API_TOKEN="16c82ba83b7807c9689811cfb6b9141e8c40f7bf"
 
 # CCache
 export USE_CCACHE=1
