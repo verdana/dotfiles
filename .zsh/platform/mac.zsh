@@ -15,9 +15,6 @@ alias ll='gls --color=auto -lhA'
 alias dir='gdir --color=auto'
 alias grep='grep --color=auto'
 
-# Github Token for Homebrew
-export HOMEBREW_GITHUB_API_TOKEN=d47caed38f14f736c9501f5094aeb32152e4b736
-
 # CCache
 export USE_CCACHE=1
 export NDK_CCACHE=/usr/local/bin/ccache
