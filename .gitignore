@@ -28,3 +28,5 @@ build/**/src/
 .vim/bundle/vimux/
 .vim/bundle/vundle/
 
+
+.vim/.netrwhist

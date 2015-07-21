@@ -1,37 +1,35 @@
 
 
 # coreutils
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
 # gnu-tar
-PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+export PATH=/usr/local/opt/gnu-tar/libexec/gnubin:$PATH
 
 # gnu-sed
-PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
+export PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
 
+# Alias
 alias ls='gls --color=auto'
 alias ll='gls --color=auto -lhA'
 alias dir='gdir --color=auto'
 alias grep='grep --color=auto'
 
-# PHP7.0
-export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
-
 # Github Token for Homebrew
-export HOMEBREW_GITHUB_API_TOKEN="16c82ba83b7807c9689811cfb6b9141e8c40f7bf"
+export HOMEBREW_GITHUB_API_TOKEN=d47caed38f14f736c9501f5094aeb32152e4b736
 
 # CCache
 export USE_CCACHE=1
 export NDK_CCACHE=/usr/local/bin/ccache
+
+# PHP5.6
+export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 
 # Android NDK
 export ANDROID_NDK=/usr/local/opt/android-ndk
 
 # Android SDK
 export ANDROID_SDK=/usr/local/opt/android-sdk
-
 
 # Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
 export COCOS_CONSOLE_ROOT=$HOME/youybs-client/cocos2d/tools/cocos2d-console/bin
