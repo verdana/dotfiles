@@ -9,18 +9,15 @@ export PATH=/usr/local/opt/gnu-tar/libexec/gnubin:$PATH
 # gnu-sed
 export PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
 
-# Alias
-alias ls='gls --color=auto'
-alias ll='gls --color=auto -lhA'
-alias dir='gdir --color=auto'
-alias grep='grep --color=auto'
-
 # CCache
 export USE_CCACHE=1
 export NDK_CCACHE=/usr/local/bin/ccache
 
 # PHP5.6
 export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+
+# GO1.2
+export PATH=/usr/local/opt/go/libexec/bin:$PATH
 
 # Android NDK
 export ANDROID_NDK=/usr/local/opt/android-ndk
@@ -44,4 +41,10 @@ export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
 # Add environment variable ANT_ROOT for cocos2d-x
 export ANT_ROOT=/usr/local/opt/ant/libexec/bin
 export PATH=$ANT_ROOT:$PATH
+
+# Alias
+alias ls='gls --color=auto'
+alias ll='gls --color=auto -lhA'
+alias dir='gdir --color=auto'
+alias grep='grep --color=auto'
 
