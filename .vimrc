@@ -124,7 +124,7 @@ call vundle#rc()
 " Let Vundle manage Vundle, required!
 Bundle 'gmarik/vundle'
 
-" Bundles
+" Bundles from github
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'benmills/vimux'
 Bundle 'evidens/vim-twig'
@@ -135,6 +135,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdtree'
+Bundle 'ekalinin/Dockerfile.vim'
 
 " vim-scripts repos
 Bundle 'Emmet.vim'
