@@ -16,14 +16,14 @@ export NDK_CCACHE=/usr/local/bin/ccache
 # PHP5.6
 export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 
-# GO1.2
-export PATH=/usr/local/opt/go/libexec/bin:$PATH
+# GO
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # Android NDK
 export ANDROID_NDK=/usr/local/opt/android-ndk
-
 # Android SDK
 export ANDROID_SDK=/usr/local/opt/android-sdk
+export ANDROID_HOME=/usr/local/opt/android-sdk
 
 # Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
 export COCOS_CONSOLE_ROOT=$HOME/youybs-client/cocos2d/tools/cocos2d-console/bin
