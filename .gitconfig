@@ -58,6 +58,9 @@
     submodule = log
     tool      = vimdiff
 
+[pull]
+	rebase = true
+
 [push]
 	default = simple
 
