@@ -23,6 +23,9 @@ dotfiles=(
     "platform"
     "history"
     "prompt"
+
+    # 第三方插件
+    "zsh-syntax-highlighting"
 )
 for file in $dotfiles; do
     file="$zsh/$file.zsh"
