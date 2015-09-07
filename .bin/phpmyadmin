@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!/usr/local/bin/php
 <?php
 set_time_limit(0);
 
@@ -6,7 +6,7 @@ set_time_limit(0);
 $localVersion = '';
 
 // 设定 phpMyAdmin 的安装目录
-$pmaInstallDir = '/home/verdana/public/pma.phpvim.me';
+$pmaInstallDir = '/Users/Verdana/Web/pma.phpvim.me';
 
 // 检测本地已安装的 phpMyAdmin 版本
 $file = $pmaInstallDir . '/libraries/Config.class.php';
