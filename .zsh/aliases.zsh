@@ -1,11 +1,10 @@
-
 # Misc
 alias grep='grep --color=auto'
 alias mkdir='mkdir -pv'
 alias mnt='sudo mount | column -t'
 alias tree='tree -Ca -I ".git|*.swp|*.egg-info"'
 alias wget='wget --content-disposition'
-alias wow='git status'
+alias wow='git ss && git pull && git sp'
 
 # Gentoo
 uname -r | grep 'gentoo' > /dev/null
