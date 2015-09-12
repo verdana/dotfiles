@@ -3,6 +3,8 @@
 case $( uname -s ) in
     CYGWIN*)
         source $zsh/platform/cygwin.zsh ;;
+    MSYS*)
+        source $zsh/platform/msys.zsh ;;
     Darwin)
         source $zsh/platform/mac.zsh ;;
     FreeBSD)

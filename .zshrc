@@ -1,9 +1,8 @@
-# Created by newuser for 5.0
 #
 # verdana.cn@gmail.com
 # https://github.com/verdana/dotfiles
 #
-# Update: Sunday Aug 17, 2014 15:49
+# Update: Saturday Sep 12, 2015 10:44
 #
 
 # zsh 目录
