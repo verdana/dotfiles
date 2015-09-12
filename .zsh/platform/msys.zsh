@@ -5,5 +5,5 @@ alias l='ls -lhA'
 alias ll='ls -lhA'
 
 # Windows Symlinks
-export MSYS="winsymlinks:lnk"
+# export MSYS="winsymlinks:lnk"
 
