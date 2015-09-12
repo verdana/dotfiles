@@ -2,10 +2,12 @@
 
 for file in async.zsh pure.zsh
 do
-    [ -f $file ] && ( mv $file ${file}.bak )
-
-    wget -q https://raw.githubusercontent.com/sindresorhus/pure/master/$file
+    echo $file
+    wget https://raw.githubusercontent.com/sindresorhus/pure/master/$file
 done
+
+mv async.zsh async
+mv pure.zsh  prompt_pure_setup
 
 # vim: set fdm=marker ff=unix sw=4 ts=4 et: #
 
