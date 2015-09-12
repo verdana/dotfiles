@@ -11,7 +11,7 @@ PURE_CMD_MAX_EXEC_TIME=5
 # Set PURE_GIT_PULL=0 to prevent Pure
 # from checking whether the current
 # Git remote has been updated.
-PURE_GIT_PULL=0
+PURE_GIT_PULL=1
 
 # Set PURE_GIT_UNTRACKED_DIRTY=0 to
 # not include untracked files in
@@ -21,7 +21,7 @@ PURE_GIT_PULL=0
 PURE_GIT_UNTRACKED_DIRTY=0
 
 # Defines the prompt symbol.
-# PURE_PROMPT_SYMBOL=$'\xe2\x99\xaa'
+PURE_PROMPT_SYMBOL=$'\xe2\x9c\x94 '
 
 # Apply it
 prompt pure
