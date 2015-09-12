@@ -16,7 +16,7 @@ REMOVE_SYMLINK =                                       \
         echo "Warning: $(file) is not a symlink";      \
     fi;                                                \
 
-CANDIDATES = .bin .eixrc .gitconfig .vim .vimrc        \
+CANDIDATES = .bin .gitconfig .vim .vimrc               \
              .vimrc.local .zsh .zshrc
 
 all:
