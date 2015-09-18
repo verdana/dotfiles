@@ -1,4 +1,4 @@
-AllowBlinking    = no
+AllowBlinking    = yes
 BackspaceSendsBS = yes
 BoldAsColour     = yes
 BoldAsFont       = no
@@ -6,14 +6,14 @@ Charset          = UTF-8
 Columns          = 120
 CursorBlinks     = yes
 CursorType       = Underscore
-Font             = Envy Code R
-FontHeight       = 10
+Font             = Monoid
+FontHeight       = 9
 FontIsBold       = no
-FontSmoothing    = default
+FontSmoothing    = full
 Locale           = en_US
 Rows             = 35
 Term             = xterm-256color
-Transparency     = low
+Transparency     = off
 
 CursorColour     = 255, 128,  64
 BackgroundColour =  45,  45,  45
