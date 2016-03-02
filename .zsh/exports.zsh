@@ -9,8 +9,10 @@ export TERM="xterm-256color"
 export MYSQL_HISTFILE="/dev/null"
 
 # /usr/local 加入到 PATH 中
-
 export PATH="/usr/local/opt/ccache/libexec:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$PATH"
+
+# 将 node_modules 目录加入到 PATH 中
+export PATH="$HOME/node_modules/.bin:$PATH"
 
 # JAVA CLASSPATH
 export CLASSPATH="${CLASSPATH}:$HOME/.classes"
