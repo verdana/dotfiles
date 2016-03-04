@@ -6,6 +6,7 @@
 [core]
     editor = vim
     quotepath = false
+    trustctime = false
 
 [alias]
     br   = branch
