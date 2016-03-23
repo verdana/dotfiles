@@ -21,7 +21,7 @@ PURE_GIT_PULL=1
 PURE_GIT_UNTRACKED_DIRTY=0
 
 # Defines the prompt symbol.
-PURE_PROMPT_SYMBOL=$'\xe2\x9c\x94 '
+PURE_PROMPT_SYMBOL=$'\xe2\x9d\xaf '
 
 # Apply it
 prompt pure
