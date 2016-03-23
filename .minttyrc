@@ -1,13 +1,13 @@
 AllowBlinking    = yes
 BackspaceSendsBS = yes
 BoldAsColour     = yes
-BoldAsFont       = no
+BoldAsFont       = yes
 Charset          = UTF-8
 Columns          = 120
 CursorBlinks     = yes
 CursorType       = Underscore
-Font             = Droid Sans Mono
-FontHeight       = 11
+Font             = Droid Sans Mono for Powerline
+FontHeight       = 12
 FontIsBold       = no
 FontSmoothing    = full
 Locale           = en_US
