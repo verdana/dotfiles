@@ -6,7 +6,7 @@
 [core]
     editor = vim
     quotepath = false
-    trustctime = false
+	trustctime = false
 
 [alias]
     br   = branch
@@ -14,8 +14,11 @@
     cia  = commit --amend
     cii  = commit --interactive
     cim  = commit -a -m
+    cl   = clone
     co   = checkout
     cob  = checkout -b
+    cp   = cherry-pick
+    dc   = diff --cached
     desc = describe --always --contains --all
     last = log -2 HEAD
     me   = merge
@@ -32,7 +35,7 @@
     sl   = stash list
     sp   = stash pop
     ss   = stash save
-    st   = status
+    st   = status -sb
     un   = reset HEAD --
 
 [color]
