@@ -118,30 +118,33 @@ noremap <Leader>cd    :cd %:p:h<CR>:pwd<CR>
 " 否则某些插件的设定可能失效
 " 比如 solarized scheme
 " ----------------------------
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/vundle.vim
+call vundle#begin()
 
 " Let Vundle manage Vundle, required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle.vim'
 
-" Bundles from github
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'benmills/vimux'
-Bundle 'evidens/vim-twig'
-Bundle 'godlygeek/tabular'
-Bundle 'groenewege/vim-less'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'kien/ctrlp.vim'
-Bundle 'msanders/snipmate.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'scrooloose/nerdtree'
-Bundle 'ekalinin/Dockerfile.vim'
+" Plugins from github
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'benmills/vimux'
+Plugin 'evidens/vim-twig'
+Plugin 'godlygeek/tabular'
+Plugin 'groenewege/vim-less'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'kien/ctrlp.vim'
+Plugin 'msanders/snipmate.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'koron/nyancat-vim'
 
 " vim-scripts repos
-Bundle 'Emmet.vim'
-Bundle 'bufexplorer.zip'
-Bundle 'c.vim'
-Bundle 'nginx.vim'
+Plugin 'Emmet.vim'
+Plugin 'bufexplorer.zip'
+Plugin 'c.vim'
+Plugin 'nginx.vim'
+
+call vundle#end()
 " }}}
 
 " {{{ => Term/CmdLine/Status 設定

@@ -9,14 +9,14 @@ command -v git > /dev/null 2>&1 \
     && { echo "$HOME/.vim directory not found. Aborting." >&2; exit 1; }
 
 # 首先检查是否安装了 vundle
-if [ ! -f "$HOME/.vim/bundle/vundle/.git/HEAD" ]; then
+if [ ! -f "$HOME/.vim/bundle/vundle.vim/.git/HEAD" ]; then
     cd $HOME/.vim/bundle
-    git clone https://github.com/gmarik/vundle.git
+    git clone https://github.com/gmarik/vundle.git vundle.vim/
 
     # 运行 :BundleInstall 命令
     vim +BundleInstall +qall
 else
-    cd $HOME/.vim/bundle/vundle
+    cd $HOME/.vim/bundle/vundle.vim/
     git pull
 
     # 运行 :BundleUpdate 命令
