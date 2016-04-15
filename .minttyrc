@@ -17,8 +17,8 @@ Term             = xterm-256color
 Transparency     = off
 
 CursorColour     = 255, 128,  64
-BackgroundColour =  45,  45,  45
-ForegroundColour = 204, 204, 204
+BackgroundColour =  41,  75,  84
+ForegroundColour = 205, 205, 205
 
 Black            =  73,  72,  62
 BoldBlack        =  73,  72,  62
