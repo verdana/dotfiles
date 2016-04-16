@@ -1,16 +1,16 @@
 
-" Load plugin only once
+" 仅载入一次本插件
 if exists('g:colorline_loaded')
     finish
 endif
 let g:colorline_loaded = 1
 
-" Return if no statusline
+" 如果不支持状态栏，那么立即退出
 if !has('statusline')
     finish
 endif
 
-" always show statusline
+" 总是显示状态栏
 set laststatus=2
 
 " 定义颜色群组
