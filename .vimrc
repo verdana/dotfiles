@@ -10,8 +10,8 @@
 " http://phpvim.net
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-"    Version: 0.5.0
-" LastChange: Monday Oct 21, 2013 06:05
+"    Version: 0.5.1
+" LastChange: Saturday Apr 16, 2016 10:23
 "
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version < 700
@@ -71,15 +71,14 @@ set noswapfile
 set completeopt=menuone
 " }}}
 
-" {{{ => UI 設定
+" {{{ => UI 定制
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " 设定东西方共用符号的长度，如省略号，破折号等...
 " 只有 encoding 为 unicode 兼容编码时，这个选项才有意义
 set ambiwidth=double
 
-set showmode                            " 顯示當前模式
-set cmdheight=2                         " 命令行高度
+set showmode                            " 显示当前的模式
 set scrolloff=7                         " 纵向移动时，光标行与上下两端的最小行数
 set wildmenu
 set wildmode=list:longest,full
@@ -96,6 +95,20 @@ set hlsearch                            " 高亮显示搜索结果
 set ignorecase                          " 搜索时忽略大小写
 set magic                               " 自动转义搜索正则表达式中的特殊字符
 set matchtime=5                         " 光标跳过去后，每秒闪烁的次数
+set cmdheight=2                         " 命令行高度
+
+" 命令行
+if has('cmdline_info')
+    " 自定义的状态栏一般会覆盖 ruler / rulerformat 的设定
+    set ruler                                           " 显示光标位置
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)  " 状态栏右侧光标位置信息的格式
+    set showcmd                                         " 右下角显示命令
+endif
+
+" 状态栏
+if has('statusline')
+    set laststatus=2
+endif
 " }}}
 
 " {{{ => 快捷鍵
@@ -113,18 +126,19 @@ nmap <Leader><Leader> :bnext<CR>
 noremap <Leader>cd    :cd %:p:h<CR>:pwd<CR>
 " }}}
 
-" {{{ => Vundle
+" {{{ => 插件管理
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vundle 应当尽可能早的载入
 " 否则某些插件的设定可能失效
 " 比如 solarized scheme
 " ----------------------------
-set rtp+=~/.vim/bundle/vundle.vim
+set rtp+=$HOME/.vim/bundle/vundle.vim
 call vundle#begin()
 
-" Let Vundle manage Vundle, required!
+" Vundle 管理自身（必须）
 Plugin 'gmarik/vundle.vim'
 
-" Plugins from github
+" 托管在 GitHub 的插件
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'benmills/vimux'
 Plugin 'evidens/vim-twig'
@@ -136,9 +150,8 @@ Plugin 'msanders/snipmate.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'koron/nyancat-vim'
 
-" vim-scripts repos
+" 托管在 vim-scripts 的插件
 Plugin 'Emmet.vim'
 Plugin 'bufexplorer.zip'
 Plugin 'c.vim'
@@ -147,13 +160,8 @@ Plugin 'nginx.vim'
 call vundle#end()
 " }}}
 
-" {{{ => Term/CmdLine/Status 設定
+" {{{ => 终端版本设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-syntax on
-filetype plugin indent on
-
-" 终端
 if ! has("gui_running")
     " 让终端机继承 Vim 的标题
     set title
@@ -172,8 +180,13 @@ if ! has("gui_running")
         " Snow Leopard 的默認終端不支持256色
         set t_Co=16
     endif
-
 endif
+" }}}
+
+" {{{ => 语法高亮以及颜色主题
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax on
+filetype plugin indent on
 
 " 设定颜色主题
 set background=dark
@@ -184,21 +197,9 @@ try
 catch
     colorscheme desert
 endtry
-
-" 命令行
-if has('cmdline_info')
-    set ruler                                           " 显示光标位置
-    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)  " a ruler on steroids
-    set showcmd                                         " 右下角显示命令
-endif
-
-" 状态栏
-if has('statusline')
-    set laststatus=2
-endif
 " }}}
 
-" {{{ => 插件
+" {{{ => 插件配置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " CoffeeScript
@@ -237,8 +238,8 @@ nmap <special> <leader>v :NERDTreeToggle<CR>
 " }}}
 
 " Load vimrc.local
-if filereadable(expand("~/.vimrc.local"))
-    source ~/.vimrc.local
+if filereadable(expand("$HOME/.vimrc.local"))
+    source $HOME/.vimrc.local
 endif
 
 " vim: set fdm=marker ff=unix sw=4 ts=4 et:
