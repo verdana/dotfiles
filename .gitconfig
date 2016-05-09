@@ -4,9 +4,11 @@
     email = verdana.cn@gmail.com
 
 [core]
-    editor = vim
-    quotepath = false
-	trustctime = false
+    editor     = vim
+    trustctime = false
+    quotepath  = false
+    autocrlf   = false
+    safecrlf   = true
 
 [alias]
     br   = branch
