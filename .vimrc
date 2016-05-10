@@ -141,7 +141,9 @@ Plugin 'gmarik/vundle.vim'
 " 托管在 GitHub 的插件
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'benmills/vimux'
+Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'evidens/vim-twig'
+Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'
 Plugin 'groenewege/vim-less'
 Plugin 'kchmck/vim-coffee-script'
@@ -149,7 +151,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'msanders/snipmate.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
-Plugin 'ekalinin/Dockerfile.vim'
 
 " 托管在 vim-scripts 的插件
 Plugin 'Emmet.vim'
