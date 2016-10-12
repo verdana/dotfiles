@@ -126,6 +126,45 @@ nmap <Leader><Leader> :bnext<CR>
 noremap <Leader>cd    :cd %:p:h<CR>:pwd<CR>
 " }}}
 
+" {{{ => 语法高亮以及颜色主题
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax on
+filetype plugin indent on
+
+" 设定颜色主题
+set background=dark
+try
+    let g:solarized_termtrans=0
+    let g:solarized_termcolors=256
+    colorscheme solarized
+catch
+    colorscheme desert
+endtry
+" }}}
+
+" {{{ => 终端版本设定
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if ! has("gui_running")
+    " 让终端机继承 Vim 的标题
+    set title
+
+    " 设定终端编码
+    " 如果是中文Win32 CMD，则是GBK
+    if has('win32')
+        set termencoding=gbk
+    else
+        set termencoding=utf-8
+    endif
+
+    " 终端颜色数
+    set t_Co=256
+    if has("mac")
+        " Snow Leopard 的默認終端不支持256色
+        set t_Co=16
+    endif
+endif
+" }}}
+
 " {{{ => 插件管理
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vundle 应当尽可能早的载入
@@ -159,45 +198,6 @@ Plugin 'c.vim'
 Plugin 'nginx.vim'
 
 call vundle#end()
-" }}}
-
-" {{{ => 终端版本设定
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if ! has("gui_running")
-    " 让终端机继承 Vim 的标题
-    set title
-
-    " 设定终端编码
-    " 如果是中文Win32 CMD，则是GBK
-    if has('win32')
-        set termencoding=gbk
-    else
-        set termencoding=utf-8
-    endif
-
-    " 终端颜色数
-    set t_Co=256
-    if has("mac")
-        " Snow Leopard 的默認終端不支持256色
-        set t_Co=16
-    endif
-endif
-" }}}
-
-" {{{ => 语法高亮以及颜色主题
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax on
-filetype plugin indent on
-
-" 设定颜色主题
-set background=dark
-try
-    let g:solarized_termtrans=0
-    let g:solarized_termcolors=256
-    colorscheme solarized
-catch
-    colorscheme desert
-endtry
 " }}}
 
 " {{{ => 插件配置
@@ -236,6 +236,43 @@ let NERDTreeShowBookmarks       = 1
 let NERDTreeShowHidden          = 0
 let NERDTreeIgnore              = ['favicon.ico', 'images']
 nmap <special> <leader>v :NERDTreeToggle<CR>
+" }}}
+
+" {{{ => 其它配置
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" 行尾空格
+function! <SID>StripTrailingWhitespaces()
+    let line = line(".")
+    let col  = col(".")
+    %s/\s\+$//e
+    call cursor(line, col)
+endfunction
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+match ErrorMsg '\s\+$'
+
+nmap    <SPACE>     :exec "normal j"<CR>
+nmap    <Leader>f   [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+noremap <Leader>m   mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
+
+" 複製粘貼
+set pastetoggle=<F2>
+nmap <Leader>, "+p
+nmap <Leader>o "*p
+
+" 行号
+nmap <C-N><C-N> :set invnumber<CR>
+
+" 添加分號在行尾
+autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
+
+" 刷新语法高亮
+autocmd BufEnter * :syntax sync fromstart
+
+" Abbreviations
+iab xdatetime   <C-R>=strftime("%A %b %d, %Y %H:%M")<CR>
+iab xdate       <C-R>=strftime("%A %b %d, %Y")<CR>
+iab xvim        /*- vim: set fdm=marker ff=unix sw=4 ts=4 et: -*/<CR>
 " }}}
 
 " Load vimrc.local
