@@ -31,5 +31,8 @@ for file in $dotfiles; do
     [[ -f $file ]] && source $file
 done
 
+# 额外的配置可以放在这个文件中
+[[ -f .zshrc.local ]] && source .zshrc.local
+
 # vim: set fdm=marker ff=unix sw=4 ts=4 et:
 
