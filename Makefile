@@ -16,8 +16,7 @@ REMOVE_SYMLINK =                                       \
         echo "Warning: $(file) is not a symlink";      \
     fi;                                                \
 
-CANDIDATES = .bin .gitconfig .vim .vimrc               \
-             .vimrc.local .zsh .zshrc
+CANDIDATES = .bin .gitconfig .vim .vimrc .zsh .zshrc
 
 all:
 	@$(foreach file, $(CANDIDATES), $(SYMLINK))
