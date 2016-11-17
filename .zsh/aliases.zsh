@@ -2,6 +2,7 @@
 alias grep='grep --color=auto'
 alias mkdir='mkdir -pv'
 alias mnt='sudo mount | column -t'
+alias ps='ps -eo user,pid,ppid,pmem,time,etime,cmd'
 alias sml='systemctl'
 alias tree='tree -Ca -I ".git|*.swp|*.egg-info"'
 alias wget='wget --content-disposition'
