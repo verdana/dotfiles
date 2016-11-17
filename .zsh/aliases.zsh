@@ -1,5 +1,5 @@
 # Misc
-alias grep='grep --color=auto'
+alias grep='/bin/grep -v grep | /bin/grep --color=auto'
 alias mkdir='mkdir -pv'
 alias mnt='sudo mount | column -t'
 alias ps='ps -eo user,pid,ppid,pmem,time,etime,cmd'
