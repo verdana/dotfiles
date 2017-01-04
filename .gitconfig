@@ -9,6 +9,7 @@
     quotepath  = false
     autocrlf   = false
     safecrlf   = true
+    filemode   = false
 
 [alias]
     br   = branch
