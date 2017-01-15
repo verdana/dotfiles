@@ -178,6 +178,7 @@ call vundle#begin()
 Plugin 'gmarik/vundle.vim'
 
 " 托管在 GitHub 的插件
+Plugin 'aliva/vim-fish'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'benmills/vimux'
 Plugin 'ekalinin/Dockerfile.vim'
