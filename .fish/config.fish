@@ -6,8 +6,8 @@ set fish_user_paths     $fish_user_paths /usr/local/go/bin
 
 # Change the prompt text
 set pure_symbol_prompt "~>"
+#set pure_symbol_git_up_arrow "^"
 #set pure_symbol_git_down_arrow "v"
-#set pure_symbol_git_down_arrow "^"
 #set pure_symbol_git_dirty "!"
 #set pure_symbol_horizontal_bar "_"
 
