@@ -7,11 +7,9 @@
 
 .config/htop/
 .ssh/
+.vim/.netrwhist
+.vim/bundle/*
 .zsh/data/
 
 build/**/pkg/
 build/**/src/
-
-.vim/bundle/*
-.vim/.netrwhist
-
