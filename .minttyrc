@@ -1,20 +1,20 @@
 AllowBlinking    = yes
 BackspaceSendsBS = yes
-BoldAsColour     = no
+BoldAsColour     = yes
 BoldAsFont       = no
 Charset          = UTF-8
 Columns          = 100
 CursorBlinks     = yes
 CursorType       = underscore
-Font             = Source Code Pro
-FontHeight       = 14
+Font             = Envy Code R
+FontHeight       = 10
 FontIsBold       = no
 FontSmoothing    = full
-Locale           = en_US
+Locale           = zh_CN
 RightClickAction = menu
 Rows             = 30
 Term             = xterm-256color
-Transparency     = off
+Transparency     = low
 
 CursorColour     = 255,128,64
 BackgroundColour = 41,75,84
