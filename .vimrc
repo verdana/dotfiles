@@ -22,6 +22,7 @@ endif
 " {{{ => 通用设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set langmenu=none
+set shell=/bin/bash
 lang C
 lang mes en_US.UTF-8
 filetype off
