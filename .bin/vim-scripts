@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # 检查 git 命令是否存在
 command -v git > /dev/null 2>&1 \
@@ -10,17 +10,16 @@ command -v git > /dev/null 2>&1 \
 
 # 首先检查是否安装了 vundle
 if [ ! -f "$HOME/.vim/bundle/vundle.vim/.git/HEAD" ]; then
-    cd $HOME/.vim/bundle
-    git clone https://github.com/gmarik/vundle.git vundle.vim/
+    git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle.vim
 
     # 运行 :BundleInstall 命令
     vim +BundleInstall +qall
 else
-    cd $HOME/.vim/bundle/vundle.vim/
+    cd $HOME/.vim/bundle/vundle.vim
     git pull
 
-    # 运行 :BundleUpdate 命令
-    vim +BundleUpdate +qall
+    # 运行
+    vim +PluginInstall +qall
 fi
 
 # vim: set fdm=marker ff=unix sw=4 ts=4 et:
