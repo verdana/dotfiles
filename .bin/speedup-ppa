@@ -1,0 +1,8 @@
+#!/bin/bash
+
+old="ppa.launchpad.net"
+new="launchpad.proxy.ustclug.org"
+files="/etc/apt/sources.list.d/*.list"
+
+sed -i -r 's#deb(-src)?\s*http(s)?://$old#deb\1 http\2://$new#ig' $files
+
