@@ -3,6 +3,8 @@
 dest="$HOME/.config/fish/functions"
 files=$(ls -d functions/*.fish)
 
+[ -d "$dest" ] || mkdir -p "$dest"
+
 for f in $files; do
     file=`basename $f`
 
