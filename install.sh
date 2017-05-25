@@ -12,6 +12,7 @@ rm -rf ~/.config
 rm -rf ~/.gitconfig
 rm -rf ~/.history
 rm -rf ~/.lesshst
+rm -rf ~/.local
 rm -rf ~/.pip
 rm -rf ~/.tmux
 rm -rf ~/.tmux.conf
