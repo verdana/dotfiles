@@ -5,11 +5,11 @@
 *.tgz
 *.xz
 
-.config/htop/
 .ssh/
-.vim/.netrwhist
-.vim/bundle/*
-.zsh/data/
+config/htop/
+vim/.netrwhist
+vim/bundle/*
+zsh/data/
 
 build/**/pkg/
 build/**/src/
