@@ -7,6 +7,8 @@
 
 .ssh/
 config/fish/fishd.*
+config/fish/functions/fish_prompt.fish
+config/fish/functions/theme-pure/
 config/htop/
 vim/.netrwhist
 vim/bundle/*
