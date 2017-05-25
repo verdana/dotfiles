@@ -6,6 +6,7 @@
 *.xz
 
 .ssh/
+config/fish/fishd.*
 config/htop/
 vim/.netrwhist
 vim/bundle/*
