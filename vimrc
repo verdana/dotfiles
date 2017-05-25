@@ -138,7 +138,7 @@ syntax on
 filetype plugin indent on
 
 " 设定颜色主题
-set background=light
+set background=dark
 try
     "let g:solarized_termtrans=0
     "let g:solarized_termcolors=256
@@ -150,39 +150,28 @@ endtry
 
 " {{{ => 插件管理
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vundle 应当尽可能早的载入
-" 否则某些插件的设定可能失效
-" 比如 solarized scheme
-" ----------------------------
-set rtp+=$HOME/.vim/bundle/vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-" Vundle 管理自身（必须）
-Plugin 'gmarik/vundle.vim'
+"Plug 'altercation/vim-colors-solarized'
+Plug 'aliva/vim-fish'
+Plug 'benmills/vimux'
+Plug 'chr4/nginx.vim'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'evidens/vim-twig'
+Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
+Plug 'groenewege/vim-less'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'kchmck/vim-coffee-script'
+Plug 'kien/ctrlp.vim'
+Plug 'msanders/snipmate.vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/c.vim'
 
-" 托管在 GitHub 的插件
-Plugin 'aliva/vim-fish'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'benmills/vimux'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'evidens/vim-twig'
-Plugin 'fatih/vim-go'
-Plugin 'godlygeek/tabular'
-Plugin 'groenewege/vim-less'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'kien/ctrlp.vim'
-Plugin 'msanders/snipmate.vim'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/nerdtree'
-
-" 托管在 vim-scripts 的插件
-Plugin 'Emmet.vim'
-Plugin 'bufexplorer.zip'
-Plugin 'c.vim'
-Plugin 'nginx.vim'
-
-call vundle#end()
+call plug#end()
 " }}}
 
 " {{{ => 插件配置
