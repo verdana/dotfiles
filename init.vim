@@ -7,11 +7,9 @@
 "          *             \ | |
 "                        (o)
 "
-" http://phpvim.net
-"
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-"    Version: 0.5.1
-" LastChange: Saturday Apr 16, 2016 10:23
+"    Version: 0.6.0
+" LastChange: Thursday May 25, 2017 12:22
 "
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version < 700
@@ -26,6 +24,7 @@ set shell=/bin/bash
 lang C
 lang mes en_US.UTF-8
 filetype off
+set rtp+=$HOME/.vim
 
 set nocompatible
 set nospell
@@ -33,9 +32,13 @@ set autoread
 
 let mapleader=","
 let g:mapleader=","
+
+let g:python_host_prog = "python"
+let g:loaded_python3_provider = 1  " disable Python3 support
+
 " }}}
 
-" {{{ => 編輯設定
+" {{{ => 编辑设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set fileformat=unix
@@ -72,7 +75,7 @@ set noswapfile
 set completeopt=menuone
 " }}}
 
-" {{{ => UI 定制
+" {{{ => 界面定制
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " 设定东西方共用符号的长度，如省略号，破折号等...
@@ -97,6 +100,7 @@ set ignorecase                          " 搜索时忽略大小写
 set magic                               " 自动转义搜索正则表达式中的特殊字符
 set matchtime=5                         " 光标跳过去后，每秒闪烁的次数
 set cmdheight=2                         " 命令行高度
+set title
 
 " 命令行
 if has('cmdline_info')
@@ -112,7 +116,7 @@ if has('statusline')
 endif
 " }}}
 
-" {{{ => 快捷鍵
+" {{{ => 快捷键
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <Leader>bd  :bd<CR>
 nmap <Leader>e   :e! $MYVIMRC<CR>
@@ -125,6 +129,7 @@ nmap <RIGHT>          :bnext<CR>
 nmap <LEFT>           :bprevious<CR>
 nmap <Leader><Leader> :bnext<CR>
 noremap <Leader>cd    :cd %:p:h<CR>:pwd<CR>
+"nmap <silent> <F5>    :silent make<CR>
 " }}}
 
 " {{{ => 语法高亮以及颜色主题
@@ -133,37 +138,14 @@ syntax on
 filetype plugin indent on
 
 " 设定颜色主题
-set background=dark
+set background=light
 try
-    let g:solarized_termtrans=0
-    let g:solarized_termcolors=256
+    "let g:solarized_termtrans=0
+    "let g:solarized_termcolors=256
     colorscheme solarized
 catch
     colorscheme desert
 endtry
-" }}}
-
-" {{{ => 终端版本设定
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if ! has("gui_running")
-    " 让终端机继承 Vim 的标题
-    set title
-
-    " 设定终端编码
-    " 如果是中文Win32 CMD，则是GBK
-    if has('win32')
-        set termencoding=gbk
-    else
-        set termencoding=utf-8
-    endif
-
-    " 终端颜色数
-    set t_Co=256
-    if has("mac")
-        " Snow Leopard 的默認終端不支持256色
-        set t_Co=16
-    endif
-endif
 " }}}
 
 " {{{ => 插件管理
@@ -209,11 +191,10 @@ call vundle#end()
 " CoffeeScript
 " ----------------------------
 "au BufWritePost *.coffee silent make!
-nmap <silent> <F5> :silent make<CR>
 
 " BufExplorer
 " ----------------------------
-nmap <Leader>z ,bs<CR>
+nnoremap <silent> <Leader>z :BufExplorerHorizontalSplit<CR>
 
 " Tabular
 " ----------------------------
@@ -223,15 +204,11 @@ vmap <Leader>a> :Tabularize /=><CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 
-" Php-doc
-" ----------------------------
-nnoremap <Leader>c :call PhpDocSingle()<CR>
-
 " NERD tree
 " ----------------------------
 let NERDTreeSplitVertical       = 1
 let NERDTreeWinPos              = 1
-let NERDTreeWinSize             = 50
+let NERDTreeWinSize             = 40
 let NERDTreeChDirMode           = 1
 let NERDTreeHighlightCurosrline = 1
 let NERDTreeQuitOnOpen          = 1
