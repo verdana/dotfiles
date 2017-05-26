@@ -68,11 +68,11 @@ call <SID>UpdateStatusline()
 
 " 定义颜色群组
 function! s:Highlight()
-    hi User1 ctermbg=darkred    ctermfg=white  guibg=#FA2673    guifg=white
-    hi User2 ctermbg=yellow     ctermfg=white  guibg=#FA961E    guifg=white
-    hi User3 ctermbg=black      ctermfg=white  guibg=#49483E    guifg=white
-    hi User4 ctermbg=cyan       ctermfg=white  guibg=#5F7175    guifg=white
-    hi User5 ctermbg=magenta    ctermfg=white  guibg=#9D6EFF    guifg=white
+    hi User1 ctermbg=darkred    ctermfg=white  guibg=#FA2673    guifg=#D9D9D9
+    hi User2 ctermbg=yellow     ctermfg=white  guibg=#FA961E    guifg=#D9D9D9
+    hi User3 ctermbg=black      ctermfg=white  guibg=#49483E    guifg=#D9D9D9
+    hi User4 ctermbg=cyan       ctermfg=white  guibg=#5F7175    guifg=#D9D9D9
+    hi User5 ctermbg=magenta    ctermfg=white  guibg=#9D6EFF    guifg=#D9D9D9
 endfunc
 
 " 为状态栏染色
