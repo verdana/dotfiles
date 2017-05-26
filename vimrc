@@ -39,7 +39,6 @@ let g:mapleader=","
 
 let g:python_host_prog = "python"
 let g:loaded_python3_provider = 1  " disable Python3 support
-
 " }}}
 
 " {{{ => 编辑设定
@@ -148,6 +147,9 @@ try
     "let g:solarized_termcolors=256
     colorscheme solarized
 catch
+    " 使无文字行背景变为透明色
+    autocmd ColorScheme * hi NonText guibg=none
+    autocmd ColorScheme * hi NonText ctermbg=none
     colorscheme desert
 endtry
 " }}}
