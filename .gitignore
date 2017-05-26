@@ -15,6 +15,7 @@ vim/bundle/
 vim/ginit.vim
 vim/init.vim
 vim/plugged/
+vim/shada/
 zsh/data/
 
 build/**/pkg/
