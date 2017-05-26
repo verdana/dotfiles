@@ -28,10 +28,10 @@ set langmenu=none
 set nospell
 set autoread
 
-if has('win32')
-    set shell=cmd
-elseif has('unix') or has('mac')
+if has('unix') || has('mac')
     set shell=/bin/bash
+elseif has('win32')
+    set shell=cmd
 endif
 
 let mapleader=","
