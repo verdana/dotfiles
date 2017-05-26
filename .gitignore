@@ -12,6 +12,8 @@ config/fish/functions/theme-pure/
 config/htop/
 vim/.netrwhist
 vim/bundle/
+vim/ginit.vim
+vim/init.vim
 vim/plugged/
 zsh/data/
 

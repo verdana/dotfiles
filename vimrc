@@ -24,7 +24,6 @@ set shell=/bin/bash
 lang C
 lang mes en_US.UTF-8
 filetype off
-set rtp+=$HOME/.vim
 
 set nocompatible
 set nospell
