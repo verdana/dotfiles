@@ -154,7 +154,11 @@ endtry
 
 " {{{ => 插件管理
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call plug#begin('~/AppData/Local/nvim/plugged')
+if has('unix') || has('mac')
+    call plug#begin('~/.vim/plugged')
+elseif has('win32')
+    call plug#begin('~/AppData/Local/nvim/plugged')
+endif
 
 "Plug 'altercation/vim-colors-solarized'
 Plug 'aliva/vim-fish'
