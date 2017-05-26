@@ -119,41 +119,6 @@ if has('statusline')
 endif
 " }}}
 
-" {{{ => 快捷键
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <Leader>bd  :bd<CR>
-nmap <Leader>e   :e! $MYVIMRC<CR>
-nmap <Leader>w   :w!<CR>
-nmap <Leader>r   :e!<CR>
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
-
-nmap <RIGHT>          :bnext<CR>
-nmap <LEFT>           :bprevious<CR>
-nmap <Leader><Leader> :bnext<CR>
-noremap <Leader>cd    :cd %:p:h<CR>:pwd<CR>
-"nmap <silent> <F5>    :silent make<CR>
-" }}}
-
-" {{{ => 语法高亮以及颜色主题
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax on
-filetype plugin indent on
-
-" 设定颜色主题
-set background=dark
-try
-    "let g:solarized_termtrans=0
-    "let g:solarized_termcolors=256
-    colorscheme solarized
-catch
-    " 使无文字行背景变为透明色
-    autocmd ColorScheme * hi NonText guibg=NONE
-    autocmd ColorScheme * hi NonText ctermbg=NONE
-    colorscheme desert
-endtry
-" }}}
-
 " {{{ => 插件管理
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('unix') || has('mac')
@@ -162,7 +127,6 @@ elseif has('win32')
     call plug#begin('~/AppData/Local/nvim/plugged')
 endif
 
-"Plug 'altercation/vim-colors-solarized'
 Plug 'aliva/vim-fish'
 Plug 'benmills/vimux'
 Plug 'chr4/nginx.vim'
@@ -179,6 +143,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
+Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'vim-scripts/c.vim'
 
 call plug#end()
@@ -217,10 +182,24 @@ let NERDTreeIgnore              = ['favicon.ico', 'images']
 nmap <special> <leader>v :NERDTreeToggle<CR>
 " }}}
 
+" {{{ => 语法高亮以及颜色主题
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax on
+filetype plugin indent on
+
+" 设定颜色主题
+let g:quantum_black=0
+let g:quantum_italics=0
+colorscheme quantum
+
+" 使无文字行背景变为透明色
+autocmd ColorScheme * hi NonText guibg=NONE
+autocmd ColorScheme * hi NonText ctermbg=NONE
+" }}}
+
 " {{{ => 其它配置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" 行尾空格
+" 保存时自动删除行尾空格
 function! <SID>StripTrailingWhitespaces()
     let line = line(".")
     let col  = col(".")
@@ -230,11 +209,33 @@ endfunction
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 match ErrorMsg '\s\+$'
 
-nmap    <SPACE>     :exec "normal j"<CR>
-nmap    <Leader>f   [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+nmap <Leader>f   [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
+" 保存与关闭
+nmap <Leader>bd  :bd<CR>
+nmap <Leader>w   :w!<CR>
+
+" VIMRC
+nmap <Leader>e   :e! $MYVIMRC<CR>
+nmap <Leader>r   :so $MYVIMRC<CR>
+
+" 使用左右箭头键在不同的 buffer 间切换
+nmap <RIGHT> :bnext<CR>
+nmap <LEFT>  :bprevious<CR>
+
+" 空格键移动光标到下一行
+nmap <SPACE> :exec "normal j"<CR>
+
+" 快速切换到当前编辑文件所在的目录
+noremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" 对于无写权限的文件，允许使用 sudo 命令尝试保存
+cmap w!! w !sudo tee > /dev/null %
+
+" 删除行尾的 ^M，转换文件格式 DOS->UNIX
 noremap <Leader>m   mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 
-" 複製粘貼
+" 复制粘贴
 set pastetoggle=<F2>
 nmap <Leader>, "+p
 nmap <Leader>o "*p
@@ -242,22 +243,25 @@ nmap <Leader>o "*p
 " 行号
 nmap <C-N><C-N> :set invnumber<CR>
 
-" 添加分號在行尾
+" 行尾追加分号
 autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
 
 " 刷新语法高亮
-autocmd BufEnter * :syntax sync fromstart
+"autocmd BufEnter * :syntax sync fromstart
 
-" Abbreviations
+" make 命令
+nmap <silent> <F5> :silent make<CR>
+
+" 短语替换
 iab xdatetime   <C-R>=strftime("%A %b %d, %Y %H:%M")<CR>
 iab xdate       <C-R>=strftime("%A %b %d, %Y")<CR>
 iab xvim        /*- vim: set fdm=marker ff=unix sw=4 ts=4 et: -*/<CR>
-" }}}
 
-" Load vimrc.local
+" 载入 vimrc.local
 if filereadable(expand("$HOME/.vimrc.local"))
     source $HOME/.vimrc.local
 endif
+" }}}
 
 " vim: set fdm=marker ff=unix sw=4 ts=4 et:
 
