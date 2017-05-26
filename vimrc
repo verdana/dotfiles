@@ -19,15 +19,20 @@ endif
 
 " {{{ => 通用设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set langmenu=none
-set shell=/bin/bash
 lang C
 lang mes en_US.UTF-8
 filetype off
 
 set nocompatible
+set langmenu=none
 set nospell
 set autoread
+
+if has('win32')
+    set shell=cmd
+elseif has('unix') or has('mac')
+    set shell=/bin/bash
+endif
 
 let mapleader=","
 let g:mapleader=","
@@ -149,7 +154,7 @@ endtry
 
 " {{{ => 插件管理
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/AppData/Local/nvim/plugged')
 
 "Plug 'altercation/vim-colors-solarized'
 Plug 'aliva/vim-fish'
