@@ -14,11 +14,11 @@ endif
 set laststatus=2
 
 " 定义颜色群组
-autocmd ColorScheme * hi User1 ctermbg=darkred      ctermfg=white  guibg=darkred      guifg=white
-autocmd ColorScheme * hi User2 ctermbg=yellow       ctermfg=white  guibg=yellow       guifg=white
-autocmd ColorScheme * hi User3 ctermbg=black        ctermfg=white  guibg=black        guifg=white
-autocmd ColorScheme * hi User4 ctermbg=darkcyan     ctermfg=white  guibg=darkcyan     guifg=white
-autocmd ColorScheme * hi User5 ctermbg=darkmagenta  ctermfg=white  guibg=darkmagenta  guifg=white
+autocmd ColorScheme * hi User1 ctermbg=darkred      ctermfg=white  guibg=#FA2673    guifg=white
+autocmd ColorScheme * hi User2 ctermbg=yellow       ctermfg=white  guibg=#FA961E    guifg=white
+autocmd ColorScheme * hi User3 ctermbg=black        ctermfg=white  guibg=#49483E    guifg=white
+autocmd ColorScheme * hi User4 ctermbg=darkcyan     ctermfg=white  guibg=#5F7175    guifg=white
+autocmd ColorScheme * hi User5 ctermbg=darkmagenta  ctermfg=white  guibg=#9D6EFF    guifg=white
 
 function! GetMode()
     let m = mode()
