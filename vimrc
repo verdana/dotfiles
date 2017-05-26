@@ -148,8 +148,8 @@ try
     colorscheme solarized
 catch
     " 使无文字行背景变为透明色
-    autocmd ColorScheme * hi NonText guibg=none
-    autocmd ColorScheme * hi NonText ctermbg=none
+    autocmd ColorScheme * hi NonText guibg=NONE
+    autocmd ColorScheme * hi NonText ctermbg=NONE
     colorscheme desert
 endtry
 " }}}
