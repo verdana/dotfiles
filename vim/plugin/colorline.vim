@@ -13,13 +13,7 @@ endif
 " 总是显示状态栏
 set laststatus=2
 
-" 定义颜色群组
-autocmd ColorScheme * hi User1 ctermbg=darkred      ctermfg=white  guibg=#FA2673    guifg=white
-autocmd ColorScheme * hi User2 ctermbg=yellow       ctermfg=white  guibg=#FA961E    guifg=white
-autocmd ColorScheme * hi User3 ctermbg=black        ctermfg=white  guibg=#49483E    guifg=white
-autocmd ColorScheme * hi User4 ctermbg=darkcyan     ctermfg=white  guibg=#5F7175    guifg=white
-autocmd ColorScheme * hi User5 ctermbg=darkmagenta  ctermfg=white  guibg=#9D6EFF    guifg=white
-
+" 当前的编辑模式
 function! GetMode()
     let m = mode()
     if m == "n"
@@ -39,6 +33,7 @@ function! GetMode()
     endif
 endfunc
 
+" 定义状态栏的格式
 function! s:UpdateStatusline()
     " 获取模式名称
     set statusline=%1*
@@ -69,12 +64,23 @@ function! s:UpdateStatusline()
     set statusline+=\ %5*
     set statusline+=%=\ %-12.(%l,%c%V%)
 endfunc
-
 call <SID>UpdateStatusline()
 
-" 重设 colorscheme 使颜色生效
-set background=dark
-try | colorscheme solarized | catch | colorscheme desert | endtry
+" 定义颜色群组
+function! s:Highlight()
+    hi User1 ctermbg=darkred    ctermfg=white  guibg=#FA2673    guifg=white
+    hi User2 ctermbg=yellow     ctermfg=white  guibg=#FA961E    guifg=white
+    hi User3 ctermbg=black      ctermfg=white  guibg=#49483E    guifg=white
+    hi User4 ctermbg=cyan       ctermfg=white  guibg=#5F7175    guifg=white
+    hi User5 ctermbg=magenta    ctermfg=white  guibg=#9D6EFF    guifg=white
+endfunc
+
+" 为状态栏染色
+augroup colorline
+    autocmd!
+    autocmd ColorScheme * call <SID>Highlight()
+augroup end
+call <SID>Highlight()
 
 " vim: set ff=unix shiftwidth=4 tabstop=4 expandtab:
 
