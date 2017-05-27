@@ -37,7 +37,7 @@ endfunc
 function! s:UpdateStatusline()
     " 获取模式名称
     set statusline=%1*
-    set statusline+=\ %{GetMode()}
+    set statusline+=\ %12.12{GetMode()}
 
     " 文件状态（只读，修改.. 等等）
     set statusline+=\ %2*
@@ -54,15 +54,15 @@ function! s:UpdateStatusline()
     set statusline+=%=\ [%{(&fenc=='')?&enc:&fenc}%{(&bomb?'\ \ BOM':'')}]
 
     " Right aligned ASCII / Hexadecimal value of char
-    set statusline+=%=\ [A=\%03.3b\ H=\%02.2B]
+    set statusline+=%=\ [asc=\%04.4b\ hex=\%04.4B]
 
     " Percentage through file in lines
     set statusline+=\ %4*
-    set statusline+=%=\ %p%%
+    set statusline+=%=\ %-3.3p%%
 
     " 光标位置
     set statusline+=\ %5*
-    set statusline+=%=\ %-12.(%l,%c%V%)
+    set statusline+=%=\ %-15.15(%l,%c%V%)
 endfunc
 call <SID>UpdateStatusline()
 
