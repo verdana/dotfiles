@@ -144,6 +144,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/c.vim'
 
 call plug#end()
