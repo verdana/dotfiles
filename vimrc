@@ -129,7 +129,6 @@ endif
 
 Plug 'aliva/vim-fish'
 Plug 'benmills/vimux'
-Plug 'c9s/vim-dev-plugin'
 Plug 'chr4/nginx.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'evidens/vim-twig'
