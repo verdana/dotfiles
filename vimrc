@@ -123,7 +123,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('unix') || has('mac')
     call plug#begin('~/.vim/plugged')
-elseif has('win32')
+elseif has('win32') && has('nvim')
     call plug#begin('~/AppData/Local/nvim/plugged')
 endif
 
