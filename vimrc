@@ -32,6 +32,9 @@ let g:mapleader=","
 
 if has('unix') || has('mac')
     set shell=/bin/bash
+
+    let g:python_host_prog  = "/usr/bin/python"
+    let g:python3_host_prog = "/usr/bin/python3"
 elseif has('win32')
     set shell=cmd
 
@@ -257,6 +260,12 @@ nmap <silent> <F5> :silent make<CR>
 iab xdatetime   <C-R>=strftime("%A %b %d, %Y %H:%M")<CR>
 iab xdate       <C-R>=strftime("%A %b %d, %Y")<CR>
 iab xvim        /*- vim: set fdm=marker ff=unix sw=4 ts=4 et: -*/<CR>
+
+" Remap ctrl-c for this issue:
+" https://github.com/Shougo/deoplete.nvim/issues/460
+if has("nvim")
+    inoremap <C-c> <Esc>
+endif
 
 " 载入 vimrc.local
 if filereadable(expand("$HOME/.vimrc.local"))
