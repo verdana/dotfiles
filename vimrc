@@ -8,7 +8,7 @@
 "                        (o)
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-" LastChange: Sunday May 28, 2017
+" LastChange: Wednesday May 31, 2017
 "
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version < 700
@@ -27,17 +27,17 @@ set langmenu=none
 set nospell
 set autoread
 
+let mapleader=","
+let g:mapleader=","
+
 if has('unix') || has('mac')
     set shell=/bin/bash
 elseif has('win32')
     set shell=cmd
+
+    let g:python_host_prog  = "D:\\Python2\\python.exe"
+    let g:python3_host_prog = "D:\\Python3\\python.exe"
 endif
-
-let mapleader=","
-let g:mapleader=","
-
-let g:python_host_prog = "python"
-let g:loaded_python3_provider = 1  " disable Python3 support
 " }}}
 
 " {{{ => 编辑设定
@@ -131,7 +131,7 @@ Plug 'benmills/vimux'
 Plug 'chr4/nginx.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'evidens/vim-twig'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'tag' : 'v1.12' }
 Plug 'godlygeek/tabular'
 Plug 'groenewege/vim-less'
 Plug 'jlanzarotta/bufexplorer'
@@ -140,6 +140,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'msanders/snipmate.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
+Plug 'roxma/nvim-completion-manager'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tyrannicaltoucan/vim-quantum'
