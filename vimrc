@@ -129,6 +129,7 @@ elseif has('win32') && has('nvim')
     call plug#begin('~/AppData/Local/nvim/plugged')
 endif
 
+Plug 'Valloric/YouCompleteMe'
 Plug 'aliva/vim-fish'
 Plug 'benmills/vimux'
 Plug 'chr4/nginx.vim'
@@ -163,6 +164,13 @@ call plug#end()
 " BufExplorer
 " ----------------------------
 nnoremap <silent> <Leader>z :BufExplorerHorizontalSplit<CR>
+
+" CtrlP
+" ----------------------------
+let g:ctrlp_custom_ignore = {
+    \   'dir'  : '\v[\/]\.(git|hg|svn)$',
+    \   'file' : '\v\.(a|exe|o|so)$',
+    \ }
 
 " Tabular
 " ----------------------------
@@ -266,6 +274,9 @@ iab xvim        /*- vim: set fdm=marker ff=unix sw=4 ts=4 et: -*/<CR>
 if has("nvim")
     inoremap <C-c> <Esc>
 endif
+
+" C/C++ 代码折叠
+autocmd FileType cpp set foldmethod=syntax
 
 " 载入 vimrc.local
 if filereadable(expand("$HOME/.vimrc.local"))
