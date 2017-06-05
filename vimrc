@@ -8,7 +8,7 @@
 "                        (o)
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-" LastChange: Wednesday May 31, 2017
+" LastChange: Friday Jun 02, 2017
 "
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version < 700
@@ -33,13 +33,13 @@ let g:mapleader=","
 if has('unix') || has('mac')
     set shell=/bin/bash
 
-    let g:python_host_prog  = "/usr/bin/python"
-    let g:python3_host_prog = "/usr/bin/python3"
+    let g:loaded_python_provider = 1
+    let g:python3_host_prog      = "/usr/bin/python3"
 elseif has('win32')
     set shell=cmd
 
-    let g:python_host_prog  = "D:\\Python2\\python.exe"
-    let g:python3_host_prog = "D:\\Python3\\python.exe"
+    let g:loaded_python_provider = 1
+    let g:python3_host_prog      = "D:/Python3/python.exe"
 endif
 " }}}
 
@@ -129,13 +129,12 @@ elseif has('win32') && has('nvim')
     call plug#begin('~/AppData/Local/nvim/plugged')
 endif
 
-Plug 'Valloric/YouCompleteMe'
 Plug 'aliva/vim-fish'
 Plug 'benmills/vimux'
 Plug 'chr4/nginx.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'evidens/vim-twig'
-Plug 'fatih/vim-go', { 'tag' : 'v1.12' }
+Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'groenewege/vim-less'
 Plug 'jlanzarotta/bufexplorer'
