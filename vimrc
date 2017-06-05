@@ -8,7 +8,7 @@
 "                        (o)
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-" LastChange: Friday Jun 02, 2017
+" LastChange: Monday Jun 05, 2017
 "
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version < 700
@@ -143,12 +143,19 @@ Plug 'kien/ctrlp.vim'
 Plug 'msanders/snipmate.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
-Plug 'roxma/nvim-completion-manager'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/c.vim'
+
+Plug 'roxma/nvim-completion-manager'
+
+" Requires vim8 with has('python') or has('python3')
+" Requires the installation of msgpack-python. (pip install msgpack-python)
+if !has('nvim')
+    Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 call plug#end()
 " }}}
@@ -254,6 +261,9 @@ nmap <Leader>o "*p
 " 行号
 nmap <C-N><C-N> :set invnumber<CR>
 
+" C/C++ 代码折叠
+autocmd FileType cpp set foldmethod=syntax
+
 " 行尾追加分号
 autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
 
@@ -273,9 +283,6 @@ iab xvim        /*- vim: set fdm=marker ff=unix sw=4 ts=4 et: -*/<CR>
 if has("nvim")
     inoremap <C-c> <Esc>
 endif
-
-" C/C++ 代码折叠
-autocmd FileType cpp set foldmethod=syntax
 
 " 载入 vimrc.local
 if filereadable(expand("$HOME/.vimrc.local"))
