@@ -129,6 +129,7 @@ elseif has('win32') && has('nvim')
     call plug#begin('~/AppData/Local/nvim/plugged')
 endif
 
+
 Plug 'aliva/vim-fish'
 Plug 'benmills/vimux'
 Plug 'chr4/nginx.vim'
@@ -148,6 +149,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/c.vim'
+Plug 'yaroot/wowlua.vim'
 
 Plug 'roxma/nvim-completion-manager'
 
@@ -162,11 +164,6 @@ call plug#end()
 
 " {{{ => 插件配置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" CoffeeScript
-" ----------------------------
-"au BufWritePost *.coffee silent make!
-
 " BufExplorer
 " ----------------------------
 nnoremap <silent> <Leader>z :BufExplorerHorizontalSplit<CR>
@@ -215,6 +212,20 @@ autocmd ColorScheme * hi NonText guibg=NONE
 autocmd ColorScheme * hi NonText ctermbg=NONE
 " }}}
 
+" {{{ => 文件类型专用设置
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 代码折叠
+autocmd FileType cpp set foldmethod=syntax
+autocmd FileType lua set foldmethod=indent
+
+" make 命令
+autocmd FileType cpp,coffee nmap <silent> <F5> :silent make<CR>
+
+" 行尾追加分号
+autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
+
+" }}}
+
 " {{{ => 其它配置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 保存时自动删除行尾空格
@@ -261,17 +272,8 @@ nmap <Leader>o "*p
 " 行号
 nmap <C-N><C-N> :set invnumber<CR>
 
-" C/C++ 代码折叠
-autocmd FileType cpp set foldmethod=syntax
-
-" 行尾追加分号
-autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
-
 " 刷新语法高亮
 "autocmd BufEnter * :syntax sync fromstart
-
-" make 命令
-nmap <silent> <F5> :silent make<CR>
 
 " 短语替换
 iab xdatetime   <C-R>=strftime("%A %b %d, %Y %H:%M")<CR>
