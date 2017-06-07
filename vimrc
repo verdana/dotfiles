@@ -91,7 +91,6 @@ set showmode                            " 显示当前的模式
 set scrolloff=7                         " 纵向移动时，光标行与上下两端的最小行数
 set wildmenu
 set wildmode=list:longest,full
-set cursorcolumn
 set cursorline
 set number                              " 显示行号
 set numberwidth=3                       " 行号列宽度
