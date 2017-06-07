@@ -8,7 +8,7 @@
 "                        (o)
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-" LastChange: Monday Jun 05, 2017
+" LastChange: Wednesday Jun 07, 2017
 "
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version < 700
@@ -91,6 +91,8 @@ set showmode                            " 显示当前的模式
 set scrolloff=7                         " 纵向移动时，光标行与上下两端的最小行数
 set wildmenu
 set wildmode=list:longest,full
+set cursorcolumn
+set cursorline
 set number                              " 显示行号
 set numberwidth=3                       " 行号列宽度
 set lazyredraw                          " 延迟重绘
