@@ -105,7 +105,7 @@ set hlsearch                            " 高亮显示搜索结果
 set ignorecase                          " 搜索时忽略大小写
 set magic                               " 自动转义搜索正则表达式中的特殊字符
 set matchtime=5                         " 光标跳过去后，每秒闪烁的次数
-set cmdheight=1                         " 命令行高度
+set cmdheight=2                         " 命令行高度
 set title
 
 " 命令行
@@ -130,7 +130,7 @@ elseif has('win32') && has('nvim')
     call plug#begin('~/AppData/Local/nvim/plugged')
 endif
 
-
+Plug 'PProvost/vim-ps1'
 Plug 'aliva/vim-fish'
 Plug 'benmills/vimux'
 Plug 'chr4/nginx.vim'
