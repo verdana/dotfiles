@@ -8,7 +8,7 @@
 "                        (o)
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-" LastChange: Wednesday Jun 07, 2017
+" LastChange: Friday Jun 09, 2017
 "
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version < 700
@@ -105,7 +105,7 @@ set hlsearch                            " 高亮显示搜索结果
 set ignorecase                          " 搜索时忽略大小写
 set magic                               " 自动转义搜索正则表达式中的特殊字符
 set matchtime=5                         " 光标跳过去后，每秒闪烁的次数
-set cmdheight=2                         " 命令行高度
+set cmdheight=1                         " 命令行高度
 set title
 
 " 命令行
