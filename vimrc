@@ -225,6 +225,8 @@ autocmd FileType cpp,coffee nmap <silent> <F5> :silent make<CR>
 " 行尾追加分号
 autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
 
+" 注释
+autocmd FileType cpp,php set commentstring=\/\/%s
 " }}}
 
 " {{{ => 其它配置
