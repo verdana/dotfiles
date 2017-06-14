@@ -130,6 +130,7 @@ elseif has('win32') && has('nvim')
     call plug#begin('~/AppData/Local/nvim/plugged')
 endif
 
+
 Plug 'PProvost/vim-ps1'
 Plug 'aliva/vim-fish'
 Plug 'benmills/vimux'
@@ -142,6 +143,7 @@ Plug 'groenewege/vim-less'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
+Plug 'lifepillar/vim-solarized8'
 Plug 'msanders/snipmate.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
