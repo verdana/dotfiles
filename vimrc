@@ -8,7 +8,7 @@
 "                        (o)
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-" LastChange: Friday Jun 09, 2017
+" LastChange: Thursday Jun 15, 2017
 "
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version < 700
@@ -173,10 +173,10 @@ nnoremap <silent> <Leader>z :BufExplorerHorizontalSplit<CR>
 
 " CtrlP
 " ----------------------------
-let g:ctrlp_custom_ignore = {
-    \   'dir'  : '\v[\/]\.(git|hg|svn)$',
-    \   'file' : '\v\.(a|exe|o|so)$',
-    \ }
+let g:ctrlp_cache_dir = $HOME . '/.cache/CtrlP'
+if executable('ag')
+    let g:ctrlp_user_command = 'ag --files-without-matches --nocolor -g "" %s'
+endif
 
 " Tabular
 " ----------------------------
