@@ -178,14 +178,6 @@ if executable('ag')
     let g:ctrlp_user_command = 'ag --files-without-matches --nocolor -g "" %s'
 endif
 
-" Tabular
-" ----------------------------
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a> :Tabularize /=><CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
-
 " NERD tree
 " ----------------------------
 let NERDTreeSplitVertical       = 1
@@ -198,6 +190,18 @@ let NERDTreeShowBookmarks       = 1
 let NERDTreeShowHidden          = 0
 let NERDTreeIgnore              = ['favicon.ico', 'images']
 nmap <special> <leader>v :NERDTreeToggle<CR>
+
+" Tabular
+" ----------------------------
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a> :Tabularize /=><CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+
+" vim-go
+" ----------------------------
+let g:go_fmt_autosave = 0
 " }}}
 
 " {{{ => 语法高亮以及颜色主题
