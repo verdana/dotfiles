@@ -155,12 +155,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/c.vim'
 Plug 'yaroot/wowlua.vim'
 
-Plug 'roxma/nvim-completion-manager'
-
-" Requires vim8 with has('python') or has('python3')
-" Requires the installation of msgpack-python. (pip install msgpack-python)
-if !has('nvim')
-    Plug 'roxma/vim-hug-neovim-rpc'
+" Only use this plug in neovim
+" It make vim8 quit very slowly
+if has('nvim')
+    Plug 'roxma/nvim-completion-manager'
 endif
 
 call plug#end()
