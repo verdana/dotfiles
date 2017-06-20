@@ -133,7 +133,6 @@ endif
 
 Plug 'PProvost/vim-ps1'
 Plug 'aliva/vim-fish'
-Plug 'benmills/vimux'
 Plug 'chr4/nginx.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'evidens/vim-twig'
