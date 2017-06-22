@@ -167,6 +167,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BufExplorer
 " ----------------------------
+let g:bufExplorerSortBy='name'       " Sort by the buffer's name.
 nnoremap <silent> <Leader>z :BufExplorerHorizontalSplit<CR>
 
 " CtrlP
