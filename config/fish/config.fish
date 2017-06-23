@@ -6,11 +6,11 @@ set fish_user_paths     $fish_user_paths /usr/lib/ccache
 set fish_user_paths     $fish_user_paths /usr/local/go/bin
 
 # Change the prompt text
-set pure_symbol_prompt          "~>"
-#set pure_symbol_git_up_arrow   "^"
-#set pure_symbol_git_down_arrow "v"
-#set pure_symbol_git_dirty      "!"
-#set pure_symbol_horizontal_bar "_"
+set pure_symbol_prompt         "~>"
+set pure_symbol_git_up_arrow   "^"
+set pure_symbol_git_down_arrow "v"
+set pure_symbol_git_dirty      "!"
+set pure_symbol_horizontal_bar "_"
 
 # Change the colors
 #set pure_color_blue    (set_color "1e00fd")
