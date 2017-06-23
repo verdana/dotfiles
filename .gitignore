@@ -10,12 +10,10 @@ config/fish/fishd.*
 config/fish/functions/fish_prompt.fish
 config/fish/functions/theme-pure/
 config/htop/
-vim/.netrwhist
-vim/bundle/
-vim/ginit.vim
-vim/init.vim
-vim/plugged/
-vim/shada/
+config/nvim/.netrwhist
+config/nvim/bundle/
+config/nvim/plugged/
+config/nvim/shada/
 zsh/data/
 
 build/**/pkg/
