@@ -24,11 +24,11 @@ rm -rf ~/.zsh_prompt
 rm -rf ~/.zshrc
 
 ##  Create symlinks in home dir
-ln -sf $dotfiles_dir/bin       ~/.bin
-ln -sf $dotfiles_dir/config    ~/.config
-ln -sf $dotfiles_dir/gitconfig ~/.gitconfig
-ln -sf $dotfiles_dir/vim       ~/.vim
-ln -sf $dotfiles_dir/vimrc     ~/.vimrc
+ln -sf $dotfiles_dir/bin                    ~/.bin
+ln -sf $dotfiles_dir/config                 ~/.config
+ln -sf $dotfiles_dir/config/nvim            ~/.vim
+ln -sf $dotfiles_dir/config/nvim/init.vim   ~/.vimrc
+ln -sf $dotfiles_dir/gitconfig              ~/.gitconfig
 
 ## Install fish theme
 curl -Ls https://raw.github.com/rafaelrinaldi/pure/master/installer.fish > /tmp/pure_installer.fish
