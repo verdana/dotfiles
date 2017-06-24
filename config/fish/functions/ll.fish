@@ -1,3 +1,3 @@
 function ll
-    /bin/ls --color=always -Ahl $argv
+    ls -Ahl $argv
 end
