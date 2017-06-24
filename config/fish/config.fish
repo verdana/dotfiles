@@ -2,8 +2,14 @@
 #set -U EDITOR       vim
 
 set fish_function_path  $HOME/.config/fish/functions/theme-pure $fish_function_path
-set fish_user_paths     $fish_user_paths /usr/lib/ccache
-set fish_user_paths     $fish_user_paths /usr/local/go/bin
+
+if test -d /usr/lib/ccache
+    set fish_user_paths $fish_user_paths /usr/lib/ccache
+end
+
+if test -d /usr/local/go/bin
+    set fish_user_paths $fish_user_paths /usr/local/go/bin
+end
 
 # Change the prompt text
 set pure_symbol_prompt         "~>"
