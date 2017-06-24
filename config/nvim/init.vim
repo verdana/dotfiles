@@ -8,10 +8,10 @@
 "                        (o)
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-" LastChange: Thursday Jun 15, 2017
+" LastChange: Sunday Jun 25, 2017
 "
 " 该配置文件仅针对于 vim7+ 的版本
-if v:version < 700
+if v:version <= 700
     echoerr '该配置 ' . $MYVIMRC . ' 仅适用于 Vim7 或者更新的版本.'
     quit
 endif
