@@ -9,6 +9,7 @@ rm -rf ~/.bashrc
 rm -rf ~/.cache
 rm -rf ~/.composer
 rm -rf ~/.config
+rm -rf ~/.dircolors
 rm -rf ~/.gitconfig
 rm -rf ~/.history
 rm -rf ~/.lesshst
@@ -28,6 +29,7 @@ ln -sf $dotfiles_dir/bin                    ~/.bin
 ln -sf $dotfiles_dir/config                 ~/.config
 ln -sf $dotfiles_dir/config/nvim            ~/.vim
 ln -sf $dotfiles_dir/config/nvim/init.vim   ~/.vimrc
+ln -sf $dotfiles_dir/dircolors              ~/.dircolors
 ln -sf $dotfiles_dir/gitconfig              ~/.gitconfig
 
 ## Install fish theme
