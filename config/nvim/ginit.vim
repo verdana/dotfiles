@@ -1,3 +1,3 @@
 
-Guifont XHei Intel Mono:h11
+Guifont XHei Android Mono:h11
 
