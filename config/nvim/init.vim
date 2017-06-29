@@ -232,6 +232,7 @@ autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
 
 " 注释
 autocmd FileType cpp,php set commentstring=\/\/%s
+autocmd FileType upstart set commentstring=#%s
 " }}}
 
 " {{{ => 其它配置
