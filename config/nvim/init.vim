@@ -107,6 +107,7 @@ set magic                               " 自动转义搜索正则表达式中�
 set matchtime=5                         " 光标跳过去后，每秒闪烁的次数
 set cmdheight=2                         " 命令行高度
 set title
+set termguicolors
 
 " 命令行
 if has('cmdline_info')
@@ -165,6 +166,10 @@ call plug#end()
 
 " {{{ => 插件配置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Airline
+" ----------------------------
+let g:airline_theme='quantum'
+
 " BufExplorer
 " ----------------------------
 let g:bufExplorerSortBy='name'       " Sort by the buffer's name.

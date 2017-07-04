@@ -1,3 +1,3 @@
 
-Guifont XHei Android Mono:h11
+GuiFont! XHei Android Mono:h11
 
