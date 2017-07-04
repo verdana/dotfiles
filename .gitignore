@@ -6,6 +6,7 @@
 *.xz
 
 .ssh/
+config/composer/
 config/fish/fishd.*
 config/fish/functions/fish_prompt.fish
 config/fish/functions/theme-pure/
