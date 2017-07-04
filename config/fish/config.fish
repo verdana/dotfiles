@@ -11,6 +11,10 @@ if test -d /usr/local/go/bin
     set fish_user_paths $fish_user_paths /usr/local/go/bin
 end
 
+if test -d $HOME/.config/composer/vendor/bin
+    set fish_user_paths $fish_user_paths $HOME/.config/composer/vendor/bin
+end
+
 # Change the prompt text
 set pure_symbol_prompt         "~>"
 set pure_symbol_git_up_arrow   "^"
