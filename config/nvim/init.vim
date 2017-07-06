@@ -296,16 +296,18 @@ iab xvim        /*- vim: set fdm=marker ff=unix sw=4 ts=4 et: -*/<CR>
 
 " 使用 PHP 格式化 JSON
 " 384 = JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
-command! FormatJson %!php -r "print json_encode(json_decode(stream_get_contents(STDIN)), 384);"
+if executable('php')
+    command! FormatJson %!php -r "print json_encode(json_decode(stream_get_contents(STDIN)), 384);"
+end
 
 " Remap ctrl-c for this issue:
 " https://github.com/Shougo/deoplete.nvim/issues/460
-if has("nvim")
+if has('nvim')
     inoremap <C-c> <Esc>
 endif
 
 " 载入 vimrc.local
-if filereadable(expand("$HOME/.vimrc.local"))
+if filereadable(expand('$HOME/.vimrc.local'))
     source $HOME/.vimrc.local
 endif
 " }}}
