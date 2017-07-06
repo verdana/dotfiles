@@ -107,7 +107,6 @@ set magic                               " 自动转义搜索正则表达式中�
 set matchtime=5                         " 光标跳过去后，每秒闪烁的次数
 set cmdheight=2                         " 命令行高度
 set title
-set termguicolors
 
 " 命令行
 if has('cmdline_info')
@@ -212,6 +211,13 @@ let g:go_fmt_autosave = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 filetype plugin indent on
+
+" 仅在 windows 平台中，使用了 nvim 以及 nvim-qt / nyaovim 等 GUI 的情况下
+" 才激活 termguicolors，在终端中开启这个选项会造成很多问题
+" 由于 neovim 中 gui_running 始终为 0，所以检测 GUI 是否运行很困难
+if (has('win32') || has('win64')) && has('nvim') && exists('+termguicolors')
+    set termguicolors
+end
 
 " 设定颜色主题
 let g:quantum_black=1
