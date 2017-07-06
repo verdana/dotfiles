@@ -8,7 +8,7 @@
 "                        (o)
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-" LastChange: Sunday Jun 25, 2017
+" LastChange: Thursday Jul 06, 2017
 "
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version <= 700
@@ -293,6 +293,10 @@ nmap <C-N><C-N> :set invnumber<CR>
 iab xdatetime   <C-R>=strftime("%A %b %d, %Y %H:%M")<CR>
 iab xdate       <C-R>=strftime("%A %b %d, %Y")<CR>
 iab xvim        /*- vim: set fdm=marker ff=unix sw=4 ts=4 et: -*/<CR>
+
+" 使用 PHP 格式化 JSON
+" 384 = JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+command! FormatJson %!php -r "print json_encode(json_decode(stream_get_contents(STDIN)), 384);"
 
 " Remap ctrl-c for this issue:
 " https://github.com/Shougo/deoplete.nvim/issues/460
