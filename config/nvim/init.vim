@@ -142,7 +142,6 @@ Plug 'groenewege/vim-less'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
-Plug 'lifepillar/vim-solarized8'
 Plug 'msanders/snipmate.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
@@ -165,9 +164,6 @@ call plug#end()
 
 " {{{ => 插件配置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Airline
-" ----------------------------
-let g:airline_theme='quantum'
 
 " BufExplorer
 " ----------------------------
