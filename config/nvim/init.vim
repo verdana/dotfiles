@@ -214,7 +214,7 @@ syntax on
 filetype plugin indent on
 
 " 设定颜色主题
-let g:quantum_black=0
+let g:quantum_black=1
 let g:quantum_italics=0
 colorscheme quantum
 
