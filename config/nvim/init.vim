@@ -34,11 +34,13 @@ if has('unix') || has('mac')
     set shell=/bin/bash
 
     let g:loaded_python_provider = 1
+    let g:loaded_ruby_provider   = 1
     let g:python3_host_prog      = "/usr/bin/python3"
 elseif has('win32')
     set shell=cmd
 
     let g:loaded_python_provider = 1
+    let g:loaded_ruby_provider   = 1
     let g:python3_host_prog      = "D:/Python3/python.exe"
 endif
 " }}}
