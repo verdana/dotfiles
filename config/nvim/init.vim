@@ -142,6 +142,7 @@ Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'groenewege/vim-less'
 Plug 'jlanzarotta/bufexplorer'
+Plug 'joshdick/onedark.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
 Plug 'msanders/snipmate.vim'
@@ -218,9 +219,9 @@ if (has('win32') || has('win64')) && has('nvim') && exists('+termguicolors')
 end
 
 " 设定颜色主题
-let g:quantum_black=1
-let g:quantum_italics=0
-colorscheme quantum
+" let g:quantum_black=1
+" let g:quantum_italics=0
+colorscheme onedark
 
 " 使无文字行背景变为透明色
 autocmd ColorScheme * hi NonText guibg=NONE
