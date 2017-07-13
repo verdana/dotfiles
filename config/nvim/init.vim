@@ -257,7 +257,15 @@ endfunction
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 match ErrorMsg '\s\+$'
 
-nmap <Leader>f   [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+" 根据配置生成 modeline
+function! <SID>AppendModeline()
+    let l:modeline = printf(" vim: set%s ts=%d sw=%d tw=%d %set :",
+                \ exists("&foldmethod") ? ' fdm=' . &fdm : '' ,
+                \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+    let l:modeline = substitute(&commentstring, "%s", l:modeline, '')
+    call append(line("$"), l:modeline)
+endfunction
+nnoremap <silent> <Leader>ml :call <SID>AppendModeline()<CR>
 
 " 保存与关闭
 nmap <Leader>bd  :bd<CR>
@@ -291,13 +299,9 @@ nmap <Leader>o "*p
 " 行号
 nmap <C-N><C-N> :set invnumber<CR>
 
-" 刷新语法高亮
-"autocmd BufEnter * :syntax sync fromstart
-
 " 短语替换
 iab xdatetime   <C-R>=strftime("%A %b %d, %Y %H:%M")<CR>
 iab xdate       <C-R>=strftime("%A %b %d, %Y")<CR>
-iab xvim        /*- vim: set fdm=marker ff=unix sw=4 ts=4 et: -*/<CR>
 
 " 使用 PHP 格式化 JSON
 " 384 = JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
@@ -310,6 +314,11 @@ end
 if has('nvim')
     inoremap <C-c> <Esc>
 endif
+
+" 刷新语法高亮
+"autocmd BufEnter * :syntax sync fromstart
+
+"nmap <Leader>f   [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 " 载入 vimrc.local
 if filereadable(expand('$HOME/.vimrc.local'))
