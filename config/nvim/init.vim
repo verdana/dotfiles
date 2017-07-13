@@ -8,7 +8,7 @@
 "                        (o)
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-" LastChange: Thursday Jul 06, 2017
+" LastChange: Thursday Jul 13, 2017
 "
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version <= 700
@@ -230,15 +230,15 @@ autocmd ColorScheme * hi NonText ctermbg=NONE
 
 " {{{ => 文件类型专用设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 代码折叠
-autocmd FileType cpp set foldmethod=syntax
-autocmd FileType lua set foldmethod=indent
-
 " make 命令
 autocmd FileType cpp,coffee nmap <silent> <F5> :silent make<CR>
 
 " 行尾追加分号
 autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
+
+" 代码折叠
+autocmd FileType cpp        set foldmethod=syntax
+autocmd FileType go,lua,php set foldmethod=indent
 
 " 注释
 autocmd FileType cpp,php set commentstring=\/\/%s
