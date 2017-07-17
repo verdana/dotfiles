@@ -18,10 +18,10 @@ if test -d $HOME/.config/composer/vendor/bin
 end
 
 # Change the prompt text
-set pure_symbol_prompt         "~>"
-set pure_symbol_git_up_arrow   "^"
-set pure_symbol_git_down_arrow "v"
-set pure_symbol_git_dirty      "!"
+# set pure_symbol_prompt         "~>"
+# set pure_symbol_git_up_arrow   "^"
+# set pure_symbol_git_down_arrow "v"
+set pure_symbol_git_dirty      "*"
 set pure_symbol_horizontal_bar "_"
 
 # Change the colors
@@ -32,5 +32,18 @@ set pure_symbol_horizontal_bar "_"
 #set pure_color_normal  (set_color "000000")
 #set pure_color_red     (set_color "f820ff")
 #set pure_color_yellow  (set_color "1bc8c8")
-# THEME PURE #
-set fish_function_path /home/verdana/.config/fish/functions/theme-pure $fish_function_path
+
+# Change colors for username and host in SSH
+set pure_username_color $pure_color_yellow
+set pure_host_color     $pure_color_green
+set pure_root_color     $pure_color_red
+
+# Change where the username and host is displayed
+# 0 - end of prompt, default
+# 1 - start of prompt
+# Any other value defaults to the default behaviour
+set pure_user_host_location 0
+
+# Max execution time of a process before its run time is shown when it exits
+set pure_command_max_exec_time 5
+
