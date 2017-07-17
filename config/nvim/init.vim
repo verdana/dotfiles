@@ -271,6 +271,9 @@ nnoremap <silent> <Leader>ml :call <SID>AppendModeline()<CR>
 nmap <Leader>bd  :bd<CR>
 nmap <Leader>w   :w!<CR>
 
+" 对于无写权限的文件，允许使用 sudo 命令尝试保存
+cmap w!! w !sudo tee > /dev/null %
+
 " VIMRC
 nmap <Leader>e   :e! $MYVIMRC<CR>
 nmap <Leader>r   :so $MYVIMRC<CR>
@@ -285,9 +288,6 @@ nmap <SPACE> :exec "normal j"<CR>
 " 快速切换到当前编辑文件所在的目录
 noremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
-" 对于无写权限的文件，允许使用 sudo 命令尝试保存
-cmap w!! w !sudo tee > /dev/null %
-
 " 删除行尾的 ^M，转换文件格式 DOS->UNIX
 noremap <Leader>m   mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 
@@ -295,6 +295,9 @@ noremap <Leader>m   mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 set pastetoggle=<F2>
 nmap <Leader>, "+p
 nmap <Leader>o "*p
+
+" 操蛋的 q:
+nmap q: :q
 
 " 行号
 nmap <C-N><C-N> :set invnumber<CR>
