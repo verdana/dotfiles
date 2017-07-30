@@ -133,11 +133,11 @@ elseif has('win32') && has('nvim')
 endif
 
 
-Plug 'PProvost/vim-ps1'
+" Plug 'PProvost/vim-ps1'
 Plug 'aliva/vim-fish'
 Plug 'chr4/nginx.vim'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'evidens/vim-twig'
+" Plug 'ekalinin/Dockerfile.vim'
+" Plug 'evidens/vim-twig'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'groenewege/vim-less'
