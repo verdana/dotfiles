@@ -203,7 +203,7 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 
 " vim-go
 " ----------------------------
-let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 1
 " }}}
 
 " {{{ => 语法高亮以及颜色主题
