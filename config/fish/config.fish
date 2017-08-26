@@ -5,12 +5,20 @@ set -gx EDITOR      vim
 
 set fish_function_path  $HOME/.config/fish/functions/theme-pure $fish_function_path
 
+if test -d /opt/cmake-3.9.0/bin
+    set fish_user_paths $fish_user_paths /opt/cmake-3.9.0/bin
+end
+
 if test -d /usr/lib/ccache
     set fish_user_paths $fish_user_paths /usr/lib/ccache
 end
 
 if test -d /usr/local/go/bin
     set fish_user_paths $fish_user_paths /usr/local/go/bin
+end
+
+if test -d $HOME/go/bin
+    set fish_user_paths $fish_user_paths $HOME/go/bin
 end
 
 if test -d $HOME/.config/composer/vendor/bin
