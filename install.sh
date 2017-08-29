@@ -36,3 +36,6 @@ ln -sf $dotfiles_dir/gitconfig              ~/.gitconfig
 curl -Ls https://raw.github.com/rafaelrinaldi/pure/master/installer.fish > /tmp/pure_installer.fish
 fish -c "source /tmp/pure_installer.fish; and install_pure"
 
+## Reset config file
+git checkout -- config/fish/config.fish
+
