@@ -242,6 +242,7 @@ autocmd FileType go,lua,php set foldmethod=indent
 
 " 注释
 autocmd FileType cpp,php set commentstring=\/\/%s
+autocmd FileType cmake   set commentstring=#%s
 autocmd FileType upstart set commentstring=#%s
 " }}}
 
