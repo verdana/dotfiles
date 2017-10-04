@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Variables
-dotfiles_dir=~/dotfiles
+dotfiles_dir=$(dirname $(readlink -f $0))
 
 ## Cleanup my home dir first
 rm -rf ~/.bin
@@ -25,13 +25,13 @@ rm -rf ~/.zsh_prompt
 rm -rf ~/.zshrc
 
 ##  Create symlinks in home dir
-ln -srf $dotfiles_dir/bin                    ~/.bin
-ln -srf $dotfiles_dir/config                 ~/.config
-ln -srf $dotfiles_dir/config/nvim            ~/.vim
-ln -srf $dotfiles_dir/config/nvim/init.vim   ~/.vimrc
-ln -srf $dotfiles_dir/dircolors              ~/.dircolors
-ln -srf $dotfiles_dir/gitconfig              ~/.gitconfig
-ln -srf $dotfiles_dir/tmux.conf              ~/.tmux.conf
+ln -sf $dotfiles_dir/bin                    ~/.bin
+ln -sf $dotfiles_dir/config                 ~/.config
+ln -sf $dotfiles_dir/config/nvim            ~/.vim
+ln -sf $dotfiles_dir/config/nvim/init.vim   ~/.vimrc
+ln -sf $dotfiles_dir/dircolors              ~/.dircolors
+ln -sf $dotfiles_dir/gitconfig              ~/.gitconfig
+ln -sf $dotfiles_dir/tmux.conf              ~/.tmux.conf
 
 ## Clean up previous theme-pure installation
 fish_dir="$dotfiles_dir/config/fish"
@@ -43,6 +43,7 @@ curl -Ls https://raw.github.com/rafaelrinaldi/pure/master/installer.fish > /tmp/
 fish -c "source /tmp/pure_installer.fish; and install_pure"
 
 ## Reset config file
+cd $dotfiles_dir
 git checkout -- config/fish/config.fish
 
 # vim: set fdm=manual ts=4 sw=4 tw=0 et :
