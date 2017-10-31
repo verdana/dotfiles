@@ -1,0 +1,16 @@
+#!/bin/bash
+
+PPAs=(
+    "ppa:fish-shell/release-2"
+    "ppa:git-core/ppa"
+    "ppa:jonathonf/vim"
+    "ppa:max-c-lv/shadowsocks-libev"
+    "ppa:ubuntu-toolchain-r/test"
+)
+
+
+for pos in "${!PPAs[@]}"
+do
+    sudo add-apt-repository --yes "${PPAs[$pos]}"
+done
+
