@@ -2,6 +2,7 @@
 set -gx TERM        xterm-256color
 set -gx VISUAL      vim
 set -gx EDITOR      vim
+set -gx GCC_COLORS  "error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 
 set fish_function_path  $HOME/.config/fish/functions/theme-pure $fish_function_path
 
