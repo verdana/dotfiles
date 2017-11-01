@@ -1,10 +1,15 @@
-#!/bin/sh
+#!/bin/bash
+
+
+# Remove if old tmux installed
+if [[ "`dpkg -l | cut -d " " -f 3 | grep tmux`" == "tmux" ]]; then
+    sudo apt-get -y remove tmux
+fi
 
 # Steps to build and install tmux from source on Ubuntu.
-# Takes < 25 seconds on EC2 env [even on a low-end config instance].
-VERSION=2.5
-sudo apt-get -y remove tmux
-sudo apt-get -y install wget tar libevent-dev libncurses-dev
+sudo apt-get -y install libevent-dev libncurses5-dev
+
+VERSION=2.6
 wget https://github.com/tmux/tmux/releases/download/${VERSION}/tmux-${VERSION}.tar.gz
 tar xf tmux-${VERSION}.tar.gz
 rm -f tmux-${VERSION}.tar.gz
