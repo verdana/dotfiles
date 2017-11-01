@@ -184,15 +184,17 @@ endif
 
 " NERD tree
 " ----------------------------
-let NERDTreeSplitVertical       = 1
-let NERDTreeWinPos              = 1
-let NERDTreeWinSize             = 40
 let NERDTreeChDirMode           = 1
 let NERDTreeHighlightCurosrline = 1
+let NERDTreeIgnore              = ['favicon.ico', 'images']
 let NERDTreeQuitOnOpen          = 1
 let NERDTreeShowBookmarks       = 1
 let NERDTreeShowHidden          = 0
-let NERDTreeIgnore              = ['favicon.ico', 'images']
+let NERDTreeSplitVertical       = 1
+let NERDTreeWinPos              = 0
+let NERDTreeWinSize             = 40
+let NERDTreeDirArrowExpandable  = "+"
+let NERDTreeDirArrowCollapsible = "~"
 nmap <special> <leader>v :NERDTreeToggle<CR>
 
 " Tabular
