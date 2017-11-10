@@ -209,6 +209,12 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 " vim-go
 " ----------------------------
 let g:go_fmt_autosave = 1
+
+
+" ft-sql
+" ----------------------------
+let g:ftplugin_sql_omni_key = '<C-j>'
+
 " }}}
 
 " {{{ => 语法高亮以及颜色主题
