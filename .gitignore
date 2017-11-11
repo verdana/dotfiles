@@ -1,23 +1,8 @@
-
-# 忽略以下的文件或者目录
+# 忽略以下的文件
 *.bz2
 *.gz
 *.tgz
 *.xz
 
-.ssh/
-config/composer/
-config/dbxcli/
-config/fish/fishd.*
-config/fish/functions/fish_prompt.fish
-config/fish/functions/theme-pure/
-config/htop/
-config/nvim/.netrwhist
-config/nvim/bundle/
-config/nvim/plugged/
-config/nvim/shada/
-zsh/data/
-
-build/**/pkg/
-build/**/src/
-
+# 忽略以下的目录
+.ssh
