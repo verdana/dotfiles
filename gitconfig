@@ -5,11 +5,12 @@
 
 [core]
     editor     = vim
+    fileMode   = false
+    ignoreCase = false
     trustctime = false
-    quotepath  = false
-    autocrlf   = false
+    quotePath  = false
     safecrlf   = true
-    filemode   = false
+    autocrlf   = false
 
 [alias]
     br   = branch
