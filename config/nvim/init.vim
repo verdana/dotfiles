@@ -132,32 +132,21 @@ elseif has('win32') && has('nvim')
     call plug#begin('~/AppData/Local/nvim/plugged')
 endif
 
-
-" Plug 'PProvost/vim-ps1'
-Plug 'aliva/vim-fish'
-Plug 'chr4/nginx.vim'
-" Plug 'ekalinin/Dockerfile.vim'
-" Plug 'evidens/vim-twig'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
-Plug 'groenewege/vim-less'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'joshdick/onedark.vim'
-Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
-Plug 'lifepillar/pgsql.vim'
 Plug 'msanders/snipmate.vim'
 Plug 'nickhutchinson/vim-cmake-syntax'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
-Plug 'rhysd/vim-clang-format'
 Plug 'scrooloose/nerdtree'
-Plug 'tbastos/vim-lua'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-scripts/c.vim'
-Plug 'yaroot/wowlua.vim'
+" Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 
 " Only use this plug in neovim
 " It make vim8 quit very slowly
@@ -170,6 +159,14 @@ call plug#end()
 
 " {{{ => 插件配置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Lightline
+" ----------------------------
+let g:lightline = {
+    \ 'colorscheme': 'onedark',
+    \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
+    \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
+    \ }
 
 " BufExplorer
 " ----------------------------
@@ -210,7 +207,6 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 " ----------------------------
 let g:go_fmt_autosave = 1
 
-
 " ft-sql
 " ----------------------------
 let g:ftplugin_sql_omni_key = '<C-j>'
@@ -230,13 +226,13 @@ if (has('win32') || has('win64')) && has('nvim') && exists('+termguicolors')
 end
 
 " 设定颜色主题
-" let g:quantum_black=1
-" let g:quantum_italics=0
+let g:onedark_termcolors=256
+let g:onedark_terminal_italics=0
 colorscheme onedark
 
 " 使无文字行背景变为透明色
-autocmd ColorScheme * hi NonText guibg=NONE
-autocmd ColorScheme * hi NonText ctermbg=NONE
+"autocmd ColorScheme * hi NonText guibg=NONE
+"autocmd ColorScheme * hi NonText ctermbg=NONE
 " }}}
 
 " {{{ => 文件类型专用设置
