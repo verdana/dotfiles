@@ -1,4 +1,4 @@
 function zstop
-    cd /data/samba/serverIn/tools
+    cd /home/verdana/public/kongfu_server/tools
     ./kill_all.sh
 end

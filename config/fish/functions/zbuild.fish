@@ -1,4 +1,4 @@
 function zbuild
-    cd /data/samba/serverIn
+    cd /home/verdana/kongfu_server
     ./makeall.sh "$argv"
 end
