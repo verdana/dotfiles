@@ -1,8 +1,8 @@
-# 忽略当前目录下面的所有文件或目录
-*
 
-# 除了以下这些
-!.gitignore
-!fish
-!nvim
+fish/fishd.*
+fish/functions/fish_prompt.fish
+fish/functions/theme-pure/
+htop/
+nvim/plugged/
+pip/
 
