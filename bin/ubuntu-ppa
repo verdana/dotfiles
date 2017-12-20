@@ -7,6 +7,7 @@ PPAs=(
     "ppa:max-c-lv/shadowsocks-libev"
     "ppa:neovim-ppa/unstable"
     "ppa:ubuntu-toolchain-r/test"
+    "ppa:webupd8team/java"
 )
 
 
