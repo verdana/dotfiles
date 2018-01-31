@@ -5,4 +5,6 @@
 *.xz
 
 # 忽略以下的目录
-.ssh
+.ssh/
+config/autostart/
+config/yarn/
