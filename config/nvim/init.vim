@@ -132,8 +132,10 @@ elseif has('win32') && has('nvim')
     call plug#begin('~/AppData/Local/nvim/plugged')
 endif
 
+Plug 'StanAngeloff/php.vim'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
+Plug 'itchyny/lightline.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'joshdick/onedark.vim'
 Plug 'kien/ctrlp.vim'
@@ -146,7 +148,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tyrannicaltoucan/vim-quantum'
 " Plug 'vim-airline/vim-airline'
-Plug 'itchyny/lightline.vim'
 
 " Only use this plug in neovim
 " It make vim8 quit very slowly
