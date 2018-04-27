@@ -1,4 +1,5 @@
 
+set -gx LC_COLLATE  C
 set -gx TERM        xterm-256color
 set -gx VISUAL      vim
 set -gx EDITOR      vim
