@@ -65,3 +65,16 @@ set pure_user_host_location 0
 # Max execution time of a process before its run time is shown when it exits
 set pure_command_max_exec_time 5
 
+# Poatage
+alias eu='sudo etc-update'
+alias es='sudo eix-sync'
+alias em='sudo emerge --ask'
+# Rebuilding your entire system
+alias em-update='sudo emerge -uDNav @world'
+# Remove package
+alias em-remove='sudo emerge --unmerge'
+# Removing obsoleted packages
+alias em-clean='sudo emerge --depclean'
+# Running revdep-rebuild
+alias rr='sudo revdep-rebuild -p'
+
