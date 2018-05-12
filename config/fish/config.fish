@@ -7,6 +7,10 @@ set -gx GCC_COLORS  "error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:q
 
 set fish_function_path  $HOME/.config/fish/functions/theme-pure $fish_function_path
 
+if status --is-login
+    set PATH /usr/local/bin $PATH
+end
+
 if test -d /opt/cmake-3.9.0/bin
     set fish_user_paths $fish_user_paths /opt/cmake-3.9.0/bin
 end
