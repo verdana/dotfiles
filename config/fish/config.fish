@@ -73,12 +73,16 @@ set pure_command_max_exec_time 5
 alias eu='sudo etc-update'
 alias es='sudo eix-sync'
 alias em='sudo emerge --ask'
+# Display package information
+alias em-info 'sudo emerge --info'
 # Rebuilding your entire system
 alias em-update='sudo emerge -uDNav @world'
 # Remove package
 alias em-remove='sudo emerge --unmerge'
 # Removing obsoleted packages
 alias em-clean='sudo emerge --depclean'
+# Search a package
+alias em-search 'sudo emerge --search'
 # Running revdep-rebuild
 alias rr='sudo revdep-rebuild -p'
 
