@@ -15,6 +15,10 @@ if test -d /opt/cmake-3.9.0/bin
     set fish_user_paths $fish_user_paths /opt/cmake-3.9.0/bin
 end
 
+if test -d /opt/php-7.1/bin
+    set fish_user_paths $fish_user_paths /opt/php-7.1/bin
+end
+
 if test -d /usr/lib/ccache
     set fish_user_paths $fish_user_paths /usr/lib/ccache
 end
