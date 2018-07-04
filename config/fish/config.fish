@@ -1,46 +1,34 @@
-
+# Common env variables
 set -gx LC_COLLATE  C
 set -gx TERM        xterm-256color
 set -gx VISUAL      vim
 set -gx EDITOR      vim
-set -gx GCC_COLORS  "error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 
-set fish_function_path  $HOME/.config/fish/functions/theme-pure $fish_function_path
+# Hadoop
+set -gx HADOOP_HOME                     $HOME/hadoop-2.7.6
+set -gx HADOOP_COMMON_LIB_NATIVE_DIR    $HADOOP_HOME/lib/native
+set -gx HADOOP_OPTS                     "-Djava.library.path=$HADOOP_HOME/lib:$HADOOP_COMMON_LIB_NATIVE_DIR"
+set -gx JAVA_HOME                       "/usr/lib/jvm/java-8-openjdk-amd64"
+set -gx LD_LIBRARY_PATH                 "$HADOOP_HOME/lib/native:$LD_LIBRARY_PATH"
 
-if status --is-login
-    set PATH /usr/local/bin $PATH
-end
+# Pure prompt
+set fish_function_path $HOME/.config/fish/functions/theme-pure $fish_function_path
 
-if test -d /opt/cmake-3.9.0/bin
-    set fish_user_paths $fish_user_paths /opt/cmake-3.9.0/bin
-end
+# User paths
+set user_paths $user_paths              \
+    $HOME/.config/composer/vendor/bin   \
+    $HOME/.local/bin                    \
+    $HOME/.yarn/bin                     \
+    $HOME/go/bin                        \
+    /usr/lib/ccache                     \
+    /usr/local/cmake-3.9.0/bin          \
+    /usr/local/go/bin                   \
+    /usr/local/php-7.2/bin
 
-if test -d /opt/php-7.1/bin
-    set fish_user_paths $fish_user_paths /opt/php-7.1/bin
-end
-
-if test -d /usr/lib/ccache
-    set fish_user_paths $fish_user_paths /usr/lib/ccache
-end
-
-if test -d /usr/local/go/bin
-    set fish_user_paths $fish_user_paths /usr/local/go/bin
-end
-
-if test -d $HOME/go/bin
-    set fish_user_paths $fish_user_paths $HOME/go/bin
-end
-
-if test -d $HOME/.config/composer/vendor/bin
-    set fish_user_paths $fish_user_paths $HOME/.config/composer/vendor/bin
-end
-
-if test -d $HOME/.local/bin
-    set fish_user_paths $fish_user_paths $HOME/.local/bin
-end
-
-if test -d $HOME/.yarn/bin
-    set fish_user_paths $fish_user_paths $HOME/.yarn/bin
+for path in $user_paths
+    if test -d $path
+        set -U fish_user_paths $fish_user_paths $path
+    end
 end
 
 # Change the prompt text
