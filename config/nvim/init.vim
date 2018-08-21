@@ -245,7 +245,7 @@ autocmd FileType cpp,coffee nmap <silent> <F5> :silent make<CR>
 autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
 
 " 缩进
-autocmd FileType yaml set tabstop=4
+autocmd FileType yaml set tabstop=4 shiftwidth=4 expandtab
 
 " 代码折叠
 autocmd FileType cpp        set foldmethod=syntax
