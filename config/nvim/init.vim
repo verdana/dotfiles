@@ -244,6 +244,9 @@ autocmd FileType cpp,coffee nmap <silent> <F5> :silent make<CR>
 " 行尾追加分号
 autocmd FileType cpp,php nmap ; :exec "normal A;"<ESC>
 
+" 缩进
+autocmd FileType yml set tabstop=4
+
 " 代码折叠
 autocmd FileType cpp        set foldmethod=syntax
 autocmd FileType go,lua,php set foldmethod=indent
