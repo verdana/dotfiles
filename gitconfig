@@ -14,7 +14,7 @@
 
 [alias]
     br   = branch
-    ca   = clean -dfx
+    cc   = clean -dfx
     ci   = commit
     cia  = commit --amend
     cii  = commit --interactive
