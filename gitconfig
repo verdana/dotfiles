@@ -16,7 +16,6 @@
     br   = branch
     cc   = clean -dfx
     ci   = commit
-    cia  = commit --amend
     cii  = commit --interactive
     cim  = commit -a -m
     co   = checkout
