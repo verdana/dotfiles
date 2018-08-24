@@ -17,7 +17,8 @@
     cc   = clean -dfx
     ci   = commit
     cii  = commit --interactive
-    cim  = commit -a -m
+    cm   = commit -m
+    cmm  = commit -a -m
     co   = checkout
     cob  = checkout -b
     cp   = cherry-pick
