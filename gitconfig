@@ -19,7 +19,6 @@
     cia  = commit --amend
     cii  = commit --interactive
     cim  = commit -a -m
-    cl   = clone
     co   = checkout
     cob  = checkout -b
     cp   = cherry-pick
