@@ -15,6 +15,7 @@ rm -rf ~/.history
 rm -rf ~/.lesshst
 rm -rf ~/.local
 rm -rf ~/.pip
+rm -rf ~/.proxychains
 rm -rf ~/.tmux
 rm -rf ~/.tmux.conf
 rm -rf ~/.vim
@@ -32,6 +33,7 @@ ln -sf $dotfiles_dir/config/nvim            ~/.vim
 ln -sf $dotfiles_dir/config/nvim/init.vim   ~/.vimrc
 ln -sf $dotfiles_dir/dircolors              ~/.dircolors
 ln -sf $dotfiles_dir/gitconfig              ~/.gitconfig
+ln -sf $dotfiles_dir/proxychains            ~/.proxychains
 # ln -sf $dotfiles_dir/tmux.conf              ~/.tmux.conf
 
 ## Clean up previous theme-pure installation
