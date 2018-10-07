@@ -80,3 +80,6 @@ alias em-search 'sudo emerge --search'
 # Running revdep-rebuild
 alias rr='sudo revdep-rebuild -p'
 
+# Json pretty
+alias pretty='python -mjson.tool | pygmentize -l json'
+
