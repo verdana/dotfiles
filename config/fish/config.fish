@@ -8,7 +8,7 @@ set -gx EDITOR      vim
 set -gx HADOOP_HOME                     $HOME/hadoop-2.7.6
 set -gx HADOOP_COMMON_LIB_NATIVE_DIR    $HADOOP_HOME/lib/native
 set -gx HADOOP_OPTS                     "-Djava.library.path=$HADOOP_HOME/lib:$HADOOP_COMMON_LIB_NATIVE_DIR"
-set -gx JAVA_HOME                       "/usr/lib/jvm/java-8-openjdk-amd64"
+set -gx JAVA_HOME                       "/usr/lib/jvm/java-8-openjdk"
 set -gx SCALA_HOME                      "/usr/share/scala"
 set -gx LD_LIBRARY_PATH                 "$HADOOP_HOME/lib/native:$LD_LIBRARY_PATH"
 
