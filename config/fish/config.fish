@@ -25,6 +25,7 @@ set user_paths $user_paths              \
     /usr/local/cmake-3.9.0/bin          \
     /usr/local/go/bin                   \
     /usr/local/php-7.2/bin              \
+    /usr/local/sbt/bin                  \
     /usr/share/scala/bin
 
 for path in $user_paths
