@@ -42,13 +42,13 @@ set pure_symbol_git_dirty      "*"
 set pure_symbol_horizontal_bar "_"
 
 # Change the colors
-#set pure_color_blue    (set_color "1e00fd")
-#set pure_color_cyan    (set_color "1e95fd")
-#set pure_color_gray    (set_color "6c6c6c")
-#set pure_color_green   (set_color "66ff66")
-#set pure_color_normal  (set_color "000000")
-#set pure_color_red     (set_color "f820ff")
-#set pure_color_yellow  (set_color "1bc8c8")
+set pure_color_blue     (set_color "1e00fd")
+set pure_color_cyan     (set_color "1e95fd")
+set pure_color_gray     (set_color "6c6c6c")
+set pure_color_green    (set_color "66ff66")
+set pure_color_normal   (set_color "000000")
+set pure_color_red      (set_color "f820ff")
+set pure_color_yellow   (set_color "1bc8c8")
 
 # Change colors for username and host in SSH
 set pure_username_color $pure_color_yellow
@@ -59,10 +59,17 @@ set pure_root_color     $pure_color_red
 # 0 - end of prompt, default
 # 1 - start of prompt
 # Any other value defaults to the default behaviour
-set pure_user_host_location 0
+set pure_user_host_location 1
+
+# Show exit code of last command as a separate prompt character. As described here: https://github.com/sindresorhus/pure/wiki#show-exit-code-of-last-command-as-a-separate-prompt-character
+# 0 - single prompt character, default
+# 1 - separate prompt character
+# Any other value defaults to the default behaviour
+set pure_separate_prompt_on_error 1
 
 # Max execution time of a process before its run time is shown when it exits
 set pure_command_max_exec_time 5
+
 
 # Poatage
 alias eu='sudo etc-update'
