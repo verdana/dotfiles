@@ -42,7 +42,7 @@ rm -rf $fish_dir/functions/fish_prompt.fish*
 rm -rf $fish_dir/functions/theme-pure
 
 ## Install fish theme
-curl -Ls https://raw.github.com/rafaelrinaldi/pure/master/installer.fish > /tmp/pure_installer.fish
+curl -Ls https://raw.github.com/rafaelrinaldi/pure/master/tools/installer.fish > /tmp/pure_installer.fish
 fish -c "source /tmp/pure_installer.fish; and install_pure"
 
 ## Reset config file

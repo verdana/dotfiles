@@ -13,7 +13,7 @@ set -gx SCALA_HOME                      "/usr/share/scala"
 set -gx LD_LIBRARY_PATH                 "$HADOOP_HOME/lib/native:$LD_LIBRARY_PATH"
 
 # Pure prompt
-set fish_function_path $HOME/.config/fish/functions/theme-pure $fish_function_path
+set fish_function_path $HOME/.config/fish/functions/theme-pure/functions $fish_function_path
 
 # User paths
 set user_paths $user_paths              \
