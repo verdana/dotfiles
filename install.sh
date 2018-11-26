@@ -4,6 +4,7 @@
 dotfiles_dir=$(dirname $(readlink -f $0))
 
 ## Cleanup my home dir first
+rm -rf ~/.aria2
 rm -rf ~/.bin
 rm -rf ~/.bashrc
 rm -rf ~/.cache
@@ -25,7 +26,7 @@ rm -rf ~/.zcompdump
 rm -rf ~/.zsh_prompt
 rm -rf ~/.zshrc
 
-##  Create symlinks in home dir
+## Create symlinks in home dir
 ln -sf $dotfiles_dir/aria2                  ~/.aria2
 ln -sf $dotfiles_dir/bin                    ~/.bin
 ln -sf $dotfiles_dir/config                 ~/.config
