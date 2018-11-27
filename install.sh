@@ -49,5 +49,9 @@ fish -c "source /tmp/pure_installer.fish; and install_pure"
 cd $dotfiles_dir
 git checkout -- config/fish/config.fish
 
+## Create link
+cd $fish_dir
+ln -sf functions/theme-pure/conf.d
+
 # vim: set fdm=manual ts=4 sw=4 tw=0 et :
 

@@ -36,19 +36,19 @@ end
 
 # Change the prompt text
 set pure_symbol_prompt         ">"
-set pure_symbol_git_up_arrow   "^"
-set pure_symbol_git_down_arrow "v"
+set pure_symbol_git_up_arrow   "⇡"
+set pure_symbol_git_down_arrow "⇣"
 set pure_symbol_git_dirty      "*"
-set pure_symbol_horizontal_bar "_"
+set pure_symbol_horizontal_bar "—"
 
 # Change the colors
-set pure_color_blue     (set_color "1e00fd")
-set pure_color_cyan     (set_color "1e95fd")
-set pure_color_gray     (set_color "6c6c6c")
-set pure_color_green    (set_color "66ff66")
-set pure_color_normal   (set_color "000000")
-set pure_color_red      (set_color "f820ff")
-set pure_color_yellow   (set_color "1bc8c8")
+set pure_color_blue     (set_color "6496D2")
+set pure_color_cyan     (set_color "5F7175")
+set pure_color_gray     (set_color "49483E")
+set pure_color_green    (set_color "A5D23C")
+set pure_color_normal   (set_color "F0F0F0")
+set pure_color_red      (set_color "FA2673")
+set pure_color_yellow   (set_color "F5BE78")
 
 # Change colors for username and host in SSH
 set pure_username_color $pure_color_yellow
@@ -59,7 +59,7 @@ set pure_root_color     $pure_color_red
 # 0 - end of prompt, default
 # 1 - start of prompt
 # Any other value defaults to the default behaviour
-set pure_user_host_location 1
+set pure_user_host_location 0
 
 # Show exit code of last command as a separate prompt character. As described here: https://github.com/sindresorhus/pure/wiki#show-exit-code-of-last-command-as-a-separate-prompt-character
 # 0 - single prompt character, default

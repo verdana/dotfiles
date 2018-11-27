@@ -1,6 +1,7 @@
 
 composer/
 configstore/
+fish/conf.d
 fish/fishd.*
 fish/functions/fish_prompt.fish
 fish/functions/theme-pure/
