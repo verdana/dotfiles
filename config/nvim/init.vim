@@ -8,7 +8,7 @@
 "                        (o)
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-" LastChange: Thursday Jul 13, 2017
+" LastChange: Monday Apr 01, 2019
 "
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version <= 700
