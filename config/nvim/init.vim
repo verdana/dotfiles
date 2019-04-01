@@ -32,14 +32,16 @@ let g:mapleader=","
 if has('unix') || has('mac')
     set shell=/bin/bash
 
-    let g:loaded_python_provider = 1
+    " let g:loaded_python_provider = 0
     let g:loaded_ruby_provider   = 1
+    let g:python_host_prog       = "/usr/bin/python2"
     let g:python3_host_prog      = "/usr/bin/python3"
 elseif has('win32')
     set shell=cmd
 
-    let g:loaded_python_provider = 1
+    " let g:loaded_python_provider = 1
     let g:loaded_ruby_provider   = 1
+    let g:python_host_prog       = "D:/Python/python.exe"
     let g:python3_host_prog      = "D:/Python3/python.exe"
 endif
 " }}}
