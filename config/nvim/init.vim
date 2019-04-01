@@ -158,9 +158,9 @@ Plug 'tyrannicaltoucan/vim-quantum'
 
 " Only use this plug in neovim
 " It make vim8 quit very slowly
-if has('nvim')
-    Plug 'roxma/nvim-completion-manager'
-endif
+" if has('nvim')
+"     Plug 'roxma/nvim-completion-manager'
+" endif
 
 call plug#end()
 " }}}
