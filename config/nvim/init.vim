@@ -18,8 +18,7 @@ endif
 
 " {{{ => 通用设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lang C
-lang mes en_US.UTF-8
+lang en_US.UTF-8
 filetype off
 
 set nocompatible
