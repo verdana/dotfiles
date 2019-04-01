@@ -139,7 +139,6 @@ Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'joshdick/onedark.vim'
-Plug 'msanders/snipmate.vim'
 Plug 'nickhutchinson/vim-cmake-syntax'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
@@ -148,6 +147,14 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tyrannicaltoucan/vim-quantum'
 " Plug 'vim-airline/vim-airline'
+
+" vim snippets
+" -------------------------------------
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'honza/vim-snippets'
+" -------------------------------------
 
 " Only use this plug in neovim
 " It make vim8 quit very slowly
