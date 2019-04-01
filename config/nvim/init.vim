@@ -133,12 +133,12 @@ elseif has('win32') && has('nvim')
 endif
 
 Plug 'StanAngeloff/php.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'joshdick/onedark.vim'
-Plug 'kien/ctrlp.vim'
 Plug 'msanders/snipmate.vim'
 Plug 'nickhutchinson/vim-cmake-syntax'
 Plug 'octol/vim-cpp-enhanced-highlight'
