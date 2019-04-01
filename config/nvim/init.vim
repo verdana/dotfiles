@@ -164,7 +164,7 @@ call plug#end()
 " Lightline
 " ----------------------------
 let g:lightline = {
-    \ 'colorscheme': 'onedark',
+    \ 'colorscheme': 'seoul256',
     \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
     \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
     \ }
