@@ -1,11 +1,11 @@
-
+coc/
 composer/
 configstore/
-fish/conf.d
+fish/fish_variables
 fish/fishd.*
-fish/functions/fish_prompt.fish
+fish/functions/_pure_*.fish
+fish/functions/fish_*.fish
 fish/functions/theme-pure/
 htop/
 nvim/plugged/
 pip/
-

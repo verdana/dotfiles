@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Variables
-dotfiles_dir=$(dirname $(readlink -f $0))
+basedir=$(dirname $(readlink -f $0))
 
 ## Cleanup my home dir first
 rm -rf ~/.aria2
@@ -27,32 +27,35 @@ rm -rf ~/.zsh_prompt
 rm -rf ~/.zshrc
 
 ## Create symlinks in home dir
-ln -sf $dotfiles_dir/aria2                  ~/.aria2
-ln -sf $dotfiles_dir/bin                    ~/.bin
-ln -sf $dotfiles_dir/config                 ~/.config
-ln -sf $dotfiles_dir/config/nvim            ~/.vim
-ln -sf $dotfiles_dir/config/nvim/init.vim   ~/.vimrc
-ln -sf $dotfiles_dir/dircolors              ~/.dircolors
-ln -sf $dotfiles_dir/gitconfig              ~/.gitconfig
-ln -sf $dotfiles_dir/proxychains            ~/.proxychains
-# ln -sf $dotfiles_dir/tmux.conf              ~/.tmux.conf
+ln -sf $basedir/aria2                  ~/.aria2
+ln -sf $basedir/bin                    ~/.bin
+ln -sf $basedir/config                 ~/.config
+ln -sf $basedir/config/nvim            ~/.vim
+ln -sf $basedir/config/nvim/init.vim   ~/.vimrc
+ln -sf $basedir/dircolors              ~/.dircolors
+ln -sf $basedir/gitconfig              ~/.gitconfig
+ln -sf $basedir/proxychains            ~/.proxychains
 
 ## Clean up previous theme-pure installation
-fish_dir="$dotfiles_dir/config/fish"
-rm -rf $fish_dir/functions/fish_prompt.fish*
-rm -rf $fish_dir/functions/theme-pure
+fish_dir="$basedir/config/fish"
+rm -rf $fish_dir/conf.d/*
+rm -rf $fish_dir/fish_variables
+rm -rf $fish_dir/fishd.*
+rm -rf $fish_dir/functions/_pure_*
+rm -rf $fish_dir/functions/fish_*
+rm -rf $fish_dir/functions/theme-pure/
 
 ## Install fish theme
-curl -Ls https://raw.github.com/rafaelrinaldi/pure/master/tools/installer.fish > /tmp/pure_installer.fish
+curl git.io/pure-fish --output /tmp/pure_installer.fish --location --silent
 fish -c "source /tmp/pure_installer.fish; and install_pure"
 
 ## Reset config file
-cd $dotfiles_dir
+cd $basedir
 git checkout -- config/fish/config.fish
 
 ## Create link
-cd $fish_dir
-ln -sf functions/theme-pure/conf.d
+#cd $fish_dir
+#ln -sf functions/theme-pure/conf.d
 
 # vim: set fdm=manual ts=4 sw=4 tw=0 et :
 

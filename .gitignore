@@ -4,9 +4,6 @@
 *.tgz
 *.xz
 
-config/fish/fish_variables
-
 # 忽略以下的目录
 .ssh/
-config/autostart/
-config/yarn/
+
