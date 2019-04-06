@@ -35,11 +35,11 @@ for path in $user_paths
 end
 
 # Change the prompt text
-set pure_symbol_prompt         ">"
-set pure_symbol_git_up_arrow   "^"
-set pure_symbol_git_down_arrow "v"
-set pure_symbol_git_dirty      "!"
-set pure_symbol_horizontal_bar "_"
+#set pure_symbol_prompt         ">"
+#set pure_symbol_git_up_arrow   "^"
+#set pure_symbol_git_down_arrow "v"
+#set pure_symbol_git_dirty      "!"
+#set pure_symbol_horizontal_bar "_"
 
 # Change the colors
 set pure_color_blue     (set_color "6496D2")
@@ -51,9 +51,9 @@ set pure_color_red      (set_color "FA2673")
 set pure_color_yellow   (set_color "F5BE78")
 
 # Change colors for username and host in SSH
-set pure_username_color $pure_color_yellow
-set pure_host_color     $pure_color_green
-set pure_root_color     $pure_color_red
+#set pure_username_color $pure_color_yellow
+#set pure_host_color     $pure_color_green
+#set pure_root_color     $pure_color_red
 
 # Change where the username and host is displayed
 # 0 - end of prompt, default
