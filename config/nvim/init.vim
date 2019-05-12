@@ -150,6 +150,10 @@ Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 " Plug 'vim-airline/vim-airline'
 
+" LSP
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
+
+
 " vim snippets
 " -------------------------------------
 " Plugin 'MarcWeber/vim-addon-mw-utils'
