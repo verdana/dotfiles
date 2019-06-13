@@ -1,10 +1,7 @@
 # Common env variables
 set -gx LC_COLLATE  C
-#set -gx TERM           xterm-256color
-set -gx VISUAL          vim
-set -gx EDITOR          vim
-set -gx GREP_OPTIONS    '-HIn --exclude-dir=.svn --exclude-dir=.git'
-
+set -gx VISUAL  vim
+set -gx EDITOR  vim
 
 # Pure prompt
 set fish_function_path $HOME/.config/fish/functions/theme-pure/functions $fish_function_path
