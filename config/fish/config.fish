@@ -1,16 +1,10 @@
 # Common env variables
 set -gx LC_COLLATE  C
-set -gx TERM        xterm-256color
-set -gx VISUAL      vim
-set -gx EDITOR      vim
+#set -gx TERM           xterm-256color
+set -gx VISUAL          vim
+set -gx EDITOR          vim
+set -gx GREP_OPTIONS    '-HIn --exclude-dir=.svn --exclude-dir=.git'
 
-# Hadoop
-#set -gx HADOOP_HOME                     $HOME/hadoop-2.7.6
-#set -gx HADOOP_COMMON_LIB_NATIVE_DIR    $HADOOP_HOME/lib/native
-#set -gx HADOOP_OPTS                     "-Djava.library.path=$HADOOP_HOME/lib:$HADOOP_COMMON_LIB_NATIVE_DIR"
-#set -gx JAVA_HOME                       "/usr/lib/jvm/java-8-openjdk"
-#set -gx SCALA_HOME                      "/usr/share/scala"
-#set -gx LD_LIBRARY_PATH                 "$HADOOP_HOME/lib/native:$LD_LIBRARY_PATH"
 
 # Pure prompt
 set fish_function_path $HOME/.config/fish/functions/theme-pure/functions $fish_function_path
@@ -40,13 +34,13 @@ set pure_symbol_git_dirty      "!"
 set pure_symbol_horizontal_bar "_"
 
 # Change the colors
-set pure_color_blue     (set_color "6496D2")
-set pure_color_cyan     (set_color "5F7175")
-set pure_color_gray     (set_color "49483E")
-set pure_color_green    (set_color "A5D23C")
-set pure_color_normal   (set_color "F0F0F0")
-set pure_color_red      (set_color "FA2673")
-set pure_color_yellow   (set_color "F5BE78")
+#set pure_color_blue     (set_color "6496D2")
+#set pure_color_cyan     (set_color "5F7175")
+#set pure_color_gray     (set_color "49483E")
+#set pure_color_green    (set_color "A5D23C")
+#set pure_color_normal   (set_color "F0F0F0")
+#set pure_color_red      (set_color "FA2673")
+#set pure_color_yellow   (set_color "F5BE78")
 
 # Change colors for username and host in SSH
 #set pure_username_color $pure_color_yellow
