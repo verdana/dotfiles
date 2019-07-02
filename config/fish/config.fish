@@ -1,7 +1,11 @@
 # Common env variables
 set -gx LC_COLLATE  C
-set -gx VISUAL  vim
-set -gx EDITOR  vim
+set -gx VISUAL      vim
+set -gx EDITOR      vim
+
+# ccache
+set -gx CCACHE_PATH     /usr/bin
+set -gx CCACHE_DIR      /tmp/ccache
 
 # Pure prompt
 set fish_function_path $HOME/.config/fish/functions/theme-pure/functions $fish_function_path
@@ -10,16 +14,14 @@ set fish_function_path $HOME/.config/fish/functions/theme-pure/functions $fish_f
 set user_paths $user_paths              \
     $HOME/.config/composer/vendor/bin   \
     $HOME/.local/bin                    \
-    $HOME/.yarn/bin                     \
     $HOME/go/bin                        \
     /usr/lib/ccache                     \
-    /usr/local/cmake-3.9.0/bin          \
-    /usr/local/go/bin                   \
-    /usr/local/php-7.2/bin
+    /usr/lib/colorgcc                   \
+    /usr/local/go/bin
 
 for path in $user_paths
     if test -d $path
-        set -U fish_user_paths $fish_user_paths $path
+        set -x PATH $path $PATH
     end
 end
 
