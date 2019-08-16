@@ -1,4 +1,7 @@
 # Common env variables
+set -gx Language    en_US.en
+set -gx LANG        en_US.UTF-8
+set -gx LC_ALL      en_US.UTF-8
 set -gx LC_COLLATE  C
 set -gx VISUAL      vim
 set -gx EDITOR      vim
