@@ -1,3 +1,3 @@
 function ll
-    /bin/ls -Ahl --color=auto $argv
+    /bin/ls -Ahlv --color=auto $argv
 end
