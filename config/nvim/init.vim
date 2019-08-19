@@ -147,7 +147,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Plug 'vim-airline/vim-airline'
 
 " LSP
