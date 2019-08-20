@@ -1,3 +1,4 @@
 function grep
-    /bin/grep -HIn --exclude-dir=.svn --exclude-dir=.git $argv
+    /bin/grep -In --color=always --exclude-dir=.svn --exclude-dir=.git $argv
 end
+
