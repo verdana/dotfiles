@@ -1,3 +1,4 @@
+.netrwhist
 coc/
 composer/
 configstore/
@@ -9,3 +10,4 @@ fish/functions/theme-pure/
 htop/
 nvim/plugged/
 pip/
+pulse/
