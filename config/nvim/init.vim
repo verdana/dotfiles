@@ -8,7 +8,7 @@
 "                        (o)
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-" LastChange: Monday Apr 01, 2019
+" LastChange: Sunday Sep 08, 2019
 "
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version <= 700
@@ -147,12 +147,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " Plug 'vim-airline/vim-airline'
-
-" LSP
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 
 
 " vim snippets
