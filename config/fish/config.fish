@@ -17,6 +17,7 @@ set fish_function_path $HOME/.config/fish/functions/theme-pure/functions $fish_f
 set user_paths $user_paths              \
     $HOME/.config/composer/vendor/bin   \
     $HOME/.local/bin                    \
+    $HOME/.rbenv/bin                    \
     $HOME/go/bin                        \
     /usr/lib/ccache                     \
     /usr/lib/colorgcc                   \
@@ -27,6 +28,9 @@ for path in $user_paths
         set -x PATH $path $PATH
     end
 end
+
+# rbenv init
+status --is-interactive; and source (rbenv init -|psub)
 
 # Change the prompt text
 set pure_symbol_prompt         ">"
