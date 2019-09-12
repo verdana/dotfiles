@@ -12,6 +12,8 @@ set -gx CCACHE_DIR      /tmp/ccache
 
 # Pure prompt
 set fish_function_path $HOME/.config/fish/functions/theme-pure/functions $fish_function_path
+# THEME PURE #
+source $HOME/.config/fish/functions/theme-pure/conf.d/pure.fish
 
 # User paths
 set user_paths $user_paths              \
