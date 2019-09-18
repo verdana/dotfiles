@@ -2,6 +2,7 @@
 
 export http_proxy="192.168.1.116:1080"
 export https_proxy="192.168.1.116:1080"
+export GOPATH="$HOME/go"
 
 tools=(
     "github.com/acroca/go-symbols"
@@ -11,13 +12,19 @@ tools=(
     "github.com/ramya-rao-a/go-outline"
     "github.com/rogpeppe/godef"
     "github.com/sqs/goreturns"
-    "github.com/stamblerre/gocode"
     "github.com/uudashr/gopkgs/cmd/gopkgs"
+    "golang.org/x/tools/cmd/goimports"
     "golang.org/x/tools/cmd/gorename"
     "golang.org/x/tools/cmd/guru"
 )
 
+# Install gocode-gomod
+go get -u -v "github.com/stamblerre/gocode"
+mv $GOPATH/bin/gocode $GOPATH/bin/gocode-gomod
+
+# Install other tools
 for url in "${tools[@]}"; do
     go get -u -v $url
 done
+
 
