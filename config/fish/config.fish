@@ -32,7 +32,9 @@ for path in $user_paths
 end
 
 # rbenv init
-status --is-interactive; and source (rbenv init -|psub)
+if type "rbenv" > /dev/null 2>&1; then
+    status --is-interactive; and source (rbenv init -|psub)
+end
 
 # Change the prompt text
 set pure_symbol_prompt         ">"
