@@ -32,7 +32,7 @@ for path in $user_paths
 end
 
 # rbenv init
-if type "rbenv" > /dev/null 2>&1; then
+if type "rbenv" > /dev/null 2>&1
     status --is-interactive; and source (rbenv init -|psub)
 end
 
