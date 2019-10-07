@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export http_proxy="192.168.1.116:1080"
-export https_proxy="192.168.1.116:1080"
+export http_proxy="192.168.1.53:1080"
+export https_proxy="192.168.1.53:1080"
 export GOPATH="$HOME/go"
 
 tools=(
@@ -27,4 +27,6 @@ for url in "${tools[@]}"; do
     go get -u -v $url
 done
 
+# gopls
+env GO111MODULE=on go get golang.org/x/tools/gopls@latest
 
