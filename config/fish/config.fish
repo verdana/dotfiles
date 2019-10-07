@@ -63,7 +63,10 @@ set pure_symbol_horizontal_bar "_"
 # Any other value defaults to the default behaviour
 set pure_user_host_location 0
 
-# Show exit code of last command as a separate prompt character. As described here: https://github.com/sindresorhus/pure/wiki#show-exit-code-of-last-command-as-a-separate-prompt-character
+# Show exit code of last command as a separate prompt character.
+# As described here:
+# https://github.com/sindresorhus/pure/wiki#show-exit-code-of-last-command-as-a-separate-prompt-character
+#
 # 0 - single prompt character, default
 # 1 - separate prompt character
 # Any other value defaults to the default behaviour
