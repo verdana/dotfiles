@@ -37,20 +37,24 @@ if type "rbenv" > /dev/null 2>&1
 end
 
 # Change the prompt text
-set pure_symbol_prompt         ">"
-set pure_symbol_git_up_arrow   "^"
-set pure_symbol_git_down_arrow "v"
-set pure_symbol_git_dirty      "!"
-set pure_symbol_horizontal_bar "_"
+set pure_symbol_prompt                  ">"
+set pure_symbol_reverse_prompt          "<"
+set pure_right_prompt                   " "
+set pure_symbol_git_unpulled_commits    "➘"
+set pure_symbol_git_unpushed_commits    "➚"
+set pure_symbol_git_dirty               "✲"
+set pure_symbol_title_bar_separator     "—"
 
 # Change the colors
-#set pure_color_blue     (set_color "6496D2")
-#set pure_color_cyan     (set_color "5F7175")
-#set pure_color_gray     (set_color "49483E")
-#set pure_color_green    (set_color "A5D23C")
-#set pure_color_normal   (set_color "F0F0F0")
-#set pure_color_red      (set_color "FA2673")
-#set pure_color_yellow   (set_color "F5BE78")
+# set pure_color_primary  (set_color blue)
+# set pure_color_info     (set_color cyan)
+# set pure_color_mute     (set_color brblack)
+# set pure_color_success  (set_color magenta)
+# set pure_color_normal   (set_color normal)
+# set pure_color_danger   (set_color red)
+# set pure_color_light    (set_color white)
+# set pure_color_warning  (set_color yellow)
+# set pure_color_dark     (set_color black)
 
 # Change colors for username and host in SSH
 #set pure_username_color $pure_color_yellow
