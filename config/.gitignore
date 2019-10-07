@@ -2,6 +2,7 @@
 coc/
 composer/
 configstore/
+dlv/
 fish/fish_variables
 fish/fishd.*
 fish/functions/_pure_*.fish
