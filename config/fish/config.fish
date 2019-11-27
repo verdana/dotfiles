@@ -21,6 +21,7 @@ set user_paths $user_paths              \
     $HOME/.config/composer/vendor/bin   \
     $HOME/.local/bin                    \
     $HOME/.rbenv/bin                    \
+    $HOME/flutter/bin                   \
     $HOME/go/bin                        \
     /usr/lib/ccache                     \
     /usr/lib/colorgcc                   \
