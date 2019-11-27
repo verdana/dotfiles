@@ -5,6 +5,7 @@ set -gx LC_ALL      en_US.UTF-8
 set -gx LC_COLLATE  C
 set -gx VISUAL      vim
 set -gx EDITOR      vim
+set -gx COMPOSER_MEMORY_LIMIT -1
 
 # ccache
 set -gx CCACHE_PATH     /usr/bin
