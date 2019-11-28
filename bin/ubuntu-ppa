@@ -3,11 +3,9 @@
 PPAs=(
     "ppa:fish-shell/release-2"
     "ppa:git-core/ppa"
-    "ppa:jonathonf/vim"
     "ppa:max-c-lv/shadowsocks-libev"
     "ppa:neovim-ppa/unstable"
     "ppa:ubuntu-toolchain-r/test"
-    "ppa:webupd8team/java"
 )
 
 

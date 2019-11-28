@@ -1,7 +1,5 @@
 #!/bin/bash
 
-export http_proxy="192.168.1.53:1080"
-export https_proxy="192.168.1.53:1080"
 export GOPATH="$HOME/go"
 
 tools=(
