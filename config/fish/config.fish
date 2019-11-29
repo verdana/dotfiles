@@ -5,7 +5,13 @@ set -gx LC_ALL      en_US.UTF-8
 set -gx LC_COLLATE  C
 set -gx VISUAL      vim
 set -gx EDITOR      vim
-set -gx COMPOSER_MEMORY_LIMIT -1
+
+# php composer
+set -gx COMPOSER_MEMORY_LIMIT     -1
+
+# flutter
+set -gx PUB_HOSTED_URL            https://pub.flutter-io.cn
+set -gx FLUTTER_STORAGE_BASE_URL  https://storage.flutter-io.cn
 
 # ccache
 set -gx CCACHE_PATH     /usr/bin
