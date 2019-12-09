@@ -32,7 +32,8 @@ set user_paths $user_paths              \
     $HOME/go/bin                        \
     /usr/lib/ccache                     \
     /usr/lib/colorgcc                   \
-    /usr/local/go/bin
+    /usr/local/go/bin                   \
+    /usr/local/opt/ruby/bin
 
 for path in $user_paths
     if test -d $path
