@@ -13,9 +13,6 @@ set -gx COMPOSER_MEMORY_LIMIT     -1
 set -gx PUB_HOSTED_URL            https://pub.flutter-io.cn
 set -gx FLUTTER_STORAGE_BASE_URL  https://storage.flutter-io.cn
 
-# fastlane
-set -gx FASTLANE_PASSWORD   Wxjz62968700
-
 # ccache
 set -gx CCACHE_PATH     /usr/bin
 set -gx CCACHE_DIR      /tmp/ccache
