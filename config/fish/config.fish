@@ -13,13 +13,18 @@ set -gx COMPOSER_MEMORY_LIMIT     -1
 set -gx PUB_HOSTED_URL            https://pub.flutter-io.cn
 set -gx FLUTTER_STORAGE_BASE_URL  https://storage.flutter-io.cn
 
+# java openjdk
+set -gx JAVA_HOME       /usr/lib/jvm/java-8-openjdk-amd64
+
+# android
+set -gx ANDROID_HOME    $HOME/android
+
 # ccache
 set -gx CCACHE_PATH     /usr/bin
 set -gx CCACHE_DIR      /tmp/ccache
 
 # Pure prompt
 set fish_function_path $HOME/.config/fish/functions/theme-pure/functions $fish_function_path
-# THEME PURE #
 source $HOME/.config/fish/functions/theme-pure/conf.d/pure.fish
 
 # User paths
@@ -30,8 +35,10 @@ set user_paths $user_paths              \
     $HOME/.fastlane/bin                 \
     $HOME/flutter/bin                   \
     $HOME/go/bin                        \
+    $JAVA_HOME/bin                      \
+    $ANDROID_HOME/tools                 \
+    $ANDROID_HOME/platform-tools        \
     /usr/lib/ccache                     \
-    /usr/lib/colorgcc                   \
     /usr/local/go/bin                   \
     /usr/local/opt/ruby/bin
 
