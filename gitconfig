@@ -65,7 +65,3 @@
     commitEncoding = utf-8
     logoutputencoding = utf-8
 
-[http]
-	proxy = 192.168.1.120:1080
-[https]
-	proxy = 192.168.1.120:1080
