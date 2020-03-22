@@ -26,6 +26,7 @@ set user_paths $user_paths              \
     $HOME/.fastlane/bin                 \
     $HOME/go/bin                        \
     /usr/lib/ccache                     \
+    /usr/local/clang-9.0.0/bin          \
     /usr/local/go/bin                   \
     /usr/local/opt/ruby/bin
 
