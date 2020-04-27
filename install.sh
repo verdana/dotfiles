@@ -1,7 +1,8 @@
 #!/bin/bash
 
 ## Variables
-basedir=$(dirname $(readlink -f $0))
+#basedir=$(dirname $(readlink -f $0))
+basedir=/Users/verdana/dotfiles
 
 ## Cleanup my home dir first
 rm -rf ~/.aria2
