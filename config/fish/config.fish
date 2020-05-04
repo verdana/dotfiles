@@ -21,10 +21,12 @@ source $HOME/.config/fish/functions/theme-pure/conf.d/pure.fish
 set user_paths $user_paths              \
     $HOME/.cargo/bin                    \
     $HOME/.config/composer/vendor/bin   \
+    $HOME/.composer/vendor/bin          \
     $HOME/.local/bin                    \
     $HOME/.rbenv/bin                    \
     $HOME/.fastlane/bin                 \
     $HOME/go/bin                        \
+    $HOME/flutter/bin                   \
     /usr/lib/ccache                     \
     /usr/local/clang-9.0.0/bin          \
     /usr/local/go/bin                   \
