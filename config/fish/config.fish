@@ -6,6 +6,8 @@ set -gx LC_COLLATE  C
 set -gx VISUAL      vim
 set -gx EDITOR      vim
 
+set -gx HOMEBREW_BOTTLE_DOMAIN  https://mirrors.ustc.edu.cn/homebrew-bottles
+
 # php composer
 set -gx COMPOSER_MEMORY_LIMIT     -1
 
@@ -30,6 +32,7 @@ set user_paths $user_paths              \
     /usr/lib/ccache                     \
     /usr/local/clang-9.0.0/bin          \
     /usr/local/go/bin                   \
+    /usr/local/sbin                     \
     /usr/local/opt/ruby/bin
 
 for path in $user_paths

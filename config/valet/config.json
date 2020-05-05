@@ -1,4 +1,6 @@
 {
-    "tld": "test",
-    "paths": []
+    "tld": "app",
+    "paths": [
+        "/Users/verdana/html"
+    ]
 }
