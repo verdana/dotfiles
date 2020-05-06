@@ -8,6 +8,9 @@ set -gx EDITOR      vim
 
 set -gx HOMEBREW_BOTTLE_DOMAIN  https://mirrors.ustc.edu.cn/homebrew-bottles
 
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+
 # php composer
 set -gx COMPOSER_MEMORY_LIMIT     -1
 

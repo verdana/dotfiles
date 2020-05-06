@@ -1,9 +1,0 @@
-[Unit]
-Conflicts=php-fpm.service
-
-[Socket]
-ListenStream=/srv/http/run/php-fpm.sock
-ListenStream=9000
-
-[Install]
-WantedBy=sockets.target
