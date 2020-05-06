@@ -1,41 +1,25 @@
 #!/bin/bash
 
 ## Variables
-#basedir=$(dirname $(readlink -f $0))
-basedir=/Users/verdana/dotfiles
+basedir=`pwd`
 
 ## Cleanup my home dir first
 rm -rf ~/.aria2
-rm -rf ~/.bin
-rm -rf ~/.bashrc
-rm -rf ~/.cache
-rm -rf ~/.composer
 rm -rf ~/.config
-rm -rf ~/.dircolors
 rm -rf ~/.gitconfig
-rm -rf ~/.history
-rm -rf ~/.lesshst
-rm -rf ~/.local
-rm -rf ~/.pip
 rm -rf ~/.proxychains
-rm -rf ~/.tmux
-rm -rf ~/.tmux.conf
 rm -rf ~/.vim
 rm -rf ~/.viminfo
 rm -rf ~/.vimrc
-rm -rf ~/.zcompdump
-rm -rf ~/.zsh_prompt
-rm -rf ~/.zshrc
 
 ## Create symlinks in home dir
 ln -sf $basedir/aria2                  ~/.aria2
-ln -sf $basedir/bin                    ~/.bin
 ln -sf $basedir/config                 ~/.config
-ln -sf $basedir/config/nvim            ~/.vim
-ln -sf $basedir/config/nvim/init.vim   ~/.vimrc
-ln -sf $basedir/dircolors              ~/.dircolors
 ln -sf $basedir/gitconfig              ~/.gitconfig
 ln -sf $basedir/proxychains            ~/.proxychains
+
+ln -sf $basedir/config/nvim            ~/.vim
+ln -sf $basedir/config/nvim/init.vim   ~/.vimrc
 
 ## Clean up previous theme-pure installation
 fish_dir="$basedir/config/fish"
