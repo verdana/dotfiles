@@ -6,32 +6,6 @@ set -gx LC_COLLATE  C
 set -gx VISUAL      vim
 set -gx EDITOR      vim
 
-# Homebrew
-if command -sq brew
-    set -gx HOMEBREW_BOTTLE_DOMAIN  https://mirrors.ustc.edu.cn/homebrew-bottles
-end
-
-# flutter china mirror
-if command -sq flutter
-    set -gx PUB_HOSTED_URL           https://pub.flutter-io.cn
-    set -gx FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn
-end
-
-# php composer
-if command -sq composer
-    set -gx COMPOSER_MEMORY_LIMIT -1
-end
-
-# ccache
-if command -sq ccache
-    set -gx CCACHE_PATH /usr/bin
-    set -gx CCACHE_DIR  /tmp/ccache
-end
-
-# Pure prompt
-set fish_function_path $HOME/.config/fish/functions/theme-pure/functions $fish_function_path
-source $HOME/.config/fish/functions/theme-pure/conf.d/pure.fish
-
 # User paths
 set user_paths $user_paths              \
     $HOME/.cargo/bin                    \
@@ -57,6 +31,10 @@ if type "rbenv" > /dev/null 2>&1
     status --is-interactive; and source (rbenv init -|psub)
 end
 
+# Pure prompt
+set fish_function_path $HOME/.config/fish/functions/theme-pure/functions $fish_function_path
+source $HOME/.config/fish/functions/theme-pure/conf.d/pure.fish
+
 # Change the prompt text
 set pure_symbol_prompt                  ">"
 set pure_symbol_reverse_prompt          "<"
@@ -66,3 +44,25 @@ set pure_symbol_git_unpushed_commits    "➚"
 set pure_symbol_git_dirty               "✲"
 set pure_symbol_title_bar_separator     "-"
 
+
+# Homebrew
+if command -sq brew
+    set -gx HOMEBREW_BOTTLE_DOMAIN  https://mirrors.ustc.edu.cn/homebrew-bottles
+end
+
+# flutter china mirror
+if command -sq flutter
+    set -gx PUB_HOSTED_URL           https://pub.flutter-io.cn
+    set -gx FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn
+end
+
+# php composer
+if command -sq composer
+    set -gx COMPOSER_MEMORY_LIMIT -1
+end
+
+# ccache
+if command -sq ccache
+    set -gx CCACHE_PATH /usr/bin
+    set -gx CCACHE_DIR  /tmp/ccache
+end
