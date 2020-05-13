@@ -13,5 +13,6 @@ htop/
 nvim/plugged/
 pip/
 pulse/
+psysh/
 valet/*
 yarn/
