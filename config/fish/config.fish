@@ -6,6 +6,10 @@ set -gx LC_COLLATE  C
 set -gx VISUAL      vim
 set -gx EDITOR      vim
 
+# Java
+set -gx JAVA_HOME   "/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
+
+
 # User paths
 set user_paths $user_paths              \
     $HOME/.cargo/bin                    \
