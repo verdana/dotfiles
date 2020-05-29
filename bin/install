@@ -1,46 +1,33 @@
 #!/bin/bash
 
-## Variables
-basedir=`pwd`
+## Home directory
+cd ~
 
-## Cleanup my home dir first
-rm -rf ~/.aria2
-rm -rf ~/.config
-rm -rf ~/.gitconfig
-rm -rf ~/.proxychains
-rm -rf ~/.vim
-rm -rf ~/.viminfo
-rm -rf ~/.vimrc
+## Remove old symlinks
+rm -rf .aria2
+rm -rf .config
+rm -rf .gitconfig
+rm -rf .proxychains
+rm -rf .vim
+rm -rf .vimrc
 
 ## Create symlinks in home dir
-ln -sf $basedir/aria2                  ~/.aria2
-ln -sf $basedir/config                 ~/.config
-ln -sf $basedir/gitconfig              ~/.gitconfig
-ln -sf $basedir/proxychains            ~/.proxychains
+ln -sf dotfiles/app/aria2          .aria2
+ln -sf dotfiles/app/git/config     .gitconfig
+ln -sf dotfiles/app/proxychains    .proxychains
+ln -sf dotfiles/conf/nvim          .vim
+ln -sf dotfiles/conf/nvim/init.vim .vimrc
 
-ln -sf $basedir/config/nvim            ~/.vim
-ln -sf $basedir/config/nvim/init.vim   ~/.vimrc
-
-## Clean up previous theme-pure installation
-fish_dir="$basedir/config/fish"
-rm -rf $fish_dir/conf.d/*
-rm -rf $fish_dir/fish_variables
-rm -rf $fish_dir/fishd.*
-rm -rf $fish_dir/functions/_pure_*
-rm -rf $fish_dir/functions/fish_*
-rm -rf $fish_dir/functions/theme-pure/
+## Create .config if missing
+test -d .config || mkdir -p .config
+ln -sf ~/dotfiles/conf/fish .config/fish
 
 ## Install fish theme
-curl git.io/pure-fish --output /tmp/pure_installer.fish --location --silent
+curl git.io/pure-fish --location --output /tmp/pure_installer.fish
 fish -c "source /tmp/pure_installer.fish; and install_pure"
+
+exit
 
 ## Reset config file
 cd $basedir
 git checkout -- config/fish/config.fish
-
-## Create link
-#cd $fish_dir
-#ln -sf functions/theme-pure/conf.d
-
-# vim: set fdm=manual ts=4 sw=4 tw=0 et :
-
