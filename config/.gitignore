@@ -14,5 +14,5 @@ nvim/plugged/
 pip/
 pulse/
 psysh/
-valet/*
+valet/
 yarn/
