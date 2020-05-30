@@ -12,15 +12,15 @@ rm -rf .vim
 rm -rf .vimrc
 
 ## Create symlinks in home dir
-ln -sf dotfiles/app/aria2          .aria2
-ln -sf dotfiles/app/git/config     .gitconfig
-ln -sf dotfiles/app/proxychains    .proxychains
-ln -sf dotfiles/conf/nvim          .vim
-ln -sf dotfiles/conf/nvim/init.vim .vimrc
+ln -sf dotfiles/app/aria2         .aria2
+ln -sf dotfiles/app/git/config    .gitconfig
+ln -sf dotfiles/app/proxychains   .proxychains
+ln -sf dotfiles/app/nvim          .vim
+ln -sf dotfiles/app/nvim/init.vim .vimrc
 
 ## Create .config if missing
 test -d .config || mkdir -p .config
-ln -sf ~/dotfiles/conf/fish .config/fish
+ln -sf ~/dotfiles/fish .config/fish
 
 ## Install fish theme
 curl git.io/pure-fish --location --output /tmp/pure_installer.fish
