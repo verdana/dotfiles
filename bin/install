@@ -20,7 +20,9 @@ ln -sf dotfiles/app/nvim/init.vim .vimrc
 
 ## Create .config if missing
 test -d .config || mkdir -p .config
-ln -sf ~/dotfiles/fish .config/fish
+
+ln -sf ~/dotfiles/fish      .config/fish
+ln -sf ~/dotfiles/app/nvim  .config/nvim
 
 ## Install fish theme
 curl git.io/pure-fish --location --output /tmp/pure_installer.fish
