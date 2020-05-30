@@ -25,9 +25,3 @@ ln -sf ~/dotfiles/fish .config/fish
 ## Install fish theme
 curl git.io/pure-fish --location --output /tmp/pure_installer.fish
 fish -c "source /tmp/pure_installer.fish; and install_pure"
-
-exit
-
-## Reset config file
-cd $basedir
-git checkout -- config/fish/config.fish
