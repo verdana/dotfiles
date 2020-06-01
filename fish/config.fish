@@ -54,6 +54,9 @@ set pure_symbol_git_unpushed_commits    "➚"
 set pure_symbol_git_dirty               "✲"
 set pure_symbol_title_bar_separator     "-"
 
+set pure_color_git_branch   red
+set pure_color_git_dirty    red
+
 # Homebrew
 if command -sq brew
     set -gx HOMEBREW_BOTTLE_DOMAIN  https://mirrors.ustc.edu.cn/homebrew-bottles
