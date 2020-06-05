@@ -1,7 +1,7 @@
 
 [user]
-    name  = Verdana
-    email = verdana.cn@gmail.com
+	name  = Verdana
+	email = verdana.cn@gmail.com
 
 [core]
     editor     = vim
@@ -11,6 +11,7 @@
     quotePath  = false
     safecrlf   = true
     autocrlf   = false
+	excludesfile = /Users/Verdana/.gitignore_global
 
 [alias]
     br   = branch
@@ -53,7 +54,7 @@
     tool      = vimdiff
 
 [pull]
-    rebase = false
+    rebase = true
 
 [push]
     default = simple
@@ -65,3 +66,11 @@
     commitEncoding = utf-8
     logoutputencoding = utf-8
 
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/Verdana/.stCommitMsg
