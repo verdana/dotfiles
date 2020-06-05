@@ -10,6 +10,10 @@ set -gx EDITOR      vim
 set -gx JAVA_HOME   "/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
 
 
+# Simple alias
+alias svc='supervisorctl'
+
+
 # User paths
 set user_paths $user_paths              \
     $HOME/.cargo/bin                    \
