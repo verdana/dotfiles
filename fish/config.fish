@@ -9,10 +9,9 @@ set -gx EDITOR      vim
 # Java
 set -gx JAVA_HOME   "/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
 
-
 # Simple alias
 alias svc='supervisorctl'
-
+alias df='df -PH'
 
 # User paths
 set user_paths $user_paths              \
@@ -35,16 +34,6 @@ for path in $user_paths
     end
 end
 
-# pyenv init
-if type "pyenv" > /dev/null 2>&1
-    status --is-interactive; and source (pyenv init -|psub)
-end
-
-# rbenv init
-if type "rbenv" > /dev/null 2>&1
-    status --is-interactive; and source (rbenv init -|psub)
-end
-
 # Pure prompt
 set fish_function_path $HOME/.config/fish/functions/theme-pure/functions $fish_function_path
 source $HOME/.config/fish/functions/theme-pure/conf.d/pure.fish
@@ -64,6 +53,18 @@ set pure_color_git_dirty    red
 # Homebrew
 if command -sq brew
     set -gx HOMEBREW_BOTTLE_DOMAIN  https://mirrors.ustc.edu.cn/homebrew-bottles
+end
+
+# pyenv init
+if type "pyenv" > /dev/null 2>&1
+    status --is-interactive; and source (pyenv init -|psub)
+end
+
+# rbenv init
+if type "rbenv" > /dev/null 2>&1
+    # Build ruby with brew openssl
+    set -gx RUBY_CONFIGURE_OPTS  "--with-openssl-dir="(brew --prefix openssl@1.1)
+    status --is-interactive; and source (rbenv init -|psub)
 end
 
 # flutter china mirror
