@@ -12,6 +12,7 @@ set -gx JAVA_HOME   "/Applications/Android Studio.app/Contents/jre/jdk/Contents/
 # Simple alias
 alias svc='supervisorctl'
 alias df='df -PH'
+alias ar2='aria2c'
 
 # User paths
 set user_paths $user_paths              \
