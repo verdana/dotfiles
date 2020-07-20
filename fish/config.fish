@@ -6,8 +6,11 @@ set -gx LC_COLLATE  C
 set -gx VISUAL      vim
 set -gx EDITOR      vim
 
-# Java
-set -gx JAVA_HOME   "/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
+# Java & android
+set -gx JAVA_HOME           "/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+set -gx ANDROID_SDK_ROOT    "$HOME/Library/Android/sdk"
+
+# do not use ANDROID_HOME anymore
 
 # Simple alias
 alias svc='supervisorctl'
