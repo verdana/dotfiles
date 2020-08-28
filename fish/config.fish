@@ -26,10 +26,9 @@ set user_paths $user_paths              \
     $HOME/.pyenv/bin                    \
     $HOME/.rbenv/bin                    \
     $HOME/flutter/bin                   \
-    /usr/lib/ccache                     \
     /usr/local/clang-9.0.0/bin          \
     /usr/local/go/bin                   \
-    /usr/local/opt/ruby/bin             \
+    /usr/lib/ccache                     \
     /usr/local/sbin
 
 for path in $user_paths
