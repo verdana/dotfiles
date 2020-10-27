@@ -9,6 +9,7 @@ set -gx EDITOR      vim
 # Java & android
 set -gx JAVA_HOME           "/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
 set -gx ANDROID_SDK_ROOT    "$HOME/Library/Android/sdk"
+set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
 
 # do not use ANDROID_HOME anymore
 
@@ -19,9 +20,7 @@ alias ar2='aria2c'
 
 # User paths
 set user_paths $user_paths              \
-    $HOME/.cargo/bin                    \
     $HOME/.composer/vendor/bin          \
-    $HOME/.fastlane/bin                 \
     $HOME/.local/bin                    \
     $HOME/.pyenv/bin                    \
     $HOME/.rbenv/bin                    \
