@@ -6,27 +6,29 @@ set -gx LC_COLLATE  C
 set -gx VISUAL      vim
 set -gx EDITOR      vim
 
-# Java
-set -gx JAVA_HOME   "/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
+# Java & android
+set -gx JAVA_HOME           "/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+set -gx ANDROID_SDK_ROOT    "$HOME/Library/Android/sdk"
+set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
+
+# do not use ANDROID_HOME anymore
 
 # Simple alias
 alias svc='supervisorctl'
 alias df='df -PH'
+alias ar2='aria2c'
 
 # User paths
 set user_paths $user_paths              \
-    $HOME/.cargo/bin                    \
     $HOME/.composer/vendor/bin          \
-    $HOME/.fastlane/bin                 \
     $HOME/.local/bin                    \
     $HOME/.pyenv/bin                    \
     $HOME/.rbenv/bin                    \
     $HOME/flutter/bin                   \
-    /usr/lib/ccache                     \
-    /usr/local/clang-9.0.0/bin          \
     /usr/local/go/bin                   \
-    /usr/local/opt/ruby/bin             \
-    /usr/local/sbin
+    /usr/local/opt/llvm/bin             \
+    /usr/local/sbin                     \
+    /usr/lib/ccache                     \
 
 for path in $user_paths
     if test -d $path
