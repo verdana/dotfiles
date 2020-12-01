@@ -7,9 +7,9 @@ set -gx VISUAL      vim
 set -gx EDITOR      vim
 
 # Java & android
-set -gx JAVA_HOME           "/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+set -gx JAVA_HOME           "/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
 set -gx ANDROID_SDK_ROOT    "$HOME/Library/Android/sdk"
-set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
+#set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
 
 # do not use ANDROID_HOME anymore
 
