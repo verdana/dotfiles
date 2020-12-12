@@ -1,4 +1,5 @@
-# Common env variables
+
+# common env variables
 set -gx Language    en_US.en
 set -gx LANG        en_US.UTF-8
 set -gx LC_ALL      en_US.UTF-8
@@ -6,51 +7,39 @@ set -gx LC_COLLATE  C
 set -gx VISUAL      vim
 set -gx EDITOR      vim
 
-# Java & android
+source ~/.config/fish/path.fish
+source ~/.config/fish/aliases.fish
+source ~/.config/fish/prompt.fish
+
+# Java & Android
 set -gx JAVA_HOME           "/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
 set -gx ANDROID_SDK_ROOT    "$HOME/Library/Android/sdk"
-#set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
 
 # do not use ANDROID_HOME anymore
 
-# Simple alias
-alias svc='supervisorctl'
-alias df='df -PH'
-alias ar2='aria2c'
 
-# User paths
-set user_paths $user_paths              \
-    $HOME/.composer/vendor/bin          \
-    $HOME/.local/bin                    \
-    $HOME/.pyenv/bin                    \
-    $HOME/.rbenv/bin                    \
-    $HOME/flutter/bin                   \
-    /usr/local/go/bin                   \
-    /usr/local/opt/llvm/bin             \
-    /usr/local/sbin                     \
-    /usr/lib/ccache                     \
-
-for path in $user_paths
-    if test -d $path
-        set -x PATH $path $PATH
-    end
+# for all things not checked into git
+if test -e "$HOME/.local/config.fish"
+    source "$HOME/.local/config.fish"
 end
 
-# Pure prompt
+
+# pure prompt
 set fish_function_path $HOME/.config/fish/functions/theme-pure/functions $fish_function_path
 source $HOME/.config/fish/functions/theme-pure/conf.d/pure.fish
 
-# Change the prompt text
+# change the prompt text
 set pure_symbol_prompt                  ">"
 set pure_symbol_reverse_prompt          "<"
 set pure_right_prompt                   " "
 set pure_symbol_git_unpulled_commits    "➘"
 set pure_symbol_git_unpushed_commits    "➚"
-set pure_symbol_git_dirty               "✲"
+set pure_symbol_git_dirty               "+"
 set pure_symbol_title_bar_separator     "-"
 
-set pure_color_git_branch   red
-set pure_color_git_dirty    red
+#set pure_color_git_branch   red
+#set pure_color_git_dirty    red
+
 
 # Homebrew
 if command -sq brew
