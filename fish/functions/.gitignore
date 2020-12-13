@@ -1,3 +1,4 @@
-theme-pure
 _pure_*.fish
 fish_*.fish
+fish_*.fish.ignore
+theme-pure

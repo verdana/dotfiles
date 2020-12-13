@@ -1,2 +1,4 @@
 conf.d
 fish_variables
+fishd.*
+
