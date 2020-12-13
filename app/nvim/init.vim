@@ -224,6 +224,11 @@ let g:ftplugin_sql_omni_key = '<C-j>'
 syntax on
 filetype plugin indent on
 
+" 设置 GUI 字体
+if has("gui_running")
+    set guifont=Iosevka-Fixed-SS10:h18
+endif
+
 " 仅在 windows 平台中，使用了 nvim 以及 nvim-qt / nyaovim 等 GUI 的情况下
 " 才激活 termguicolors，在终端中开启这个选项会造成很多问题
 " 由于 neovim 中 gui_running 始终为 0，所以检测 GUI 是否运行很困难
@@ -235,10 +240,6 @@ end
 let g:onedark_termcolors=256
 let g:onedark_terminal_italics=0
 colorscheme onedark
-
-" 使无文字行背景变为透明色
-"autocmd ColorScheme * hi NonText guibg=NONE
-"autocmd ColorScheme * hi NonText ctermbg=NONE
 " }}}
 
 " {{{ => 文件类型专用设置
