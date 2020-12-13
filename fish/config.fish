@@ -23,7 +23,6 @@ if test -e "$HOME/.local/config.fish"
     source "$HOME/.local/config.fish"
 end
 
-
 # pure prompt
 set fish_function_path $HOME/.config/fish/functions/theme-pure/functions $fish_function_path
 source $HOME/.config/fish/functions/theme-pure/conf.d/pure.fish
@@ -73,5 +72,10 @@ end
 if command -sq ccache
     set -gx CCACHE_PATH /usr/bin
     set -gx CCACHE_DIR  /tmp/ccache
+end
+
+# If wsl, go to home directory
+if /bin/grep -q WSL /proc/sys/kernel/osrelease
+    cd $HOME
 end
 
