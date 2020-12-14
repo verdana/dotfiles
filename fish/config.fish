@@ -75,7 +75,7 @@ if command -sq ccache
 end
 
 # If wsl, go to home directory
-if /bin/grep -iq microsoft /proc/sys/kernel/osrelease
+if /bin/grep -iqs microsoft /proc/sys/kernel/osrelease
     cd $HOME
 end
 
