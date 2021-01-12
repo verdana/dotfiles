@@ -6,6 +6,7 @@ set user_paths $user_paths              \
     $HOME/.pyenv/bin                    \
     $HOME/.rbenv/bin                    \
     $HOME/flutter/bin                   \
+    $HOME/Library/Android/sdk/platform-tools \
     /usr/local/go/bin                   \
     /usr/local/opt/llvm/bin             \
     /usr/local/sbin                     \

@@ -81,7 +81,7 @@
     required = true
 [http]
     postBuffer = 100000000
-	proxy = 192.168.10.65:7890
+	proxy = localhost:7890
 
 [https]
-	proxy = 192.168.10.65:7890
+	proxy = localhost:7890

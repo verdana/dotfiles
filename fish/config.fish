@@ -12,7 +12,8 @@ source ~/.config/fish/aliases.fish
 source ~/.config/fish/prompt.fish
 
 # Java & Android
-set -gx JAVA_HOME           "/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
+# set -gx JAVA_HOME         "/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
+set -gx JAVA_HOME           "/usr/local/Cellar/openjdk/15.0.1"
 set -gx ANDROID_SDK_ROOT    "$HOME/Library/Android/sdk"
 
 # do not use ANDROID_HOME anymore
