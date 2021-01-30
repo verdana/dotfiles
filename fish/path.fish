@@ -1,16 +1,14 @@
 
 # User paths
-set user_paths $user_paths              \
-    $HOME/.composer/vendor/bin          \
-    $HOME/.local/bin                    \
-    $HOME/.pyenv/bin                    \
-    $HOME/.rbenv/bin                    \
-    $HOME/flutter/bin                   \
-    $HOME/Library/Android/sdk/platform-tools \
-    /usr/local/go/bin                   \
-    /usr/local/opt/llvm/bin             \
-    /usr/local/sbin                     \
-    /usr/lib/ccache                     \
+set user_paths $user_paths      \
+    $HOME/.composer/vendor/bin  \
+    $HOME/.local/bin            \
+    $HOME/.pyenv/bin            \
+    $HOME/.rbenv/bin            \
+    $HOME/flutter/bin           \
+    /usr/local/go/bin           \
+    /usr/local/sbin             \
+    /usr/lib/ccache             \
 
 for path in $user_paths
     if test -d $path
