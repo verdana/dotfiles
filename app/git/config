@@ -4,13 +4,13 @@
     email = verdana.cn@gmail.com
 
 [core]
-    editor     = vim
-    fileMode   = false
-    ignoreCase = false
-    trustctime = false
-    quotePath  = false
-    safecrlf   = true
-    autocrlf   = false
+    editor       = vim
+    filemode     = false
+    ignorecase   = false
+    trustctime   = false
+    quotepath    = false
+    safecrlf     = true
+    autocrlf     = false
     excludesfile = /Users/Verdana/.gitignore_global
 
 [alias]
@@ -47,7 +47,7 @@
     un   = reset HEAD --
 
 [color]
-    ui   = auto
+    ui   = true
 
 [diff]
     submodule = log
