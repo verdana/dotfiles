@@ -10,13 +10,8 @@ set -gx EDITOR      vim
 source ~/.config/fish/path.fish
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/prompt.fish
+source ~/.config/fish/java+android.fish
 
-# Java & Android
-# set -gx JAVA_HOME         "/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
-set -gx JAVA_HOME           "/usr/local/Cellar/openjdk@8/1.8.0+282/libexec/openjdk.jdk/Contents/Home"
-set -gx ANDROID_SDK_ROOT    "$HOME/Library/Android/sdk"
-
-# do not use ANDROID_HOME anymore
 
 
 # for all things not checked into git
