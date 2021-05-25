@@ -38,7 +38,7 @@ set pure_symbol_title_bar_separator     "-"
 
 # Homebrew
 if command -sq brew
-    set -gx HOMEBREW_BOTTLE_DOMAIN  https://mirrors.ustc.edu.cn/homebrew-bottles
+    #set -gx HOMEBREW_BOTTLE_DOMAIN  https://mirrors.ustc.edu.cn/homebrew-bottles
 end
 
 # pyenv init
