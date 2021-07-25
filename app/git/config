@@ -80,7 +80,6 @@
     cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
     trustExitCode = true
 
-
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
@@ -89,10 +88,7 @@
 
 [http]
     postBuffer = 100000000
-	proxy = localhost:7890
-
-[https]
-	proxy = localhost:7890
 
 [init]
 	defaultBranch = master
+
