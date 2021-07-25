@@ -1,5 +1,10 @@
 #!/bin/bash
 
+## Prepare proxy first if is WSL
+if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+    . wsl-proxy
+fi
+
 ## Home directory
 cd ~
 
@@ -7,14 +12,12 @@ cd ~
 rm -rf .aria2
 rm -rf .config
 rm -rf .gitconfig
-rm -rf .proxychains
 rm -rf .vim
 rm -rf .vimrc
 
 ## Create symlinks in home dir
 ln -sf dotfiles/app/aria2         .aria2
 ln -sf dotfiles/app/git/config    .gitconfig
-ln -sf dotfiles/app/proxychains   .proxychains
 ln -sf dotfiles/app/nvim          .vim
 ln -sf dotfiles/app/nvim/init.vim .vimrc
 
@@ -27,3 +30,4 @@ ln -sf ~/dotfiles/app/nvim  .config/nvim
 ## Install fish theme
 curl git.io/pure-fish --location --output /tmp/pure_installer.fish
 fish -c "source /tmp/pure_installer.fish; and install_pure"
+
