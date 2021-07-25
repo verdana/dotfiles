@@ -94,3 +94,5 @@
 [https]
 	proxy = localhost:7890
 
+[init]
+	defaultBranch = master

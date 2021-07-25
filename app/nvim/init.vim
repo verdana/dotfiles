@@ -1,5 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
+"
 "           _         ______ |
 "         /   \___-=O`/|O`/_>|
 "         \ 777      / | /    )
@@ -8,7 +9,7 @@
 "                        (o)
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-" LastChange: Sunday Sep 08, 2019
+" LastChange: Friday Jul 09, 2021 15:18
 "
 " 该配置文件仅针对于 vim7+ 的版本
 if v:version <= 700
@@ -125,46 +126,27 @@ if has('statusline')
 endif
 " }}}
 
-" {{{ => 插件管理
+" {{{ => 插件管理 DEIN
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has('unix') || has('mac')
-    call plug#begin('~/.vim/plugged')
-elseif has('win32') && has('nvim')
-    call plug#begin('~/AppData/Local/nvim/plugged')
-endif
-
-Plug 'StanAngeloff/php.vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'fatih/vim-go'
-Plug 'godlygeek/tabular'
-Plug 'itchyny/lightline.vim'
-Plug 'jlanzarotta/bufexplorer'
-Plug 'joshdick/onedark.vim'
-Plug 'nickhutchinson/vim-cmake-syntax'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'pangloss/vim-javascript'
-Plug 'scrooloose/nerdtree'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-commentary'
-Plug 'tyrannicaltoucan/vim-quantum'
-" Plug 'vim-airline/vim-airline'
-
-
-" vim snippets
-" -------------------------------------
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-" Plugin 'tomtom/tlib_vim'
-" Plugin 'garbas/vim-snipmate'
-" Plugin 'honza/vim-snippets'
-" -------------------------------------
-
-" Only use this plug in neovim
-" It make vim8 quit very slowly
-" if has('nvim')
-"     Plug 'roxma/nvim-completion-manager'
-" endif
-
-call plug#end()
+set  runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+call dein#begin('~/.cache/dein')
+call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+" plugins
+"call dein#add('tpope/vim-commentary')
+call dein#add('StanAngeloff/php.vim')
+call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('fatih/vim-go')
+call dein#add('godlygeek/tabular')
+call dein#add('itchyny/lightline.vim')
+call dein#add('jlanzarotta/bufexplorer')
+call dein#add('joshdick/onedark.vim')
+call dein#add('nickhutchinson/vim-cmake-syntax')
+call dein#add('pangloss/vim-javascript')
+call dein#add('rakr/vim-one')
+call dein#add('scrooloose/nerdtree')
+call dein#add('sheerun/vim-polyglot')
+call dein#add('tyrannicaltoucan/vim-quantum')
+call dein#end()
 " }}}
 
 " {{{ => 插件配置
@@ -176,12 +158,12 @@ call plug#end()
 
 " BufExplorer
 " ----------------------------
-let g:bufExplorerSortBy='name'       " Sort by the buffer's name.
+let g:bufExplorerSortBy='name'
 nnoremap <silent> <Leader>z :BufExplorerHorizontalSplit<CR>
 
 " CtrlP
 " ----------------------------
-let g:ctrlp_cache_dir = $HOME . '/.cache/CtrlP'
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
     let g:ctrlp_user_command = 'ag --files-without-matches --nocolor -g "" %s'
 endif
@@ -221,25 +203,38 @@ let g:ftplugin_sql_omni_key = '<C-j>'
 
 " {{{ => 语法高亮以及颜色主题
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax on
 filetype plugin indent on
+syntax on
 
 " 设置 GUI 字体
 if has("gui_running")
-    set guifont=Iosevka-Fixed-SS10:h18
+    set guifont=Iosevka-Fixed-Curly:h16
 endif
 
 " 仅在 windows 平台中，使用了 nvim 以及 nvim-qt / nyaovim 等 GUI 的情况下
 " 才激活 termguicolors，在终端中开启这个选项会造成很多问题
 " 由于 neovim 中 gui_running 始终为 0，所以检测 GUI 是否运行很困难
-if (has('win32') || has('win64')) && has('nvim') && exists('+termguicolors')
-    set termguicolors
-end
+"if (has('win32') || has('win64')) && has('nvim') && exists('+termguicolors')
+"    set termguicolors
+"end
+
+if (empty($TMUX))
+    if has("nvim")
+        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    endif
+    if (has("termguicolors"))
+        set termguicolors
+    endif
+endif
 
 " 设定颜色主题
-let g:onedark_termcolors=256
-let g:onedark_terminal_italics=0
-colorscheme onedark
+set background=dark
+let g:one_allow_italics=1
+colorscheme one
+
+call one#highlight('Normal', '', '252525', '')
+call one#highlight('Comment', '', '', 'none')
+call one#highlight('vimLineComment', '', '', 'none')
 " }}}
 
 " {{{ => 文件类型专用设置
@@ -321,8 +316,8 @@ nmap q: :q
 nmap <C-N><C-N> :set invnumber<CR>
 
 " 短语替换
-iab xdatetime   <C-R>=strftime("%A %b %d, %Y %H:%M")<CR>
-iab xdate       <C-R>=strftime("%A %b %d, %Y")<CR>
+iab xdatetime <C-R>=strftime("%A %b %d, %Y %H:%M")<CR>
+iab xdate     <C-R>=strftime("%A %b %d, %Y")<CR>
 
 " 使用 PHP 格式化 JSON
 " 384 = JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
@@ -337,9 +332,9 @@ if has('nvim')
 endif
 
 " 刷新语法高亮
-"autocmd BufEnter * :syntax sync fromstart
+" autocmd BufEnter * :syntax sync fromstart
 
-"nmap <Leader>f   [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+" nmap <Leader>f   [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 " 载入 vimrc.local
 if filereadable(expand('$HOME/.vimrc.local'))
