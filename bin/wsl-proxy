@@ -6,11 +6,17 @@ export PROXY_ADDR="http://$HOST_IP:7890"
 # recreate ~/.bash_proxy
 cp /dev/null ~/.bash_proxy
 
-# fill proxy
+# system proxy
 for k in all_proxy http_proxy https_proxy
 do
     echo -e "export $k=\"$PROXY_ADDR\"" | tee -a ~/.bash_proxy > /dev/null
 done
+
+# apt proxy
+
+
+# git proxy
+
 
 # apply
 . ~/.bash_proxy

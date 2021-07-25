@@ -1,3 +1,7 @@
+# If wsl, go to home directory
+if grep -iqs microsoft /proc/sys/kernel/osrelease
+    cd $HOME
+end
 
 # common env variables
 set -gx Language    en_US.en
@@ -11,8 +15,7 @@ source ~/.config/fish/path.fish
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/prompt.fish
 source ~/.config/fish/java+android.fish
-
-
+source ~/.config/fish/proxy.fish
 
 # for all things not checked into git
 if test -e "$HOME/.local/config.fish"
@@ -35,11 +38,10 @@ set pure_symbol_title_bar_separator     "-"
 #set pure_color_git_branch   red
 #set pure_color_git_dirty    red
 
-
 # Homebrew
-if command -sq brew
-    #set -gx HOMEBREW_BOTTLE_DOMAIN  https://mirrors.ustc.edu.cn/homebrew-bottles
-end
+#if command -sq brew
+#   set -gx HOMEBREW_BOTTLE_DOMAIN  https://mirrors.ustc.edu.cn/homebrew-bottles
+#end
 
 # pyenv init
 if type "pyenv" > /dev/null 2>&1
@@ -68,10 +70,5 @@ end
 if command -sq ccache
     set -gx CCACHE_PATH /usr/bin
     set -gx CCACHE_DIR  /tmp/ccache
-end
-
-# If wsl, go to home directory
-if grep -iqs microsoft /proc/sys/kernel/osrelease
-    cd $HOME
 end
 
