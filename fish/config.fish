@@ -1,6 +1,7 @@
-# If wsl, go to home directory
+# If wsl, go to home directory and setup proxy
 if grep -iqs microsoft /proc/sys/kernel/osrelease
     cd $HOME
+    source ~/.config/fish/proxy.fish
 end
 
 # common env variables
@@ -15,7 +16,6 @@ source ~/.config/fish/path.fish
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/prompt.fish
 source ~/.config/fish/java+android.fish
-source ~/.config/fish/proxy.fish
 
 # for all things not checked into git
 if test -e "$HOME/.local/config.fish"
