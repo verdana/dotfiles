@@ -1,8 +1,3 @@
-# If wsl, go to home directory and setup proxy
-if grep -iqs microsoft /proc/sys/kernel/osrelease
-    cd $HOME
-    source ~/.config/fish/proxy.fish
-end
 
 # common env variables
 set -gx Language    en_US.en
@@ -11,6 +6,12 @@ set -gx LC_ALL      en_US.UTF-8
 set -gx LC_COLLATE  C
 set -gx VISUAL      vim
 set -gx EDITOR      vim
+
+# If wsl, go to home directory and setup proxy
+if grep -iqs microsoft /proc/sys/kernel/osrelease
+    cd $HOME
+    source ~/.config/fish/proxy.fish
+end
 
 source ~/.config/fish/path.fish
 source ~/.config/fish/aliases.fish
