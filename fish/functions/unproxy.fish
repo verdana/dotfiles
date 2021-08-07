@@ -3,5 +3,7 @@ function unproxy
     set -e http_proxy
     set -e https_proxy
     set -e no_proxy
-    env
+
+    git config --global --unset http.proxy
+    git config --global --unset https.proxy
 end
