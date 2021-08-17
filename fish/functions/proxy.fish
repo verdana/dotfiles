@@ -16,11 +16,18 @@ function proxy
     export no_proxy="localhost,127.0.0.1,*.app,192.168.*.*"
     echo "set global proxy: $proxy"
 
-    # 设定 Git 代理
+    # 设定 git 代理
     git config --global http.proxy  "socks5://$proxy"
     git config --global https.proxy "socks5://$proxy"
     echo "set git proxy: $proxy"
 
-    # 如果是 Debian/Ubuntu，设定 apt 代理
+    # 设定 npm 代理
+    if command -sq npm
+        npm config set proxy       "http://$proxy"
+        npm config set https-proxy "http://$proxy"
+    end
+
+    # sudo apt 默认禁止带入当前用户的环境变量
+    # 可以使用 sudo -E apt 即可获取当前的环境变量中的 http_proxy 代理
 end
 
