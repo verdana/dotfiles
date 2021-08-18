@@ -17,9 +17,10 @@ rm -rf .vimrc
 
 ## Create symlinks in home dir
 ln -sf dotfiles/app/aria2         .aria2
-ln -sf dotfiles/app/git/config    .gitconfig
 ln -sf dotfiles/app/nvim          .vim
 ln -sf dotfiles/app/nvim/init.vim .vimrc
+
+cp dotfiles/app/git/config        .gitconfig
 
 ## Create .config if missing
 test -d .config || mkdir -p .config
