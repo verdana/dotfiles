@@ -7,6 +7,11 @@ function proxy
         set host_addr (/bin/grep -oP '(?<=nameserver\ ).*' /etc/resolv.conf)
     end
 
+    # 如果指定了代理主机，优先级最高
+    if count $argv > /dev/null
+        set host_addr $argv[1]
+    end
+
     set proxy "$host_addr:7890"
 
     # 设定全局代理
