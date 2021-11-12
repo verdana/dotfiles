@@ -40,9 +40,10 @@ set pure_symbol_title_bar_separator     "-"
 #set pure_color_git_dirty    red
 
 # Homebrew
-#if command -sq brew
-#   set -gx HOMEBREW_BOTTLE_DOMAIN  https://mirrors.ustc.edu.cn/homebrew-bottles
-#end
+if command -sq brew
+   set -gx HOMEBREW_CORE_GIT_REMOTE "https://mirrors.ustc.edu.cn/homebrew-core.git"
+   set -gx HOMEBREW_BOTTLE_DOMAIN   "https://mirrors.ustc.edu.cn/homebrew-bottles"
+end
 
 # pyenv init
 if type "pyenv" > /dev/null 2>&1

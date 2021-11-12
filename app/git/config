@@ -48,6 +48,7 @@
     ss   = stash push
     st   = status -sb
     un   = reset HEAD --
+    ua   = rm --cache
 
 [color]
     ui   = true
