@@ -27,9 +27,10 @@ function proxy
     echo "set git proxy: $proxy"
 
     # 设定 npm 代理
-    if command -sq npm
+    if command -sq node; and command -sq npm
         npm config set proxy       "http://$proxy"
         npm config set https-proxy "http://$proxy"
+        echo "set npm proxy: $proxy"
     end
 
     # sudo apt 默认禁止带入当前用户的环境变量
