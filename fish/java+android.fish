@@ -10,7 +10,7 @@ end
 
 # Arch
 if grep -iqs arch /proc/sys/kernel/osrelease
-    set -gx JAVA_HOME   "/usr/lib/jvm/java-8-openjdk"
+    set -gx JAVA_HOME   "/usr/lib/jvm/java-11-openjdk"
 end
 
 
