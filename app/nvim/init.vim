@@ -12,8 +12,8 @@
 " LastChange: Friday Jul 09, 2021 15:18
 "
 " 该配置文件仅针对于 vim7+ 的版本
-if v:version <= 700
-    echoerr '该配置 ' . $MYVIMRC . ' 仅适用于 Vim7 或者更新的版本.'
+if v:version <= 800
+    echoerr '该配置 ' . $MYVIMRC . ' 仅适用于 Vim 8 或者更新的版本.'
     quit
 endif
 
@@ -26,6 +26,10 @@ set nocompatible
 set langmenu=none
 set nospell
 set autoread
+
+set noswapfile
+set nobackup
+set nowb
 
 let mapleader=","
 let g:mapleader=","
@@ -77,9 +81,7 @@ set smartindent
 set autochdir
 
 set clipboard+=unnamed
-set nobackup
 set nowritebackup
-set noswapfile
 
 set completeopt=menuone
 " }}}
