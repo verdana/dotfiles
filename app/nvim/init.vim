@@ -11,7 +11,7 @@
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
 " LastChange: Friday Jul 09, 2021 15:18
 "
-" 该配置文件仅针对于 vim7+ 的版本
+" 该配置文件仅针对于 vim8+ 的版本
 if v:version <= 800
     echoerr '该配置 ' . $MYVIMRC . ' 仅适用于 Vim 8 或者更新的版本.'
     quit
@@ -210,7 +210,7 @@ syntax on
 
 " 设置 GUI 字体
 if has("gui_running")
-    set guifont=Iosevka-Fixed-Curly:h16
+    set guifont=更纱黑体\ Mono\ SC\ Nerd:h18
 endif
 
 " 仅在 windows 平台中，使用了 nvim 以及 nvim-qt / nyaovim 等 GUI 的情况下
