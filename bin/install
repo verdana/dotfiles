@@ -9,7 +9,6 @@ fi
 cd ~
 
 ## Remove old symlinks
-rm -rf .aria2
 rm -rf .config
 rm -rf .gitconfig
 rm -rf .vim
@@ -17,6 +16,7 @@ rm -rf .vimrc
 
 ## Create symlinks in home dir
 ln -sf dotfiles/app/aria2         .aria2
+ln -sf dotfiles/app/git/config    .gitconfig
 ln -sf dotfiles/app/nvim          .vim
 ln -sf dotfiles/app/nvim/init.vim .vimrc
 
