@@ -130,25 +130,33 @@ endif
 
 " {{{ => 插件管理 DEIN
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set  runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-call dein#begin('~/.cache/dein')
-call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+
+" Make sure you use single quotes
+"
 " plugins
-"call dein#add('tpope/vim-commentary')
-call dein#add('StanAngeloff/php.vim')
-call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('fatih/vim-go')
-call dein#add('godlygeek/tabular')
-call dein#add('itchyny/lightline.vim')
-call dein#add('jlanzarotta/bufexplorer')
-call dein#add('joshdick/onedark.vim')
-call dein#add('nickhutchinson/vim-cmake-syntax')
-call dein#add('pangloss/vim-javascript')
-call dein#add('rakr/vim-one')
-call dein#add('scrooloose/nerdtree')
-call dein#add('sheerun/vim-polyglot')
-call dein#add('tyrannicaltoucan/vim-quantum')
-call dein#end()
+"Plug 'tpope/vim-commentary')
+Plug 'StanAngeloff/php.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
+Plug 'itchyny/lightline.vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'joshdick/onedark.vim'
+Plug 'nickhutchinson/vim-cmake-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'rakr/vim-one'
+Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'tyrannicaltoucan/vim-quantum'
+call plug#end()
 " }}}
 
 " {{{ => 插件配置
