@@ -12,7 +12,7 @@
 " LastChange: Friday Jul 09, 2021 15:18
 "
 " 该配置文件仅针对于 vim8+ 的版本
-if v:version <= 800
+if v:version < 800
     echoerr '该配置 ' . $MYVIMRC . ' 仅适用于 Vim 8 或者更新的版本.'
     quit
 endif
