@@ -128,7 +128,7 @@ if has('statusline')
 endif
 " }}}
 
-" {{{ => 插件管理 DEIN
+" {{{ => 插件管理
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
 " The default plugin directory will be as follows:
@@ -145,6 +145,7 @@ call plug#begin()
 "Plug 'tpope/vim-commentary')
 Plug 'StanAngeloff/php.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dag/vim-fish'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
