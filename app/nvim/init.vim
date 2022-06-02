@@ -92,7 +92,6 @@ set completeopt=menuone
 " 设定东西方共用符号的长度，如省略号，破折号等...
 " 只有 encoding 为 unicode 兼容编码时，这个选项才有意义
 set ambiwidth=double
-
 set showmode                            " 显示当前的模式
 set scrolloff=7                         " 纵向移动时，光标行与上下两端的最小行数
 set wildmenu
@@ -125,6 +124,15 @@ endif
 " 状态栏
 if has('statusline')
     set laststatus=2
+endif
+
+" 光标
+if has('nvim')
+    set guicursor=a:hor20
+    augroup RestoreCursorShapeOnExit
+        autocmd!
+        autocmd VimLeave * set guicursor=a:hor20
+    augroup END
 endif
 " }}}
 
@@ -354,4 +362,5 @@ endif
 " }}}
 
 " vim: set fdm=marker ff=unix sw=4 ts=4 et:
+
 
