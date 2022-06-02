@@ -22,7 +22,7 @@
     cmm  = commit -a -m
     co   = checkout
     cob  = checkout -b
-    cp   = cherry-pick
+    cpk  = cherry-pick
     dc   = diff --cached
     desc = describe --always --contains --all
     last = log -2 HEAD
