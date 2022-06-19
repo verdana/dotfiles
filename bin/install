@@ -1,9 +1,8 @@
 #!/bin/bash
 
 ## Prepare proxy first if is WSL
-if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
-    . wsl-proxy
-fi
+#if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+#fi
 
 ## Home directory
 cd ~
