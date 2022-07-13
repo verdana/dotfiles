@@ -4,8 +4,8 @@ set -gx Language    en_US.en
 set -gx LANG        en_US.UTF-8
 set -gx LC_ALL      en_US.UTF-8
 set -gx LC_COLLATE  C
-set -gx VISUAL      vim
-set -gx EDITOR      vim
+set -gx VISUAL      nvim
+set -gx EDITOR      nvim
 
 # If wsl, go to home directory and setup proxy
 if grep -iqs microsoft /proc/sys/kernel/osrelease
