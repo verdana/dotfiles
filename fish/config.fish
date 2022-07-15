@@ -36,8 +36,8 @@ set pure_symbol_git_unpushed_commits    "➚"
 set pure_symbol_git_dirty               "+"
 set pure_symbol_title_bar_separator     "-"
 
-#set pure_color_git_branch   red
-#set pure_color_git_dirty    red
+set pure_color_git_branch   red
+set pure_color_git_dirty    red
 
 # Homebrew
 if command -sq brew
@@ -74,5 +74,10 @@ end
 if command -sq ccache
     set -gx CCACHE_PATH /usr/bin
     set -gx CCACHE_DIR  /tmp/ccache
+end
+
+# lima
+if command -sq lima
+    set -gx LIMA_HOME /Volumes/Basaltic/Lima
 end
 
