@@ -78,6 +78,6 @@ end
 
 # lima
 if command -sq lima
-    set -gx LIMA_HOME /Volumes/Basaltic/Lima
+    set -gx LIMA_HOME /Volumes/Blizzard/Lima
 end
 
