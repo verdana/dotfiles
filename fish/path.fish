@@ -8,6 +8,7 @@ set user_paths $user_paths          \
     $HOME/.rbenv/bin                \
     $HOME/flutter/bin               \
     $HOME/go/bin                    \
+    /usr/local/cmake/bin            \
     /usr/local/go/bin               \
     /usr/local/opt/mysql-client/bin \
     /usr/local/sbin                 \
