@@ -20,6 +20,7 @@ tools=(
     "golang.org/x/tools/cmd/gorename"
     "golang.org/x/tools/cmd/guru"
     "honnef.co/go/tools/cmd/staticcheck"
+    "mvdan.cc/gofumpt"
 )
 
 # Install other tools
