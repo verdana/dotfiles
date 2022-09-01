@@ -16,6 +16,7 @@ set user_paths $user_paths          \
 
 for path in $user_paths
     if test -d $path
-        set -x PATH $path $PATH
+        # set -x PATH $path $PATH
+        fish_add_path -U $path
     end
 end
