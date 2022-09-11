@@ -9,7 +9,7 @@
 "                        (o)
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-" LastChange: Friday Jul 09, 2021 15:18
+" LastChange: Saturday Sep 10, 2022 17:00
 "
 " 该配置文件仅针对于 vim8+ 的版本
 if v:version < 800
@@ -55,7 +55,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set fileformat=unix
-set fileformats=unix,dos,mac
+set fileformats=unix,mac,dos
 
 set nobomb
 set fileencoding=utf-8
@@ -96,7 +96,7 @@ set showmode                            " 显示当前的模式
 set scrolloff=7                         " 纵向移动时，光标行与上下两端的最小行数
 set wildmenu
 set wildmode=list:longest,full
-set cursorline
+set cursorline                          " 高亮显示光标所在行
 set number                              " 显示行号
 set numberwidth=3                       " 行号列宽度
 set lazyredraw                          " 延迟重绘
@@ -150,25 +150,17 @@ call plug#begin()
 " Make sure you use single quotes
 "
 " plugins
-"Plug 'tpope/vim-commentary')
-Plug 'StanAngeloff/php.vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'dag/vim-fish'
-Plug 'fatih/vim-go'
 Plug 'fladson/vim-kitty'
 Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
-Plug 'jlanzarotta/bufexplorer'
-Plug 'joshdick/onedark.vim'
-Plug 'nickhutchinson/vim-cmake-syntax'
-Plug 'pangloss/vim-javascript'
 Plug 'rakr/vim-one'
-Plug 'scrooloose/nerdtree'
-Plug 'sheerun/vim-polyglot'
 Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 call plug#end()
 " }}}
 
@@ -177,34 +169,7 @@ call plug#end()
 
 " Lightline
 " ----------------------------
-" let g:lightline = { 'colorscheme': 'one' }
-
-" BufExplorer
-" ----------------------------
-let g:bufExplorerSortBy='name'
-nnoremap <silent> <Leader>z :BufExplorerHorizontalSplit<CR>
-
-" CtrlP
-" ----------------------------
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-if executable('ag')
-    let g:ctrlp_user_command = 'ag --files-without-matches --nocolor -g "" %s'
-endif
-
-" NERD tree
-" ----------------------------
-let NERDTreeChDirMode           = 1
-let NERDTreeHighlightCurosrline = 1
-let NERDTreeIgnore              = ['favicon.ico', 'images']
-let NERDTreeQuitOnOpen          = 1
-let NERDTreeShowBookmarks       = 1
-let NERDTreeShowHidden          = 0
-let NERDTreeSplitVertical       = 1
-let NERDTreeWinPos              = 0
-let NERDTreeWinSize             = 40
-let NERDTreeDirArrowExpandable  = "+"
-let NERDTreeDirArrowCollapsible = "~"
-nmap <special> <leader>v :NERDTreeToggle<CR>
+let g:lightline = { 'colorscheme': 'one' }
 
 " Tabular
 " ----------------------------
@@ -214,15 +179,6 @@ vmap <Leader>a> :Tabularize /=><CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 
-" vim-go
-" ----------------------------
-let g:go_fmt_autosave = 1
-
-" ft-sql
-" ----------------------------
-let g:ftplugin_sql_omni_key = '<C-j>'
-
-
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -230,11 +186,10 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Using Lua functions
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-
+" nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+" nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+" nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+" nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " }}}
 
@@ -248,30 +203,23 @@ if has("gui_running")
     set guifont=更纱黑体\ Mono\ SC\ Nerd:h18
 endif
 
-" 仅在 windows 平台中，使用了 nvim 以及 nvim-qt / nyaovim 等 GUI 的情况下
-" 才激活 termguicolors，在终端中开启这个选项会造成很多问题
-" 由于 neovim 中 gui_running 始终为 0，所以检测 GUI 是否运行很困难
-"if (has('win32') || has('win64')) && has('nvim') && exists('+termguicolors')
-"    set termguicolors
-"end
+if has("nvim")
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
 
-if (empty($TMUX))
-    if has("nvim")
-        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    endif
-    if (has("termguicolors"))
-        set termguicolors
-    endif
+if (has("termguicolors"))
+    set termguicolors
 endif
 
 " 设定颜色主题
 set background=dark
-let g:one_allow_italics=1
-colorscheme one
+set termguicolors
+colorscheme quantum
 
-call one#highlight('Normal', '', '252525', '')
-call one#highlight('Comment', '', '', 'none')
-call one#highlight('vimLineComment', '', '', 'none')
+"let g:one_allow_italics=1
+"call one#highlight('Normal', '', '252525', '')
+"call one#highlight('Comment', '', '', 'none')
+"call one#highlight('vimLineComment', '', '', 'none')
 " }}}
 
 " {{{ => 文件类型专用设置
@@ -380,5 +328,4 @@ endif
 " }}}
 
 " vim: set fdm=marker ff=unix sw=4 ts=4 et:
-
 
