@@ -153,12 +153,15 @@ call plug#begin()
 Plug 'fladson/vim-kitty'
 Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'projekt0n/github-nvim-theme'
 Plug 'rakr/vim-one'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
@@ -214,7 +217,7 @@ endif
 " 设定颜色主题
 set background=dark
 set termguicolors
-colorscheme quantum
+colorscheme github_dark
 
 "let g:one_allow_italics=1
 "call one#highlight('Normal', '', '252525', '')

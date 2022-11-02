@@ -4,6 +4,7 @@ export GOPATH="$HOME/go"
 
 tools=(
     "github.com/acroca/go-symbols"
+    "github.com/cweill/gotests/gotests"
     "github.com/davidrjenni/reftools/cmd/fillstruct"
     "github.com/fatih/gomodifytags"
     "github.com/go-delve/delve/cmd/dlv"
