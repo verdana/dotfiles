@@ -81,3 +81,8 @@ if command -sq lima
     set -gx LIMA_HOME /Volumes/Blizzard/Lima
 end
 
+# pnpm
+set -gx PNPM_HOME "/home/verdana/.local/share/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+# pnpm end
+
