@@ -9,7 +9,7 @@
 "                        (o)
 "
 " Maintainer: Verdana Mu <verdana.cn@gmail.com>
-" LastChange: Saturday Sep 10, 2022 17:00
+" LastChange: Friday Nov 18, 2022 11:01
 "
 " 该配置文件仅针对于 vim8+ 的版本
 if v:version < 800
@@ -84,6 +84,12 @@ set clipboard+=unnamed
 set nowritebackup
 
 set completeopt=menuone
+" }}}
+
+
+" {{{ => Providers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ruby_host_prog = '~/.rbenv/versions/3.1.2/bin/ruby'
 " }}}
 
 " {{{ => 界面定制
