@@ -11,8 +11,8 @@ set user_paths $user_paths      \
     $HOME/.local/bin            \
     $HOME/.pyenv/bin            \
     $HOME/.rbenv/bin            \
-    $HOME/flutter/bin           \
-    $HOME/go/bin                \
+    $HOME/bin                   \
+    $HOME/flutter/bin
 
 for path in $user_paths
     if test -d $path
