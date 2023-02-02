@@ -12,8 +12,10 @@ set user_paths $user_paths      \
     $HOME/.cargo/bin            \
     $HOME/.composer/vendor/bin  \
     $HOME/.local/bin            \
+    $HOME/.minio/bin            \
     $HOME/.pyenv/bin            \
     $HOME/.rbenv/bin            \
+    $HOME/.seaweed/bin          \
     $HOME/.tiup/bin             \
     $HOME/bin                   \
     $HOME/flutter/bin
