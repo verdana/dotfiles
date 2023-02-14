@@ -7,9 +7,10 @@ set proxy_addr  "http://$host_ip:7890"
 cp /dev/null ~/.bash_proxy
 
 # system proxy
-for k in all_proxy http_proxy https_proxy
+for k in HTTP_PROXY HTTPS_PROXY
     echo -e "export $k=\"$proxy_addr\"" | tee -a ~/.bash_proxy > /dev/null
 end
+echo -e "export NO_PROXY=localhost,127.0.0.1,::1,*.app,192.168.*.*"
 
 # create apt proxy
 printf "\

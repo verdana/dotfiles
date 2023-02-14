@@ -15,11 +15,11 @@ function proxy
     set proxy "$host_addr:7890"
 
     # 设定全局代理
-    export   all_proxy="socks5://$proxy"
-    export rsync_proxy="http://$proxy"
-    export  http_proxy="http://$proxy"
-    export https_proxy="http://$proxy"
-    export    no_proxy="localhost,127.0.0.1,::1,*.app,192.168.*.*"
+    export   ALL_PROXY="socks5://$proxy"
+    export RSYNC_PROXY="http://$proxy"
+    export  HTTP_PROXY="http://$proxy"
+    export HTTPS_PROXY="http://$proxy"
+    export    NO_PROXY="localhost,127.0.0.1,::1,*.app,*.dev,10.96.0.0/12,192.168.59.0/24,192.168.49.0/24,192.168.39.0/24"
     echo "set global proxy: $proxy"
 
     # 设定 git 代理
