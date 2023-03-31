@@ -39,9 +39,9 @@ if command -sq kitty
 end
 
 # kubectl
-if command -sq minikube
-    alias kubectl="minikube kubectl -- "
+if command -sq kubectl
     alias k="kubectl"
-    alias kf="minikube kubectl -- -n face-dev"
+    alias kf="kubectl -n face-dev"
+    alias kn="kubectl -n ingress-nginx"
 end
 
