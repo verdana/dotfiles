@@ -35,7 +35,7 @@ end
 
 # kitty ssh
 if command -sq kitty
-    alias s="kitty +kitten ssh"
+    alias ssh="kitty +kitten ssh"
 end
 
 # kubectl
