@@ -8,9 +8,11 @@ set user_paths $user_paths      \
     /usr/local/opt/mysql-client/bin \
     /usr/local/opt/redis@6.2/bin    \
     /usr/lib/ccache             \
-    $HOME/.emacs.d/bin          \
     $HOME/.cargo/bin            \
     $HOME/.composer/vendor/bin  \
+    $HOME/.emacs.d/bin          \
+    $HOME/.flutter/bin          \
+    $HOME/.go/bin               \
     $HOME/.local/bin            \
     $HOME/.minio/bin            \
     $HOME/.pyenv/bin            \
