@@ -45,3 +45,10 @@ if command -sq kubectl
     alias kn="kubectl -n ingress-nginx"
 end
 
+# brew
+if command -sq brew
+    alias bu="brew update"
+    alias buu="brew upgrade"
+    alias bcl="brew cleanup"
+end
+
