@@ -4,7 +4,7 @@
 
 # MacOS
 if test (uname -s) = "Darwin"
-    set -gx JAVA_HOME           "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home"
+    set -gx JAVA_HOME           "/Users/Verdana/Library/Java/JavaVirtualMachines/corretto-11.0.19/Contents/Home/"
     set -gx ANDROID_SDK_ROOT    "/Volumes/Blizzard/Android/SDK"
     set -gx GRADLE_USER_HOME    "/Volumes/Blizzard/Android/Gradle"
 end
