@@ -86,7 +86,6 @@ set nowritebackup
 set completeopt=menuone
 " }}}
 
-
 " {{{ => Providers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ruby_host_prog = '~/.rbenv/versions/3.1.2/bin/ruby'
