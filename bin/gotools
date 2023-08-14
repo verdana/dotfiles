@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export GOPATH="$HOME/.go"
+export GOPATH="$HOME/go"
 
 tools=(
     "github.com/acroca/go-symbols"
