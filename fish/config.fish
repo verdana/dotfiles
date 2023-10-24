@@ -82,7 +82,9 @@ if command -sq lima
 end
 
 # pnpm
-set -gx PNPM_HOME "/home/verdana/.local/share/pnpm"
-set -gx PATH "$PNPM_HOME" $PATH
+set -gx PNPM_HOME "$HOME/.pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
 # pnpm end
 
