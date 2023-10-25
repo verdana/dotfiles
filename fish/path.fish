@@ -6,7 +6,6 @@ set user_paths $user_paths          \
     /usr/local/cmake/bin            \
     /usr/local/go/bin               \
     /usr/local/opt/mysql-client/bin \
-    /usr/local/opt/node@18/bin      \
     /usr/local/opt/redis@6.2/bin    \
     /usr/lib/ccache                 \
     $HOME/.cargo/bin                \
