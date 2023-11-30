@@ -1,15 +1,25 @@
 
 # navigation
-function ..    ; cd .. ; end
-function ...   ; cd ../.. ; end
-function ....  ; cd ../../.. ; end
-function ..... ; cd ../../../.. ; end
+function ..
+    cd ..
+end
+function ...
+    cd ../..
+end
+function ....
+    cd ../../..
+end
+function .....
+    cd ../../../..
+end
 
 # shortcuts
-alias df='df -P -klH'
+# alias df='df -P -klH'
 
 # apt
-alias apt-proxy='sudo apt-get -c ~/.apt_proxy'
+if command -sq apt-get
+    alias apt-proxy='sudo apt-get -c ~/.apt_proxy'
+end
 
 # aria2c
 if command -sq aria2c
@@ -35,7 +45,7 @@ end
 
 # kitty ssh
 if command -sq kitty
-    alias ssh="kitty +kitten ssh"
+    alias kssh="kitty +kitten ssh"
 end
 
 # kubectl
@@ -51,4 +61,3 @@ if command -sq brew
     alias buu="brew upgrade"
     alias bcl="brew cleanup"
 end
-

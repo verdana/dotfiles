@@ -1,35 +1,34 @@
 #!/bin/bash
 
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/.go"
 
 tools=(
-    "github.com/acroca/go-symbols"
-    "github.com/cweill/gotests/gotests"
-    "github.com/davidrjenni/reftools/cmd/fillstruct"
-    "github.com/fatih/gomodifytags"
-    "github.com/go-delve/delve/cmd/dlv"
-    "github.com/golangci/golangci-lint/cmd/golangci-lint"
-    "github.com/josharian/impl"
-    "github.com/ramya-rao-a/go-outline"
-    "github.com/rogpeppe/godef"
-    "github.com/sqs/goreturns"
-    "github.com/swaggo/swag/cmd/swag"
-    "github.com/uudashr/gopkgs/v2/cmd/gopkgs"
-    "github.com/zmb3/gogetdoc"
-    "golang.org/x/lint/golint"
-    "golang.org/x/tools/cmd/godoc"
-    "golang.org/x/tools/cmd/goimports"
-    "golang.org/x/tools/cmd/gorename"
-    "golang.org/x/tools/cmd/guru"
-    "honnef.co/go/tools/cmd/staticcheck"
-    "mvdan.cc/gofumpt"
+	"github.com/acroca/go-symbols"
+	"github.com/cweill/gotests/gotests"
+	"github.com/davidrjenni/reftools/cmd/fillstruct"
+	"github.com/fatih/gomodifytags"
+	"github.com/go-delve/delve/cmd/dlv"
+	"github.com/golangci/golangci-lint/cmd/golangci-lint"
+	"github.com/josharian/impl"
+	"github.com/ramya-rao-a/go-outline"
+	"github.com/rogpeppe/godef"
+	"github.com/sqs/goreturns"
+	"github.com/swaggo/swag/cmd/swag"
+	"github.com/uudashr/gopkgs/v2/cmd/gopkgs"
+	"github.com/zmb3/gogetdoc"
+	"golang.org/x/lint/golint"
+	"golang.org/x/tools/cmd/godoc"
+	"golang.org/x/tools/cmd/goimports"
+	"golang.org/x/tools/cmd/gorename"
+	"golang.org/x/tools/cmd/guru"
+	"honnef.co/go/tools/cmd/staticcheck"
+	"mvdan.cc/gofumpt"
 )
 
 # Install other tools
 for url in "${tools[@]}"; do
-    go install -v $url@latest
+	go install -v $url@latest
 done
 
 # gopls
 env GO111MODULE=on go install -v golang.org/x/tools/gopls@latest
-

@@ -1,0 +1,78 @@
+[init]
+defaultBranch = main
+
+[user]
+name  = Verdana
+email = verdana.cn@gmail.com
+
+[core]
+editor     = vim
+filemode   = false
+ignorecase = false
+trustctime = false
+quotepath  = false
+safecrlf   = true
+autocrlf   = false
+
+[alias]
+br   = branch
+cc   = clean -dfx
+ci   = commit
+cii  = commit --interactive
+cm   = commit -m
+cmm  = commit -a -m
+co   = checkout
+cob  = checkout -b
+cpk  = cherry-pick
+dc   = diff --cached
+desc = describe --always --contains --all
+last = log -4 HEAD
+me   = merge
+one  = log -20 --oneline --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%cr)%C(red)%d%Creset'
+logs = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+pa   = push --all
+pom  = push -u origin main
+pot  = push -u origin trunk
+rb   = rebase
+rbi  = rebase -i
+rb2  = rebase -i HEAD~2
+rb3  = rebase -i HEAD~3
+rb4  = rebase -i HEAD~4
+rb5  = rebase -i HEAD~5
+rb10 = rebase -i HEAD~10
+rs   = remote show
+rso  = remote show origin
+sc   = stash clear
+sd   = stash drop
+sl   = stash list
+sp   = stash pop
+ss   = stash push
+st   = status -sb
+un   = reset HEAD --
+ua   = rm --cache
+
+[color]
+ui   = true
+
+[diff]
+submodule = log
+tool      = vimdiff
+
+[pull]
+rebase = true
+
+[push]
+default = simple
+
+[credential]
+helper = cache --timeout=3600
+
+[i18n]
+commitEncoding    = utf-8
+logoutputencoding = utf-8
+
+[filter "lfs"]
+clean    = git-lfs clean -- %f
+smudge   = git-lfs smudge -- %f
+process  = git-lfs filter-process
+required = true

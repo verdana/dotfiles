@@ -1,6 +1,7 @@
 {
   "extras": [
-
+    "lazyvim.plugins.extras.editor.navic",
+    "lazyvim.plugins.extras.ui.alpha"
   ],
   "news": {
     "NEWS.md": "2123"
