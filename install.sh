@@ -2,44 +2,39 @@
 # Copyright (c) 2024-present Verdana Mu <verdana.cn@gmail.com>
 # This source code is licensed under the MIT license found in the license file.
 
-# nounset: Treat unset variables and parameters as an error when performing parameter expansion
 # errexit: Exit immediately if any command exits with a non-zero status
-set -o nounset -o errexit
+set -o errexit
 
 # Workdir
 cd "$(dirname "${BASH_SOURCE}")"
 CWD=$(pwd)
+echo $CWD
 
-# Homebrew
-if which brew >/dev/null; then
-	read -p "Install Homebrew packages? (y/n) " -n 1
-	echo ""
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		brew bundle --no-lock --file "$CWD/Brewfile"
-	fi
-else
-	printf "\nHomebrew not installed! Skipping package installation..\n\n"
-fi
-
-exit 0
-
-## Copy gitconfig
-cp ~/dotfiles/git/config .gitconfig
+# terminfo
+mkdir -p $HOME/.terminfo
+tic -x -o $HOME/.terminfo $CWD/terminfo-24bit.src
 
 ## Create .config if missing
 test -d .config || mkdir -p .config
 
-function install_symlinks() {
-	test -L .vim && rm -rf .vim
-	test -L .vimrc && rm -rf .vimrc
-	test -L .config/fish && rm -rf .config/fish
-	test -L .config/nvim && rm -rf .config/nvim
+function sync_symlinks() {
+    local src=$1
+    local dst="$HOME/.config/$src"
 
-	ln -sf ~/dotfiles/fish ~/.config/fish
-	ln -sf ~/dotfiles/vim ~/.config/nvim
+    # 若参数 $2 存在则使用 $2 作为目标路径
+    if [ -n "$2" ]; then
+        dst="$2"
+    fi
+
+    rm -rf "$dst"
+    ln -sf "$CWD/config/$src" "$dst"
 }
 
-function install_pure() {
+function install_pure_fish() {
+    if ! command -v fish &> /dev/null; then
+        echo "Fish shell is not installed, please install fish shell first"
+        exit -1
+    fi
 	curl git.io/pure-fish --location --output /tmp/pure_installer.fish
 	if [ $? -eq 0 ]; then
 		fish -c "source /tmp/pure_installer.fish; and install_pure"
@@ -49,5 +44,21 @@ function install_pure() {
 	fi
 }
 
-install_pure
-install_symlinks
+function install_brew_packages() {
+    if which brew >/dev/null; then
+        read -p "Install Homebrew packages? (y/n) " -n 1
+        echo ""
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            brew bundle --no-lock --file "$CWD/Brewfile"
+        fi
+    else
+        printf "\nHomebrew not installed, skipping package installation\n\n"
+    fi
+}
+
+install_brew_packages
+install_pure_fish
+
+sync_symlinks "kitty"
+sync_symlinks "nvim"
+sync_symlinks "gitconfig" "$HOME/.gitconfig"
